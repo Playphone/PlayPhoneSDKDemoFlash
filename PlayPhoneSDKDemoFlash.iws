@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4207cd95-cc22-4d63-8577-ddcbbbcadb54" name="Default" comment="Adopted for using under Flexbuilder (Changed names, added project files)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.actionScriptProperties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.flexProperties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.project" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iws" afterPath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iws" />
-    </list>
+    <list default="true" id="4207cd95-cc22-4d63-8577-ddcbbbcadb54" name="Default" comment="Adopted for using under Flexbuilder (Changed names, added project files)" />
     <ignored path="PlayPhoneSDKDemoFlash.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,8 +66,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="exception_breakpoints_groupByClasses" value="true" />
+      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -85,10 +79,9 @@
       <file leaf-file-name="FriendRenderer.mxml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/controls/FriendRenderer.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="21" selection-start="499" selection-end="499" vertical-scroll-proportion="0.3007194">
+            <state line="14" column="21" selection-start="499" selection-end="499" vertical-scroll-proportion="0.33956835">
               <folding>
-                <marker date="1319793962328" expanded="true" signature="841:1205" placeholder="{...}" />
-                <marker date="1319793962328" expanded="true" signature="841:1205" placeholder="{...}" />
+                <marker date="1319805128662" expanded="true" signature="841:1205" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -201,8 +194,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Favorites" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -255,23 +248,23 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="181" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="196" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="196" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="199" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="199" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="202" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="776" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="771" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="776" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="195" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="190" />
     <property name="GoToClass.includeJavaFiles" value="false" />
@@ -286,8 +279,8 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
     <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -311,6 +304,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="FlexRunConfigurationType" factoryName="Flex" browser_family="FIREFOX" debugger_sdk="Module SDK" html_or_swf_file_path="" launcher_type="OSDefault" main_class_name="" module_name="" player_path="FlashPlayer.exe" run_mode="HtmlOrSwfFile" run_trusted="false" url_to_launch="http://">
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -328,7 +328,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="FlexRunConfigurationType" factoryName="Flex" browser_family="FIREFOX" debugger_sdk="Module SDK" html_or_swf_file_path="" launcher_type="OSDefault" main_class_name="" module_name="" player_path="FlashPlayer.exe" run_mode="HtmlOrSwfFile" run_trusted="false" url_to_launch="http://">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -350,24 +361,6 @@
       <option name="screenHeight" value="0" />
       <option name="screenWidth" value="0" />
       <option name="usbDebugPort" value="7936" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -471,23 +464,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="-5" width="1450" height="870" extended-state="6" />
+    <frame x="-5" y="-5" width="1450" height="870" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36448598" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.56608814" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977304" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15974212" sideWeight="0.635514" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17120343" sideWeight="0.23497997" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1969914" sideWeight="0.2897196" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33452722" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37917224" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977304" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.71028036" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843792" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36448598" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933258" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -608,51 +601,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="45" selection-start="7347" selection-end="7347" vertical-scroll-proportion="2.9002934">
-          <folding>
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="//..." />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="//..." />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1319794065380" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
+        <state line="164" column="45" selection-start="7347" selection-end="7347" vertical-scroll-proportion="2.9002934" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="44" selection-start="673" selection-end="673" vertical-scroll-proportion="0.38088644">
-          <folding />
-        </state>
+        <state line="21" column="44" selection-start="673" selection-end="673" vertical-scroll-proportion="0.38088644" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/controls/FriendRenderer.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="21" selection-start="499" selection-end="499" vertical-scroll-proportion="0.3007194">
+        <state line="14" column="21" selection-start="499" selection-end="499" vertical-scroll-proportion="0.33956835">
           <folding>
-            <marker date="1319793962328" expanded="true" signature="841:1205" placeholder="{...}" />
-            <marker date="1319793962328" expanded="true" signature="841:1205" placeholder="{...}" />
+            <marker date="1319805128662" expanded="true" signature="841:1205" placeholder="{...}" />
           </folding>
         </state>
       </provider>
