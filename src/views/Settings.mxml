@@ -10,13 +10,13 @@
                     <s:states>
                         <s:State name="normal"/>
                         <s:State name="hovered"
-                                 enterState="state1_enterStateHandler(event)"
-                                 exitState="state1_exitStateHandler(event)"/>
+                                 enterState="selected_enterStateHandler(event)"
+                                 exitState="selected_exitStateHandler(event)"/>
                         <s:State name="selected"
-                                 enterState="state1_enterStateHandler(event)"
-                                 exitState="state1_exitStateHandler(event)"/>
+                                 enterState="selected_enterStateHandler(event)"
+                                 exitState="selected_exitStateHandler(event)"/>
                     </s:states>
-                    <s:Rect height="100%" width="100%">
+                    <s:Rect width="100%">
                         <s:fill>
                             <s:SolidColor color="0x999999" alpha="0"/>
                         </s:fill>
@@ -44,7 +44,7 @@
                             }
                         }
 
-                        private function state1_enterStateHandler(event: FlexEvent): void
+                        private function selected_enterStateHandler(event: FlexEvent): void
                         {
                             additional = new SettingRenderer();
                             addElement(additional);
@@ -52,7 +52,7 @@
                             additional.data = user_data;
                         }
 
-                        private function state1_exitStateHandler(event: FlexEvent): void
+                        private function selected_exitStateHandler(event: FlexEvent): void
                         {
                             removeElement(additional);
                         }

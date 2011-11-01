@@ -13,11 +13,11 @@
                     <s:states>
                         <s:State name="normal"/>
                         <s:State name="hovered"
-                                 enterState="state1_enterStateHandler(event)"
-                                 exitState="state1_exitStateHandler(event)"/>
+                                 enterState="selected_enterStateHandler(event)"
+                                 exitState="selected_exitStateHandler(event)"/>
                         <s:State name="selected"
-                                 enterState="state1_enterStateHandler(event)"
-                                 exitState="state1_exitStateHandler(event)"/>
+                                 enterState="selected_enterStateHandler(event)"
+                                 exitState="selected_exitStateHandler(event)"/>
                     </s:states>
                     <s:Rect height="50" width="100%">
                         <s:fill>
@@ -54,15 +54,15 @@
                             user_avatar.source = friend.friend_user_avatar_url;
                         }
 
-                        private function state1_enterStateHandler(event: FlexEvent): void
+                        private function selected_enterStateHandler(event: FlexEvent): void
                         {
                             additional = new FriendRenderer();
                             addElement(additional);
-                            additional.y = 55;
+                            additional.y = 50;
                             additional.data = user_data;
                         }
 
-                        private function state1_exitStateHandler(event: FlexEvent): void
+                        private function selected_exitStateHandler(event: FlexEvent): void
                         {
                             removeElement(additional);
                         }
