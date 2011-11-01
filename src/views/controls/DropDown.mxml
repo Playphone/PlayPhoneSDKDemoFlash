@@ -19,7 +19,7 @@
             if (listItems != null && val != null)
             {
                 listItems.dataProvider = val;
-                listItems.height = 35 * val.length;
+                listItems.height = 50 * val.length;
             }
         }
 
@@ -72,10 +72,6 @@
                 listItems.enabled = true;
                 listItems.visible = true;
                 listItems.width = dropdown.width;
-                if (data != null)
-                {
-                    listItems.height = 35 * data.length;
-                }
                 listItems.addEventListener(IndexChangeEvent.CHANGE, items_changeHandler);
                 selectedIndex = index;
                 dataProvider = data;

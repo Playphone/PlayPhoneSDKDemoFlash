@@ -9,7 +9,7 @@
     <controls:DropDown id="settings" width="100%"/>
     <s:Button id="load" width="100%">Load leaderboard!</s:Button>
 
-    <s:List id="list" dragEnabled="true" width="100%" height="100%" enabled="false">
+    <s:List id="list" dragEnabled="true" width="100%">
         <s:itemRenderer>
             <fx:Component>
                 <s:ItemRenderer>
