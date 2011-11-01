@@ -1,38 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4207cd95-cc22-4d63-8577-ddcbbbcadb54" name="Default" comment="as3 code moved from mxml to normal as3 classes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/Achievements.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/AppInfo.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/Cloud.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/Dashboard.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/DashboardControl.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/Leaderboards.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/Login.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/Settings.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/Social.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/UserInfo.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/veconomy/PPStore.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/veconomy/UserItems.as" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/veconomy/VItems.as" />
+    <list default="true" id="4207cd95-cc22-4d63-8577-ddcbbbcadb54" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iws" afterPath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml" afterPath="$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Achievements.mxml" afterPath="$PROJECT_DIR$/src/views/Achievements.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/AppInfo.mxml" afterPath="$PROJECT_DIR$/src/views/AppInfo.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Cloud.mxml" afterPath="$PROJECT_DIR$/src/views/Cloud.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Dashboard.mxml" afterPath="$PROJECT_DIR$/src/views/Dashboard.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/DashboardControl.mxml" afterPath="$PROJECT_DIR$/src/views/DashboardControl.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Leaderboards.mxml" afterPath="$PROJECT_DIR$/src/views/Leaderboards.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Login.mxml" afterPath="$PROJECT_DIR$/src/views/Login.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Settings.mxml" afterPath="$PROJECT_DIR$/src/views/Settings.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Social.mxml" afterPath="$PROJECT_DIR$/src/views/Social.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Userinfo.mxml" afterPath="$PROJECT_DIR$/src/views/Userinfo.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/controls/DropDown.mxml" afterPath="$PROJECT_DIR$/src/views/controls/DropDown.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/veconomy/PPStore.mxml" afterPath="$PROJECT_DIR$/src/views/veconomy/PPStore.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/veconomy/UserItems.mxml" afterPath="$PROJECT_DIR$/src/views/veconomy/UserItems.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/veconomy/VItems.mxml" afterPath="$PROJECT_DIR$/src/views/veconomy/VItems.mxml" />
-      <change type="MOVED" beforePath="D:\Work\PlayPhoneSDKDemoFlash\src\views\SWFReader.as" afterPath="$PROJECT_DIR$/src/hcode/SWFReader.as" />
-      <change type="MOVED" beforePath="D:\Work\PlayPhoneSDKDemoFlash\src\views\ViewObject.as" afterPath="$PROJECT_DIR$/src/hcode/ViewObject.as" />
     </list>
     <ignored path="PlayPhoneSDKDemoFlash.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -107,7 +77,34 @@
     <favorites_list name="PlayPhoneSDKDemoFlash" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="DropDown.mxml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/controls/DropDown.mxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="9" selection-start="568" selection-end="568" vertical-scroll-proportion="0.33669063">
+              <folding>
+                <marker date="1320157708916" expanded="true" signature="176:203" placeholder="{...}" />
+                <marker date="1320157708916" expanded="false" signature="269:376" placeholder="..." />
+                <marker date="1320157708916" expanded="true" signature="567:778" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="842:1048" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="891:964" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="994:1038" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="1107:1309" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="1156:1224" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="1254:1299" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="1377:1632" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="1451:1622" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="1714:2698" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="1763:2481" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="2225:2301" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="2511:2688" placeholder="{...}" />
+                <marker date="1320157708916" expanded="true" signature="2784:3054" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -135,13 +132,13 @@
         <option value="$PROJECT_DIR$/src/hcode/Settings.as" />
         <option value="$PROJECT_DIR$/src/views/veconomy/PPStore.mxml" />
         <option value="$PROJECT_DIR$/src/hcode/veconomy/PPStore.as" />
-        <option value="$PROJECT_DIR$/src/views/controls/DropDown.mxml" />
         <option value="$PROJECT_DIR$/src/hcode/veconomy/UserItems.as" />
         <option value="$PROJECT_DIR$/src/hcode/veconomy/VItems.as" />
         <option value="$PROJECT_DIR$/src/views/veconomy/VItems.mxml" />
         <option value="$PROJECT_DIR$/src/hcode/SWFReader.as" />
         <option value="$PROJECT_DIR$/src/views/veconomy/UserItems.mxml" />
         <option value="$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml" />
+        <option value="$PROJECT_DIR$/src/views/controls/DropDown.mxml" />
       </list>
     </option>
   </component>
@@ -395,20 +392,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="181" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="196" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="184" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="199" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="199" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="202" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="202" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="776" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="771" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="195" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="190" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="206" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="779" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="774" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="199" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="193" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
@@ -617,7 +614,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15974212" sideWeight="0.635514" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17120343" sideWeight="0.23497997" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19555874" sideWeight="0.635514" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19555874" sideWeight="0.4339119" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37917224" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977304" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.71028036" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -745,30 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/controls/DropDown.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="46" selection-start="639" selection-end="639" vertical-scroll-proportion="0.11942446">
-          <folding>
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320156337646" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hcode/Cloud.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="0" selection-start="903" selection-end="1428" vertical-scroll-proportion="0.53669727">
@@ -863,6 +836,30 @@
             <marker date="1320157633904" expanded="true" signature="-1:-1" placeholder="{...}" />
             <marker date="1320157633904" expanded="true" signature="-1:-1" placeholder="{...}" />
             <marker date="1320157633904" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/controls/DropDown.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="9" selection-start="568" selection-end="568" vertical-scroll-proportion="0.33669063">
+          <folding>
+            <marker date="1320157708916" expanded="true" signature="176:203" placeholder="{...}" />
+            <marker date="1320157708916" expanded="false" signature="269:376" placeholder="..." />
+            <marker date="1320157708916" expanded="true" signature="567:778" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="842:1048" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="891:964" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="994:1038" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="1107:1309" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="1156:1224" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="1254:1299" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="1377:1632" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="1451:1622" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="1714:2698" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="1763:2481" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="2225:2301" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="2511:2688" placeholder="{...}" />
+            <marker date="1320157708916" expanded="true" signature="2784:3054" placeholder="{...}" />
           </folding>
         </state>
       </provider>
