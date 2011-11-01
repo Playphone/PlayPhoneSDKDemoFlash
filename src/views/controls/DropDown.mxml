@@ -19,7 +19,14 @@
             if (listItems != null && val != null)
             {
                 listItems.dataProvider = val;
-                listItems.height = 50 * val.length;
+                if( val.length > 3 )
+                {
+                    listItems.height = 50 * 3.5;
+                }
+                else
+                {
+                    listItems.height = 50 * val.length;
+                }
             }
         }
 
