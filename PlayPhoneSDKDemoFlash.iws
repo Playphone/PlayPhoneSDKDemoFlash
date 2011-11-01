@@ -5,27 +5,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/RoomCookies.as" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/RoomCookies.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iws" afterPath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml" afterPath="$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/Achievements.as" afterPath="$PROJECT_DIR$/src/hcode/Achievements.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/AppInfo.as" afterPath="$PROJECT_DIR$/src/hcode/AppInfo.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/Cloud.as" afterPath="$PROJECT_DIR$/src/hcode/Cloud.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/Dashboard.as" afterPath="$PROJECT_DIR$/src/hcode/Dashboard.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/DashboardControl.as" afterPath="$PROJECT_DIR$/src/hcode/DashboardControl.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/Leaderboards.as" afterPath="$PROJECT_DIR$/src/hcode/Leaderboards.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/Social.as" afterPath="$PROJECT_DIR$/src/hcode/Social.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/veconomy/PPStore.as" afterPath="$PROJECT_DIR$/src/hcode/veconomy/PPStore.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/veconomy/UserItems.as" afterPath="$PROJECT_DIR$/src/hcode/veconomy/UserItems.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/veconomy/VItems.as" afterPath="$PROJECT_DIR$/src/hcode/veconomy/VItems.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Achievements.mxml" afterPath="$PROJECT_DIR$/src/views/Achievements.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Cloud.mxml" afterPath="$PROJECT_DIR$/src/views/Cloud.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Dashboard.mxml" afterPath="$PROJECT_DIR$/src/views/Dashboard.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Leaderboards.mxml" afterPath="$PROJECT_DIR$/src/views/Leaderboards.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Social.mxml" afterPath="$PROJECT_DIR$/src/views/Social.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/controls/DropDown.mxml" afterPath="$PROJECT_DIR$/src/views/controls/DropDown.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/veconomy/PPStore.mxml" afterPath="$PROJECT_DIR$/src/views/veconomy/PPStore.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/veconomy/UserItems.mxml" afterPath="$PROJECT_DIR$/src/views/veconomy/UserItems.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/veconomy/VItems.mxml" afterPath="$PROJECT_DIR$/src/views/veconomy/VItems.mxml" />
-      <change type="MOVED" beforePath="D:\Work\PlayPhoneSDKDemoFlash\src\views\controls\DDRenderer.mxml" afterPath="$PROJECT_DIR$/src/views/controls/DropDownRenderer.mxml" />
     </list>
     <ignored path="PlayPhoneSDKDemoFlash.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -646,7 +625,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="dropdown list now expand to full height" />
+    <option name="LAST_COMMIT_MESSAGE" value="name of functions and some variables changed to bit more better" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -666,6 +645,7 @@
     <MESSAGE value="as3 code moved from mxml to normal as3 classes" />
     <MESSAGE value="proj changed" />
     <MESSAGE value="dropdown list now expand to full height" />
+    <MESSAGE value="name of functions and some variables changed to bit more better" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
