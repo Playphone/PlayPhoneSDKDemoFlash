@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
+<hcode:Settings xmlns:fx="http://ns.adobe.com/mxml/2009"
           xmlns:s="library://ns.adobe.com/flex/spark"
-          initialize="initializeHandler(event)"
+          xmlns:hcode="hcode.*"
           width="100%">
     <s:List id="settings_list" dragEnabled="true" width="100%" height="100%">
         <s:itemRenderer>
@@ -25,7 +25,6 @@
                         </s:stroke>
                     </s:Rect>
                     <s:Label id="setting_name" left="5" verticalAlign="middle" height="50">Default</s:Label>
-
 
                     <fx:Script><![CDATA[
                         import mx.events.FlexEvent
@@ -62,49 +61,4 @@
             </fx:Component>
         </s:itemRenderer>
     </s:List>
-    <fx:Script><![CDATA[
-        import com.playphone.multinet.MNDirect
-        import com.playphone.multinet.MNDirectEvent
-        import com.playphone.multinet.providers.MNGameSettingsProvider
-        import com.playphone.multinet.providers.MNPluginEvent
-
-        import mx.collections.ArrayList
-        import mx.events.FlexEvent
-
-        private function initializeHandler(event: FlexEvent): void
-        {
-            if (MNDirect.getSession() != null)
-            {
-                onSessionReady(null);
-            }
-            else
-            {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
-            }
-        }
-
-        private function onSessionReady(event: MNDirectEvent): void
-        {
-            checkSettings();
-        }
-
-        private function checkSettings(): void
-        {
-            if (MNDirect.gameSettingsProvider.isGameSettingListNeedUpdate())
-            {
-                MNDirect.gameSettingsProvider.addEventListener(MNGameSettingsProvider.onGameSettingsListDownloaded,
-                                                               onSettingsReady)
-                MNDirect.gameSettingsProvider.doGameSettingListUpdate();
-            }
-            else
-            {
-                onSettingsReady(null);
-            }
-        }
-
-        private function onSettingsReady(event: MNPluginEvent): void
-        {
-            settings_list.dataProvider = new ArrayList(MNDirect.gameSettingsProvider.getGameSettingsList());
-        }
-        ]]></fx:Script>
-</s:VGroup>
+</hcode:Settings>

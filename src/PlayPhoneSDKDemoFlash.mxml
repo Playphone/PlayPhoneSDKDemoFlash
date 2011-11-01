@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
                xmlns:s="library://ns.adobe.com/flex/spark"
-               xmlns:views="views.*"
+               xmlns:views="views.*" xmlns:hcode="hcode.*"
                initialize="initializeHandler(event)" width="100%" height="100%">
     <s:layout>
         <s:VerticalLayout/>
@@ -24,8 +24,8 @@
     </s:states>
 
     <s:Group
-             includeIn="Login, Dashboard, VEconomy, Achievements, DashboardControl, Leaderboards, Cloud, Userinfo, Multinet, Social, AppInfo, Settings"
-             width="100%">
+            includeIn="Login, Dashboard, VEconomy, Achievements, DashboardControl, Leaderboards, Cloud, Userinfo, Multinet, Social, AppInfo, Settings"
+            width="100%">
         <s:Button label="Go home" left="5" top="5"
                   includeIn="Login, Dashboard, VEconomy, Achievements, DashboardControl, Leaderboards, Cloud, Userinfo, Multinet, Social, AppInfo, Settings"
                   click="currentState='Home'">
@@ -62,18 +62,18 @@
                 </s:itemRenderer>
                 <s:dataProvider>
                     <s:ArrayList>
-                        <views:ViewObject caption="Login" stateName="Login"/>
-                        <views:ViewObject caption="Dashboard" stateName="Dashboard"/>
-                        <views:ViewObject caption="Virtual economy" stateName="VEconomy"/>
-                        <views:ViewObject caption="Achievements" stateName="Achievements"/>
-                        <views:ViewObject caption="Dashboard control" stateName="DashboardControl"/>
-                        <views:ViewObject caption="Leaderboards" stateName="Leaderboards"/>
-                        <views:ViewObject caption="Cloud storage" stateName="Cloud"/>
-                        <views:ViewObject caption="User info" stateName="Userinfo"/>
-                        <views:ViewObject caption="Multinet basics" stateName="Multinet"/>
-                        <views:ViewObject caption="Social graph" stateName="Social"/>
-                        <views:ViewObject caption="Application info" stateName="AppInfo"/>
-                        <views:ViewObject caption="Settings info" stateName="Settings"/>
+                        <hcode:ViewObject caption="Login" stateName="Login"/>
+                        <hcode:ViewObject caption="Dashboard" stateName="Dashboard"/>
+                        <hcode:ViewObject caption="Virtual economy" stateName="VEconomy"/>
+                        <hcode:ViewObject caption="Achievements" stateName="Achievements"/>
+                        <hcode:ViewObject caption="Dashboard control" stateName="DashboardControl"/>
+                        <hcode:ViewObject caption="Leaderboards" stateName="Leaderboards"/>
+                        <hcode:ViewObject caption="Cloud storage" stateName="Cloud"/>
+                        <hcode:ViewObject caption="User info" stateName="Userinfo"/>
+                        <hcode:ViewObject caption="Multinet basics" stateName="Multinet"/>
+                        <hcode:ViewObject caption="Social graph" stateName="Social"/>
+                        <hcode:ViewObject caption="Application info" stateName="AppInfo"/>
+                        <hcode:ViewObject caption="Settings info" stateName="Settings"/>
                     </s:ArrayList>
                 </s:dataProvider>
             </s:List>
@@ -124,10 +124,11 @@
         import com.playphone.multinet.core.MNSession
         import com.playphone.multinet.core.MNSessionEvent
         import com.playphone.multinet.ui.MNWebUIAirStarter
-        import com.playphone.multinet.ui.MNWebUIStarter
         import com.playphone.multinet.ui.common.MNDirectButton
         import com.playphone.multinet.ui.common.MNDirectPopup
         import com.playphone.multinet.utils.MNLog
+
+        import hcode.ViewObject;
 
         import mx.events.FlexEvent
         import mx.managers.PopUpManager
@@ -154,10 +155,10 @@
 
         private function initializeHandler(event: FlexEvent): void
         {
-            addEventListener(Event.ADDED_TO_STAGE, resizeHandler);
+            addEventListener(Event.ADDED_TO_STAGE, onStageAdd);
         }
 
-        private function resizeHandler(event: Event): void
+        private function onStageAdd(event: Event): void
         {
             MNLog.isDebug = true;
             MNDirect.init(10900, "ae2b10f2-248f58d9-c9654f24-37960337");

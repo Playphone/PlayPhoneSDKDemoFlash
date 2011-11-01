@@ -16,9 +16,10 @@
         public function set dataProvider(val: ArrayList): void
         {
             data = val;
-            if (listItems != null)
+            if (listItems != null && val != null)
             {
                 listItems.dataProvider = val;
+                listItems.height = 35 * val.length;
             }
         }
 
@@ -64,21 +65,24 @@
             {
                 listItems = new List();
                 addElement(listItems)
-                listItems.dragEnabled = true;
+                listItems.dragEnabled = false;
                 listItems.itemRenderer = new ClassFactory(DDRenderer);
                 listItems.y = dropdown.height;
                 listItems.x = 0;
                 listItems.enabled = true;
                 listItems.visible = true;
                 listItems.width = dropdown.width;
-                listItems.height = 35*3;
+                if (data != null)
+                {
+                    listItems.height = 35 * data.length;
+                }
                 listItems.addEventListener(IndexChangeEvent.CHANGE, items_changeHandler);
                 selectedIndex = index;
                 dataProvider = data;
             }
             else
             {
-                removeElement( listItems );
+                removeElement(listItems);
                 listItems.enabled = false;
                 listItems.visible = false;
                 listItems = null;
@@ -89,7 +93,7 @@
         {
             dropdown.label = listItems.selectedItems[0].label;
             index = listItems.selectedIndices[0];
-            removeElement( listItems );
+            removeElement(listItems);
             listItems.enabled = false;
             listItems.visible = false;
             listItems = null;

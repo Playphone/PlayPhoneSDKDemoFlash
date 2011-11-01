@@ -1,18 +1,13 @@
 <?xml version="1.0"?>
-<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
-          xmlns:s="library://ns.adobe.com/flex/spark"
-          xmlns:mx="mx.collections.*"
-          xmlns:controls="views.controls.*"
-          width="100%"
-          height="100%"
-          initialize="initializeHandler(event)">
-    <s:states>
-        <s:State name="Buy"/>
-        <s:State name="Categories"/>
-        <s:State name="Packs"/>
-    </s:states>
+<hcode:PPStore xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="mx.collections.*"
+               xmlns:controls="views.controls.*"
+               xmlns:hcode="hcode.veconomy.*"
+               width="100%"
+               height="100%">
 
-    <s:TabBar width="100%" height="50" includeIn="Categories, Packs, Buy" change="tabBar1_changeHandler(event)">
+    <s:TabBar id="tabs" width="100%" height="50">
         <mx:ArrayCollection>
             <fx:String>Buy vshop packs</fx:String>
             <fx:String>VShop categories</fx:String>
@@ -20,8 +15,7 @@
         </mx:ArrayCollection>
     </s:TabBar>
 
-    <s:List id="categories_list" includeIn="Categories" initialize="markReady(1)" dragEnabled="true" width="100%"
-            height="100%">
+    <s:List id="categories_list" dragEnabled="true" width="100%" height="100%">
         <s:itemRenderer>
             <fx:Component>
                 <s:ItemRenderer>
@@ -52,7 +46,7 @@
         </s:itemRenderer>
     </s:List>
 
-    <s:List id="packs_list" includeIn="Packs" initialize="markReady(2)" dragEnabled="true" width="100%" height="100%">
+    <s:List id="packs_list" dragEnabled="true" width="100%" height="100%">
         <s:itemRenderer>
             <fx:Component>
                 <s:ItemRenderer>
@@ -73,7 +67,7 @@
 
                         override public function set data(value: Object): void
                         {
-                            pack_img.source = MNDirect.virtualShopProvider.getVShopPackImageURL( value.id );
+                            pack_img.source = MNDirect.virtualShopProvider.getVShopPackImageURL(value.id);
                             pack_id.text = value.id;
                             pack_name.text = value.name;
                             pack_price.text = getPriceString(value.priceValue);
@@ -92,161 +86,12 @@
         </s:itemRenderer>
     </s:List>
 
-
-    <s:VGroup width="100%" includeIn="Buy" initialize="markReady(0)">
+    <s:VGroup id="buy_group"  width="100%">
         <s:HGroup width="100%">
             <s:Label>VShop packs</s:Label>
             <controls:DropDown id="vspacks" width="100%"/>
         </s:HGroup>
-        <s:Button width="100%" click="button1_clickHandler(event)">BUY!</s:Button>
+        <s:Button id="buy" width="100%">BUY!</s:Button>
     </s:VGroup>
 
-    <fx:Script><![CDATA[
-        import com.playphone.multinet.MNDirect
-        import com.playphone.multinet.MNDirectEvent
-        import com.playphone.multinet.MNDirectHelper
-        import com.playphone.multinet.providers.MNPluginEvent
-        import com.playphone.multinet.providers.MNVShopProvider
-
-        import mx.collections.ArrayList
-        import mx.events.FlexEvent
-
-        import spark.events.IndexChangeEvent
-
-        private var isSessionReady: Boolean = false;
-        private var isStateReady: Array = [false, false, false];
-
-        private var updateFunctions: Vector.<Function>
-
-        private function initializeHandler(event: FlexEvent): void
-        {
-            updateFunctions = new Vector.<Function>();
-            updateFunctions.push(updateBuyScreen);
-            updateFunctions.push(updateCategories);
-            updateFunctions.push(updatePacksScreen);
-
-            if (MNDirect.getSession() == null)
-            {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
-            }
-            else
-            {
-                onSessionReady(null);
-            }
-        }
-
-        private function markReady(state_id: int): void
-        {
-            isStateReady[state_id] = true;
-            updateState(state_id);
-        }
-
-        private function onSessionReady(event: MNDirectEvent): void
-        {
-            MNDirect.virtualShopProvider.addEventListener(MNVShopProvider.showDashboard, onShowDashboard);
-            MNDirect.virtualShopProvider.addEventListener(MNVShopProvider.hideDashboard, onHideDashboard);
-            MNDirect.virtualShopProvider.addEventListener(MNVShopProvider.transactionSuccess, onTransactionComplete);
-            MNDirect.virtualShopProvider.addEventListener(MNVShopProvider.transactionFailed, onTransactionError);
-
-            if (MNDirect.virtualShopProvider.isVShopInfoNeedUpdate())
-            {
-                MNDirect.virtualShopProvider.addEventListener(MNVShopProvider.packListUpdated, onInfoUpdated);
-                MNDirect.virtualShopProvider.doVShopInfoUpdate();
-            }
-            else
-            {
-                isSessionReady = true;
-                updateState(0);
-            }
-        }
-
-        private function onInfoUpdated(event: Event): void
-        {
-            isSessionReady = true;
-            updateState(0);
-        }
-
-        private function updateState(state: int): void
-        {
-            if (isSessionReady && isStateReady[state])
-            {
-                updateFunctions[state]();
-            }
-        }
-
-        private function updateBuyScreen(): void
-        {
-            if (currentState == "Buy")
-            {
-//            trace("updateBuyScreen");
-                var packs: Array = MNDirect.virtualShopProvider.getVShopPackList();
-                var combo_items: Array = [];
-                for each(var pack: Object in packs)
-                {
-                    combo_items.push({label:pack.name + " ( " + "$" + (pack.priceValue / 100).toString() + ")", data:pack});
-                }
-                vspacks.dataProvider = new ArrayList(combo_items);
-                vspacks.selectedIndex = 0;
-            }
-        }
-
-        private function updatePacksScreen(): void
-        {
-//            trace("updatePacksScreen");
-            if (currentState == "Packs")
-            {
-                var packs: Array = MNDirect.virtualShopProvider.getVShopPackList();
-                packs_list.dataProvider = new ArrayList(packs);
-            }
-        }
-
-        private function updateCategories(): void
-        {
-//            trace("updateCategories");
-            if (currentState == "Categories")
-            {
-                categories_list.dataProvider = new ArrayList(MNDirect.virtualShopProvider.getVShopCategoryList());
-            }
-        }
-
-        private function tabBar1_changeHandler(event: IndexChangeEvent): void
-        {
-//            trace("tabBar1_changeHandler " + event.newIndex + ":" + states[event.newIndex].name);
-            if (isSessionReady)
-            {
-                currentState = states[event.newIndex].name;
-                updateState(event.newIndex);
-            }
-        }
-
-        private function button1_clickHandler(event: MouseEvent): void
-        {
-            var obj: Object = vspacks.dataProvider.getItemAt(vspacks.selectedIndex);
-
-            MNDirect.virtualShopProvider.execCheckoutVShopPacks([obj.data.id], [1],
-                                                                MNDirect.virtualItemsProvider.getNewClientTransactionId());
-        }
-
-        private function onShowDashboard(event: Event): void
-        {
-            MNDirectHelper.showDashboard();
-        }
-
-        private function onHideDashboard(event: Event): void
-        {
-            MNDirectHelper.hideDashboard()
-        }
-
-        private function onTransactionComplete(event: MNPluginEvent): void
-        {
-            PlayPhoneSDKDemoFlash.showMessage(this, "Pack( id= " + event.params.items_to_add[0] + " ) succsessfully bought");
-        }
-
-        private function onTransactionError(event: MNPluginEvent): void
-        {
-            PlayPhoneSDKDemoFlash.showMessage(this, "Errort occurred due buying pack code: " +
-                                                    event.params.error_code + " " + event.params.error_message);
-        }
-        ]]></fx:Script>
-
-</s:VGroup>
+</hcode:PPStore>

@@ -1,82 +1,17 @@
 <?xml version="1.0"?>
-<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
-          xmlns:s="library://ns.adobe.com/flex/spark"
-          initialize="loginInitializeHandler(event)"
-          paddingLeft="5" paddingTop="5" paddingRight="5" gap="5"
-         >
+<hcode:Login xmlns:fx="http://ns.adobe.com/mxml/2009"
+             xmlns:s="library://ns.adobe.com/flex/spark"
+             xmlns:hcode="hcode.*"
+             paddingLeft="5" paddingTop="5" paddingRight="5" gap="5"
+        >
 
     <s:HGroup verticalAlign="middle" top="20">
         <s:Label verticalAlign="middle">Username:</s:Label>
         <s:Label id="username" verticalCenter="center"/>
     </s:HGroup>
     <!--<s:HGroup verticalAlign="middle">-->
-        <!--<s:Label verticalAlign="middle">Password:</s:Label>-->
-        <!--<s:TextInput id="pass" verticalCenter="center">u1002</s:TextInput>-->
+    <!--<s:Label verticalAlign="middle">Password:</s:Label>-->
+    <!--<s:TextInput id="pass" verticalCenter="center">u1002</s:TextInput>-->
     <!--</s:HGroup>-->
-    <s:Button id="login" width="100%" click="login_clickHandler(event)" top="20">Login</s:Button>
-
-    <fx:Script><![CDATA[
-        import com.playphone.multinet.MNDirect
-        import com.playphone.multinet.MNDirectEvent
-        import com.playphone.multinet.MNDirectHelper
-        import com.playphone.multinet.core.MNSession
-        import com.playphone.multinet.core.MNSessionEvent
-
-        import mx.events.FlexEvent
-
-        private function login_clickHandler(event: MouseEvent): void
-        {
-            if (MNSession.instance.isLoggedIn)
-            {
-                MNSession.instance.logout();
-            }
-            else
-            {
-                MNDirectHelper.showDashboard();
-//                MNSession.instance.loginWithUserLoginAndPassword(username.text, pass.text, false);
-            }
-        }
-
-        private function onLogin(event: MNSessionEvent): void
-        {
-                login.label = "Logout";
-                username.text = MNSession.instance.getMyUserInfo().userName;
-//                username.enabled = false;
-//                pass.enabled = false;
-        }
-
-        private function onLogout(event: MNSessionEvent): void
-        {
-            if (!MNSession.instance.isLoggedIn)
-            {
-                login.label = "Login";
-                username.text = "";
-//                username.enabled = true;
-//                pass.enabled = true;
-            }
-        }
-
-        private function loginInitializeHandler(event: FlexEvent): void
-        {
-            if (MNDirect.getSession() == null)
-            {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
-            }
-            else
-            {
-                onSessionReady(null);
-            }
-        }
-
-        private function onSessionReady(event: MNDirectEvent): void
-        {
-            MNSession.instance.addEventListener(MNSessionEvent.onDidLogin, onLogin);
-            MNSession.instance.addEventListener(MNSessionEvent.onSessionStatusChanged, onLogout);
-
-            if( MNSession.instance.isLoggedIn )
-            {
-                onLogin(null);
-            }
-        }
-        ]]></fx:Script>
-</s:VGroup>
+    <s:Button id="login" width="100%" top="20">Login</s:Button>
+</hcode:Login>

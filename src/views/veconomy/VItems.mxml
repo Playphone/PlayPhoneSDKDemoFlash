@@ -1,22 +1,18 @@
 <?xml version="1.0"?>
-<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
-          xmlns:s="library://ns.adobe.com/flex/spark"
-          xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" initialize="initializeHandler(event)">
+<hcode:VItems xmlns:fx="http://ns.adobe.com/mxml/2009"
+              xmlns:s="library://ns.adobe.com/flex/spark"
+              xmlns:mx="library://ns.adobe.com/flex/mx"
+              xmlns:hcode="hcode.veconomy.*"
+              width="100%">
 
-    <s:states>
-        <s:State name="Items"/>
-        <s:State name="Currencies"/>
-    </s:states>
-
-    <s:TabBar width="100%" includeIn="Items, Currencies" change="tabBar1_changeHandler(event)">
+    <s:TabBar id="tab_bar" width="100%">
         <mx:ArrayCollection>
             <fx:String>Virtual items</fx:String>
             <fx:String>Virtual currencies</fx:String>
         </mx:ArrayCollection>
     </s:TabBar>
 
-    <s:List id="items_list" includeIn="Items" initialize="markReady(0)" dragEnabled="true" width="100%"
-            height="100%">
+    <s:List id="items_list" dragEnabled="true" width="100%" height="100%">
         <s:itemRenderer>
             <fx:Component>
                 <s:ItemRenderer>
@@ -79,8 +75,7 @@
         </s:itemRenderer>
     </s:List>
 
-    <s:List id="currencies_list" includeIn="Currencies" initialize="markReady(1)" dragEnabled="true" width="100%"
-            height="100%">
+    <s:List id="currencies_list" dragEnabled="true" width="100%" height="100%">
         <s:itemRenderer>
             <fx:Component>
                 <s:ItemRenderer>
@@ -142,111 +137,4 @@
             </fx:Component>
         </s:itemRenderer>
     </s:List>
-
-    <fx:Script><![CDATA[
-        import com.playphone.multinet.MNDirect
-        import com.playphone.multinet.MNDirectEvent
-        import com.playphone.multinet.providers.MNVitemsProvider
-
-        import mx.collections.ArrayList
-        import mx.events.FlexEvent
-
-        import spark.events.IndexChangeEvent
-
-        private var isSessionReady: Boolean = false;
-        private var isStateReady: Array = [false, false];
-        private var updateFunctions: Vector.<Function>
-
-        private function initializeHandler(event: FlexEvent): void
-        {
-            updateFunctions = new Vector.<Function>();
-            updateFunctions.push(updateItems);
-            updateFunctions.push(updateCurrencies);
-
-            if (MNDirect.getSession() == null)
-            {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
-            }
-            else
-            {
-                onSessionReady(null);
-            }
-        }
-
-        private function markReady(state_id: int): void
-        {
-            isStateReady[state_id] = true;
-            updateState(state_id);
-        }
-
-        private function updateState(state: int): void
-        {
-            if (isSessionReady && isStateReady[state])
-            {
-                updateFunctions[state]();
-            }
-        }
-
-        private function updateItems(): void
-        {
-            var currencies: Array = [];
-
-            var items: Array = MNDirect.virtualItemsProvider.getGameVItemsList();
-            for each(var item: Object in items)
-            {
-                if ((item.model & 1) == 0)
-                {
-                    currencies.push(item);
-                }
-            }
-
-            items_list.dataProvider = new ArrayList(currencies);
-        }
-
-        private function updateCurrencies(): void
-        {
-            var currencies: Array = [];
-
-            var items: Array = MNDirect.virtualItemsProvider.getGameVItemsList();
-            for each(var item: Object in items)
-            {
-                if ((item.model & 1) != 0)
-                {
-                    currencies.push(item);
-                }
-            }
-
-            currencies_list.dataProvider = new ArrayList(currencies);
-
-        }
-
-        private function tabBar1_changeHandler(event: IndexChangeEvent): void
-        {
-            if (isSessionReady)
-            {
-                currentState = states[event.newIndex].name;
-                updateState(event.newIndex);
-            }
-        }
-
-        private function onSessionReady(event: MNDirectEvent): void
-        {
-            if (MNDirect.virtualShopProvider.isVShopInfoNeedUpdate())
-            {
-                MNDirect.virtualItemsProvider.addEventListener(MNVitemsProvider.onVItemsListUpdated, onInfoUpdated);
-                MNDirect.virtualItemsProvider.doGameVItemsListUpdate();
-            }
-            else
-            {
-                isSessionReady = true;
-                updateState(0);
-            }
-        }
-
-        private function onInfoUpdated(event: Event): void
-        {
-            isSessionReady = true;
-            updateState(0);
-        }
-        ]]></fx:Script>
-</s:VGroup>
+</hcode:VItems>

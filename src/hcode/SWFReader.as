@@ -1,4 +1,4 @@
-package views
+package hcode
 {
 
     import flash.display.ActionScriptVersion
@@ -182,29 +182,29 @@ package views
         private var bgColorFound: Boolean;
 
         // constants
-        private const GET_DATA_SIZE: int = 5;
-        private const TWIPS_TO_PIXELS: Number = 0.05; // 20 twips in a pixel
-        private const TAG_HEADER_ID_BITS: int = 6;
-        private const TAG_HEADER_MAX_SHORT: int = 0x3F;
+        private static const GET_DATA_SIZE: int = 5;
+        private static const TWIPS_TO_PIXELS: Number = 0.05; // 20 twips in a pixel
+        private static const TAG_HEADER_ID_BITS: int = 6;
+        private static const TAG_HEADER_MAX_SHORT: int = 0x3F;
 
-        private const SWF_C: uint = 0x43; // header characters
-        private const SWF_F: uint = 0x46;
-        private const SWF_W: uint = 0x57;
-        private const SWF_S: uint = 0x53;
+        private static const SWF_C: uint = 0x43; // header characters
+        private static const SWF_F: uint = 0x46;
+        private static const SWF_W: uint = 0x57;
+        private static const SWF_S: uint = 0x53;
 
-        private const TAG_ID_EOF: uint = 0; // recognized SWF tags
-        private const TAG_ID_BG_COLOR: uint = 9;
-        private const TAG_ID_PROTECTED: uint = 24;
-        private const TAG_ID_DEBUGGER1: uint = 58;
-        private const TAG_ID_DEBUGGER2: uint = 64;
-        private const TAG_ID_SCRIPT_LIMITS: uint = 65;
-        private const TAG_ID_FILE_ATTS: uint = 69;
-        private const TAG_ID_META: uint = 77;
+        private static const TAG_ID_EOF: uint = 0; // recognized SWF tags
+        private static const TAG_ID_BG_COLOR: uint = 9;
+        private static const TAG_ID_PROTECTED: uint = 24;
+        private static const TAG_ID_DEBUGGER1: uint = 58;
+        private static const TAG_ID_DEBUGGER2: uint = 64;
+        private static const TAG_ID_SCRIPT_LIMITS: uint = 65;
+        private static const TAG_ID_FILE_ATTS: uint = 69;
+        private static const TAG_ID_META: uint = 77;
 
-        private const TAG_ID_SHAPE_1: uint = 2;
-        private const TAG_ID_SHAPE_2: uint = 22;
-        private const TAG_ID_SHAPE_3: uint = 32;
-        private const TAG_ID_SHAPE_4: uint = 83;
+        private static const TAG_ID_SHAPE_1: uint = 2;
+        private static const TAG_ID_SHAPE_2: uint = 22;
+        private static const TAG_ID_SHAPE_3: uint = 32;
+        private static const TAG_ID_SHAPE_4: uint = 83;
 
         /**
          * SWFHeader constructor.

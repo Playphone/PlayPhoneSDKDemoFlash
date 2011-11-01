@@ -1,30 +1,11 @@
 <?xml version="1.0"?>
-<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
-        xmlns:s="library://ns.adobe.com/flex/spark"
-        paddingLeft="5" paddingTop="5" paddingRight="5" gap="5"
-        >
+<hcode:Dashboard xmlns:fx="http://ns.adobe.com/mxml/2009"
+                 xmlns:s="library://ns.adobe.com/flex/spark"
+                 xmlns:hcode="hcode.*"
+                 paddingLeft="5" paddingTop="5" paddingRight="5" gap="5">
 
-    <s:Button id="show_button" width="100%" top="20" click="show_button_clickHandler(event)">Show button</s:Button>
-    <s:Button id="hide_button" width="100%" top="20" click="hide_button_clickHandler(event)">Hide button</s:Button>
-    <s:Button id="show_dashboard" width="100%" top="20" click="show_dashboard_clickHandler(event)">Show dashboard</s:Button>
+    <s:Button id="show_button" width="100%" top="20">Show button</s:Button>
+    <s:Button id="hide_button" width="100%" top="20">Hide button</s:Button>
+    <s:Button id="show_dashboard" width="100%" top="20">Show dashboard</s:Button>
 
-    <fx:Script><![CDATA[
-        import com.playphone.multinet.MNDirectHelper
-        import com.playphone.multinet.ui.common.MNDirectButton
-
-        private function show_dashboard_clickHandler(event: MouseEvent): void
-        {
-            MNDirectHelper.showDashboard();
-        }
-
-        private function hide_button_clickHandler(event: MouseEvent): void
-        {
-            MNDirectButton.visible = false;
-        }
-
-        private function show_button_clickHandler(event: MouseEvent): void
-        {
-            MNDirectButton.visible = true;
-        }
-        ]]></fx:Script>
-</s:VGroup>
+</hcode:Dashboard>

@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
-<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
+<hcode:Social xmlns:fx="http://ns.adobe.com/mxml/2009"
           xmlns:s="library://ns.adobe.com/flex/spark"
+          xmlns:hcode="hcode.*"
           width="100%"
           paddingLeft="5" paddingTop="5" paddingRight="5" gap="5"
         >
-    <s:Button width="100%" click="button1_clickHandler(event)">Get it!</s:Button>
+    <s:Button id="get_it" width="100%">Get it!</s:Button>
     <s:List id="list" dragEnabled="true" width="100%" height="100%">
         <s:itemRenderer>
             <fx:Component>
@@ -70,49 +71,4 @@
             </fx:Component>
         </s:itemRenderer>
     </s:List>
-    <fx:Script><![CDATA[
-        import com.playphone.multinet.core.data.MNWSBuddyListItem
-        import com.playphone.multinet.core.ws.MNWSDefHandlerEvent
-        import com.playphone.multinet.core.ws.MNWSRequestContent
-        import com.playphone.multinet.core.ws.MNWSRequestDefHandler
-        import com.playphone.multinet.core.ws.MNWSRequestSender
-
-        import mx.collections.ArrayList
-
-        private var req_block: String;
-
-        private function button1_clickHandler(event: MouseEvent): void
-        {
-            var handler: MNWSRequestDefHandler = new MNWSRequestDefHandler();
-            handler.addEventListener(MNWSDefHandlerEvent.onRequestComplete, onComplete);
-            handler.addEventListener(MNWSDefHandlerEvent.onRequestError, onError);
-
-            var content: MNWSRequestContent = new MNWSRequestContent();
-            req_block = content.addCurrUserBuddyList();
-
-            MNWSRequestSender.instance.sendRequest(content, handler);
-        }
-
-        private function onError(event: MNWSDefHandlerEvent): void
-        {
-            PlayPhoneSDKDemoFlash.showMessage(this, event.params.message);
-        }
-
-        private function onComplete(event: MNWSDefHandlerEvent): void
-        {
-            var buddies: Array = vectorToArray(event.params[req_block] as Vector.<MNWSBuddyListItem>);
-            list.dataProvider = new ArrayList(buddies);
-        }
-
-        private function vectorToArray(v: Object): Array
-        {
-            var len: int = v.length;
-            var ret: Array = new Array(len);
-            for (var i: int = 0; i < len; ++i)
-            {
-                ret[i] = v[i];
-            }
-            return ret;
-        }
-        ]]></fx:Script>
-</s:VGroup>
+</hcode:Social>

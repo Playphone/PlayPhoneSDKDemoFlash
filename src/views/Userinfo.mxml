@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
+<hcode:UserInfo xmlns:fx="http://ns.adobe.com/mxml/2009"
           xmlns:s="library://ns.adobe.com/flex/spark"
-          initialize="userinfoInitializeHandler(event)"
+          xmlns:hcode="hcode.*"
           paddingLeft="5" paddingTop="5" paddingRight="5" gap="5"
           width="100%"
         >
@@ -21,58 +21,4 @@
         <s:Label fontWeight="bold">Room id:</s:Label>
         <s:Label id="room_id">-1</s:Label>
     </s:HGroup>
-
-    <fx:Script><![CDATA[
-        import com.playphone.multinet.MNDirect
-        import com.playphone.multinet.MNDirectEvent
-        import com.playphone.multinet.MNUserInfo
-        import com.playphone.multinet.core.MNSession
-        import com.playphone.multinet.core.MNSessionEvent
-
-        import mx.events.FlexEvent
-
-        public function userinfoInitializeHandler(event: FlexEvent): void
-        {
-            trace("Userinfo initializeHandler");
-            if (MNDirect.getSession() == null)
-            {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
-            }
-            else
-            {
-                onSessionReady(null);
-            }
-        }
-
-        private function onSessionReady(event: MNDirectEvent): void
-        {
-            MNSession.instance.addEventListener(MNSessionEvent.onDidLogin, onLogin);
-            if( MNSession.instance.isLoggedIn )
-            {
-                onLogin(null);
-            }
-        }
-
-        private function onLogin(event: MNSessionEvent): void
-        {
-            MNSession.instance.removeEventListener(MNSessionEvent.onDidLogin, onLogin);
-            MNSession.instance.addEventListener(MNSessionEvent.onSessionStatusChanged, onLogout);
-            var userinfo: MNUserInfo = MNSession.instance.getMyUserInfo();
-            room_id.text = String(MNSession.instance.getCurrentRoomId());
-            user_name.text = userinfo.userName;
-            user_id.text = String(userinfo.userId);
-            user_img.source = userinfo.userAvatar;
-        }
-
-        private function onLogout(event: MNSessionEvent): void
-        {
-            if (!MNSession.instance.isLoggedIn)
-            {
-                onSessionReady(null);
-                room_id.text = "-1";
-                user_name.text = "---";
-                user_id.text = "-1";
-            }
-        }
-        ]]></fx:Script>
-</s:VGroup>
+</hcode:UserInfo>
