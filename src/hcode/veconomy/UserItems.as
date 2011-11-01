@@ -35,14 +35,14 @@ package hcode.veconomy
         private var updateFunctions: Vector.<Function>
 
 
-        public var tab_bar: TabBar;
+        public var tabs: TabBar;
         public var user_items_list: List;
         public var manager_group: VGroup;
 
-        public var to_add: TextInput;
-        public var add: Button;
-        public var to_remove: TextInput;
-        public var remove: Button;
+        public var txtItemIdToAdd: TextInput;
+        public var btnAdd: Button;
+        public var txtItemIdToRemove: TextInput;
+        public var btnRemove: Button;
         public var items: DropDown;
 
 
@@ -71,10 +71,10 @@ package hcode.veconomy
                 onSessionReady(null);
             }
 
-            tab_bar.addEventListener(IndexChangeEvent.CHANGE, tabBar1_changeHandler);
-            add.addEventListener(MouseEvent.CLICK, button1_clickHandler);
-            remove.addEventListener(MouseEvent.CLICK, button2_clickHandler);
-            showState(0);
+            tabs.addEventListener(IndexChangeEvent.CHANGE, tabBar1_changeHandler);
+            btnAdd.addEventListener(MouseEvent.CLICK, btnAdd_clickHandler);
+            btnRemove.addEventListener(MouseEvent.CLICK, btnRemove_clickHandler);
+            showState(tabs.selectedIndex);
         }
 
         private function onSessionReady(event: MNDirectEvent): void
@@ -90,7 +90,7 @@ package hcode.veconomy
             else
             {
                 isSessionReady = true;
-                updateState(0);
+                updateState(tabs.selectedIndex);
             }
         }
 
@@ -114,7 +114,7 @@ package hcode.veconomy
         private function onInfoUpdated(event: Event): void
         {
             isSessionReady = true;
-            updateState(0);
+            updateState(tabs.selectedIndex);
         }
 
         private function updateState(state: int): void
@@ -134,13 +134,13 @@ package hcode.veconomy
         private function updateManager(): void
         {
             var packs: Array = MNDirect.virtualItemsProvider.getGameVItemsList();
-            var combo_items: Array = [];
+            var vItems: Array = [];
             for each(var pack: Object in packs)
             {
-                combo_items.push({label:pack.name, data:pack});
+                vItems.push({label:pack.name, data:pack});
             }
 
-            items.dataProvider = new ArrayList(combo_items);
+            items.dataProvider = new ArrayList(vItems);
             items.selectedIndex = 0;
         }
 
@@ -153,22 +153,22 @@ package hcode.veconomy
             }
         }
 
-        private function button1_clickHandler(event: MouseEvent): void
+        private function btnAdd_clickHandler(event: MouseEvent): void
         {
             var selectedItem: Object = items.dataProvider.getItemAt(items.selectedIndex);
-            var trId: int = MNDirect.virtualItemsProvider.getNewClientTransactionId();
+            var transactionId: int = MNDirect.virtualItemsProvider.getNewClientTransactionId();
             PlayPhoneSDKDemoFlash.showMessage(this,
-                                              "Transaction ( id=" + trId + " ) started. " + to_add.text + " items will be added");
-            MNDirect.virtualItemsProvider.reqAddPlayerVItem(selectedItem.data.id, int(to_add.text), trId);
+                                              "Transaction ( id=" + transactionId + " ) started. " + txtItemIdToAdd.text + " items will be added");
+            MNDirect.virtualItemsProvider.reqAddPlayerVItem(selectedItem.data.id, int(txtItemIdToAdd.text), transactionId);
         }
 
-        private function button2_clickHandler(event: MouseEvent): void
+        private function btnRemove_clickHandler(event: MouseEvent): void
         {
             var selectedItem: Object = items.dataProvider.getItemAt(items.selectedIndex);
-            var trId: int = MNDirect.virtualItemsProvider.getNewClientTransactionId();
+            var transactionId: int = MNDirect.virtualItemsProvider.getNewClientTransactionId();
             PlayPhoneSDKDemoFlash.showMessage(this,
-                                              "Transaction ( id=" + trId + " ) started. " + to_remove.text + " items will be removed");
-            MNDirect.virtualItemsProvider.reqAddPlayerVItem(selectedItem.data.id, -1 * int(to_remove.text), trId);
+                                              "Transaction ( id=" + transactionId + " ) started. " + txtItemIdToRemove.text + " items will be removed");
+            MNDirect.virtualItemsProvider.reqAddPlayerVItem(selectedItem.data.id, -1 * int(txtItemIdToRemove.text), transactionId);
         }
 
         private function onComplete(event: MNPluginEvent): void

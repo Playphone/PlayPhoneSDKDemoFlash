@@ -4,8 +4,8 @@
                     xmlns:hcode="hcode.*"
                     width="100%"
                     paddingLeft="5" paddingTop="5" paddingRight="5" gap="5">
-    <s:TextInput id="ach_id"/>
-    <s:Button id="unlock" width="100%" label="Unlock achievement"/>
+    <s:TextInput id="achievement_id"/>
+    <s:Button id="btnUnlock" width="100%" label="Unlock achievement"/>
     <s:List id="achievements_list" dragEnabled="true" width="100%" height="100%">
         <s:itemRenderer>
             <fx:Component>

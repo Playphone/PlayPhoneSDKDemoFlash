@@ -10,9 +10,9 @@
     <s:Label>Type some text to save cloud storage</s:Label>
     <s:TextInput id="cookie_val" width="100%"/>
 
-    <s:Button id="upload" width="100%">Upload data</s:Button>
+    <s:Button id="btnUpload" width="100%">Upload data</s:Button>
 
     <s:Label>Put data key(integer value) here for download</s:Label>
     <s:TextInput id="dwcookie_key" width="100%"/>
-    <s:Button id="reload" width="100%">Reload data</s:Button>
+    <s:Button id="btnReload" width="100%">Reload data</s:Button>
 </hcode:Cloud>

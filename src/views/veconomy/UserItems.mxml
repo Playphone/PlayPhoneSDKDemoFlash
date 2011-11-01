@@ -6,7 +6,7 @@
           xmlns:hcode="hcode.veconomy.*"
           width="100%">
 
-    <s:TabBar id="tab_bar" width="100%">
+    <s:TabBar id="tabs" width="100%">
         <mx:ArrayCollection>
             <fx:String>User items</fx:String>
             <fx:String>Mange inventory</fx:String>
@@ -20,11 +20,11 @@
                     <s:states>
                         <s:State name="normal"/>
                         <s:State name="hovered"
-                                 enterState="state1_enterStateHandler(event)"
-                                 exitState="state1_exitStateHandler(event)"/>
+                                 enterState="selected_enterStateHandler(event)"
+                                 exitState="selected_exitStateHandler(event)"/>
                         <s:State name="selected"
-                                 enterState="state1_enterStateHandler(event)"
-                                 exitState="state1_exitStateHandler(event)"/>
+                                 enterState="selected_enterStateHandler(event)"
+                                 exitState="selected_exitStateHandler(event)"/>
                     </s:states>
                     <s:Rect height="50" width="100%">
                         <s:fill>
@@ -61,7 +61,7 @@
                             items_img.source = MNDirect.virtualItemsProvider.getVItemImageURL(value.id);
                         }
 
-                        private function state1_enterStateHandler(event: FlexEvent): void
+                        private function selected_enterStateHandler(event: FlexEvent): void
                         {
                             additional = new VItemRenderer();
                             addElement(additional);
@@ -69,7 +69,7 @@
                             additional.y = 50;
                         }
 
-                        private function state1_exitStateHandler(event: FlexEvent): void
+                        private function selected_exitStateHandler(event: FlexEvent): void
                         {
                             removeElement(additional);
                         }
@@ -82,12 +82,12 @@
     <s:VGroup id="manager_group" width="100%">
         <controls:DropDown id="items" width="100%"/>
         <s:HGroup width="100%">
-            <s:TextInput id="to_add" width="100%"/>
-            <s:Button id="add" width="100%">Add</s:Button>
+            <s:TextInput id="txtItemIdToAdd" width="100%"/>
+            <s:Button id="btnAdd" width="100%">Add</s:Button>
         </s:HGroup>
         <s:HGroup width="100%">
-            <s:TextInput id="to_remove" width="100%"/>
-            <s:Button id="remove" width="100%">Remove</s:Button>
+            <s:TextInput id="txtItemIdToRemove" width="100%"/>
+            <s:Button id="btnRemove" width="100%">Remove</s:Button>
         </s:HGroup>
     </s:VGroup>
     

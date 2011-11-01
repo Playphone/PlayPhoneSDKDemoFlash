@@ -5,7 +5,7 @@
               xmlns:hcode="hcode.veconomy.*"
               width="100%">
 
-    <s:TabBar id="tab_bar" width="100%">
+    <s:TabBar id="tabs" width="100%">
         <mx:ArrayCollection>
             <fx:String>Virtual items</fx:String>
             <fx:String>Virtual currencies</fx:String>

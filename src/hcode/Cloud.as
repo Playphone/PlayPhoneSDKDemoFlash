@@ -1,10 +1,3 @@
-/**
- * Created by IntelliJ IDEA.
- * User: AUsachov
- * Date: 11/1/11
- * Time: 1:12 PM
- * To change this template use File | Settings | File Templates.
- */
 package hcode
 {
     import flash.events.MouseEvent;
@@ -27,9 +20,9 @@ package hcode
     {
         public var cookie_key: TextInput;
         public var cookie_val: TextInput;
-        public var upload: Button;
+        public var btnUpload: Button;
         public var dwcookie_key: TextInput;
-        public var reload: Button;
+        public var btnReload: Button;
 
         public function Cloud()
         {
@@ -41,11 +34,11 @@ package hcode
         private function onCreationComplete(event: FlexEvent): void
         {
             this.removeEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
-            upload.addEventListener( MouseEvent.CLICK, button1_clickHandler );
-            reload.addEventListener( MouseEvent.CLICK, button2_clickHandler );
+            btnUpload.addEventListener( MouseEvent.CLICK, btnUpload_clickHandler );
+            btnReload.addEventListener( MouseEvent.CLICK, btnReload_clickHandler );
         }
 
-        private function button1_clickHandler(event: MouseEvent): void
+        private function btnUpload_clickHandler(event: MouseEvent): void
         {
             if (MNDirect.getSession() != null)
             {
@@ -113,7 +106,7 @@ package hcode
             PlayPhoneSDKDemoFlash.showMessage(this, "Cookie uploaded succsessfuly");
         }
 
-        private function button2_clickHandler(event: MouseEvent): void
+        private function btnReload_clickHandler(event: MouseEvent): void
         {
             if (MNDirect.getSession() != null)
             {

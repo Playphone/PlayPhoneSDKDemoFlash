@@ -20,7 +20,7 @@ package hcode
     public class Social extends VGroup
     {
         private var req_block: String;
-        public var get_it: Button;
+        public var btnGetIt: Button;
         public var list:List;
 
         public function Social()
@@ -32,10 +32,10 @@ package hcode
         private function onCreationComplete(event: FlexEvent): void
         {
             this.removeEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
-            get_it.addEventListener(MouseEvent.CLICK, button1_clickHandler);
+            btnGetIt.addEventListener(MouseEvent.CLICK, btnGetIt_clickHandler);
         }
 
-        private function button1_clickHandler(event: MouseEvent): void
+        private function btnGetIt_clickHandler(event: MouseEvent): void
         {
             var handler: MNWSRequestDefHandler = new MNWSRequestDefHandler();
             handler.addEventListener(MNWSDefHandlerEvent.onRequestComplete, onComplete);

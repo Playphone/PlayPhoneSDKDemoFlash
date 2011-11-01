@@ -26,17 +26,17 @@ package hcode.veconomy
     {
         private var isSessionReady: Boolean = false;
         private var updateFunctions: Vector.<Function>
-        private var currentStateIndex:int = -1;
-        private var tab_contens:Array;
+        private var currentStateIndex: int = -1;
+        private var tab_contens: Array;
 
         public var tabs: TabBar;
 
-        public var categories_list: List;
-        public var packs_list: List;
+        public var vShopCategories_list: List;
+        public var vShopPacks_list: List;
         public var buy_group: VGroup;
 
-        public var buy: Button;
-        public var vspacks: DropDown;
+        public var btnBuy: Button;
+        public var vShopPacks: DropDown;
 
         public function PPStore()
         {
@@ -55,8 +55,8 @@ package hcode.veconomy
 
             tab_contens = [];
             tab_contens.push(buy_group);
-            tab_contens.push(categories_list);
-            tab_contens.push(packs_list);
+            tab_contens.push(vShopCategories_list);
+            tab_contens.push(vShopPacks_list);
 
             if (MNDirect.getSession() == null)
             {
@@ -67,10 +67,10 @@ package hcode.veconomy
                 onSessionReady(null);
             }
 
-            tabs.addEventListener(IndexChangeEvent.CHANGE, tabBar1_changeHandler);
-            buy.addEventListener(MouseEvent.CLICK, button1_clickHandler);
+            tabs.addEventListener(IndexChangeEvent.CHANGE, tabs_changeHandler);
+            btnBuy.addEventListener(MouseEvent.CLICK, btnBuy_clickHandler);
 
-            showState(0);
+            showState(tabs.selectedIndex);
         }
 
         private function onSessionReady(event: MNDirectEvent): void
@@ -88,31 +88,31 @@ package hcode.veconomy
             else
             {
                 isSessionReady = true;
-                updateState(0);
+                updateState(tabs.selectedIndex);
             }
         }
 
         private function onInfoUpdated(event: Event): void
         {
             isSessionReady = true;
-            updateState(0);
+            updateState(tabs.selectedIndex);
         }
 
         private function showState(index: int): void
         {
-            if( currentStateIndex != -1 )
+            if (currentStateIndex != -1)
             {
-                removeElement( tab_contens[currentStateIndex] );
+                removeElement(tab_contens[currentStateIndex]);
             }
             else
             {
-                for( var i:int=0; i< tab_contens.length; i++ )
+                for (var i: int = 0; i < tab_contens.length; i++)
                 {
-                    removeElement( tab_contens[i] );
+                    removeElement(tab_contens[i]);
                 }
             }
             currentStateIndex = index;
-            addElement( tab_contens[index] );
+            addElement(tab_contens[index]);
         }
 
         private function updateState(state: int): void
@@ -131,22 +131,22 @@ package hcode.veconomy
             {
                 combo_items.push({label:pack.name + " ( " + "$" + (pack.priceValue / 100).toString() + ")", data:pack});
             }
-            vspacks.dataProvider = new ArrayList(combo_items);
-            vspacks.selectedIndex = 0;
+            vShopPacks.dataProvider = new ArrayList(combo_items);
+            vShopPacks.selectedIndex = 0;
         }
 
         private function updatePacksScreen(): void
         {
             var packs: Array = MNDirect.virtualShopProvider.getVShopPackList();
-            packs_list.dataProvider = new ArrayList(packs);
+            vShopPacks_list.dataProvider = new ArrayList(packs);
         }
 
         private function updateCategories(): void
         {
-            categories_list.dataProvider = new ArrayList(MNDirect.virtualShopProvider.getVShopCategoryList());
+            vShopCategories_list.dataProvider = new ArrayList(MNDirect.virtualShopProvider.getVShopCategoryList());
         }
 
-        private function tabBar1_changeHandler(event: IndexChangeEvent): void
+        private function tabs_changeHandler(event: IndexChangeEvent): void
         {
             if (isSessionReady)
             {
@@ -155,11 +155,11 @@ package hcode.veconomy
             }
         }
 
-        private function button1_clickHandler(event: MouseEvent): void
+        private function btnBuy_clickHandler(event: MouseEvent): void
         {
-            var obj: Object = vspacks.dataProvider.getItemAt(vspacks.selectedIndex);
+            var vShopPackItem: Object = vShopPacks.dataProvider.getItemAt(vShopPacks.selectedIndex);
 
-            MNDirect.virtualShopProvider.execCheckoutVShopPacks([obj.data.id], [1],
+            MNDirect.virtualShopProvider.execCheckoutVShopPacks([vShopPackItem.data.id], [1],
                                                                 MNDirect.virtualItemsProvider.getNewClientTransactionId());
         }
 

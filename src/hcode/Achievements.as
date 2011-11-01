@@ -19,8 +19,8 @@ package hcode
 
     public class Achievements extends VGroup
     {
-        public var ach_id: TextInput;
-        public var unlock: Button;
+        public var achievement_id: TextInput;
+        public var btnUnlock: Button;
         public var achievements_list: List;
 
         public function Achievements()
@@ -33,7 +33,7 @@ package hcode
         private function onCreationComplete(event: FlexEvent): void
         {
             this.removeEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
-            unlock.addEventListener(MouseEvent.CLICK, button1_clickHandler);
+            btnUnlock.addEventListener(MouseEvent.CLICK, btnUnlock_clickHandler);
         }
 
         private function initializeHandler(event: FlexEvent): void
@@ -77,9 +77,9 @@ package hcode
             fillAchievements();
         }
 
-        private function button1_clickHandler(event: MouseEvent): void
+        private function btnUnlock_clickHandler(event: MouseEvent): void
         {
-            MNDirect.achievementsProvider.unlockPlayerAchievement(int(ach_id.text));
+            MNDirect.achievementsProvider.unlockPlayerAchievement(int(achievement_id.text));
         }
     }
 }

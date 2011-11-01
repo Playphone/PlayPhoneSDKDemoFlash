@@ -66,7 +66,7 @@
                 listItems = new List();
                 addElement(listItems)
                 listItems.dragEnabled = false;
-                listItems.itemRenderer = new ClassFactory(DDRenderer);
+                listItems.itemRenderer = new ClassFactory(DropDownRenderer);
                 listItems.y = dropdown.height;
                 listItems.x = 0;
                 listItems.enabled = true;

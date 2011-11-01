@@ -17,17 +17,16 @@
         <s:State name="Leaderboards"/>
         <s:State name="Cloud"/>
         <s:State name="Userinfo"/>
-        <s:State name="Multinet"/>
         <s:State name="Social"/>
         <s:State name="AppInfo"/>
         <s:State name="Settings"/>
     </s:states>
 
     <s:Group
-            includeIn="Login, Dashboard, VEconomy, Achievements, DashboardControl, Leaderboards, Cloud, Userinfo, Multinet, Social, AppInfo, Settings"
+            includeIn="Login, Dashboard, VEconomy, Achievements, DashboardControl, Leaderboards, Cloud, Userinfo, Social, AppInfo, Settings"
             width="100%">
         <s:Button label="Go home" left="5" top="5"
-                  includeIn="Login, Dashboard, VEconomy, Achievements, DashboardControl, Leaderboards, Cloud, Userinfo, Multinet, Social, AppInfo, Settings"
+                  includeIn="Login, Dashboard, VEconomy, Achievements, DashboardControl, Leaderboards, Cloud, Userinfo, Social, AppInfo, Settings"
                   click="currentState='Home'">
         </s:Button>
     </s:Group>
@@ -70,7 +69,6 @@
                         <hcode:ViewObject caption="Leaderboards" stateName="Leaderboards"/>
                         <hcode:ViewObject caption="Cloud storage" stateName="Cloud"/>
                         <hcode:ViewObject caption="User info" stateName="Userinfo"/>
-                        <hcode:ViewObject caption="Multinet basics" stateName="Multinet"/>
                         <hcode:ViewObject caption="Social graph" stateName="Social"/>
                         <hcode:ViewObject caption="Application info" stateName="AppInfo"/>
                         <hcode:ViewObject caption="Settings info" stateName="Settings"/>
@@ -104,9 +102,6 @@
     <s:Panel includeIn="Userinfo" width="100%" height="100%" title="User info">
         <views:Userinfo/>
     </s:Panel>
-    <s:Panel includeIn="Multinet" width="100%" height="100%" title="Multinet basics">
-        <views:Multinet/>
-    </s:Panel>
     <s:Panel includeIn="Social" width="100%" height="100%" title="Social graph">
         <views:Social/>
     </s:Panel>
@@ -137,6 +132,12 @@
 
         import views.Popup
 
+        private static const GAME_ID: uint = 10900;
+        private static const GAME_SECRET_PART1: uint = 0xae2b10f2;
+        private static const GAME_SECRET_PART2: uint = 0x248f58d9;
+        private static const GAME_SECRET_PART3: uint = 0xc9654f24;
+        private static const GAME_SECRET_PART4: uint = 0x37960337;
+
         private function onIndexChange(event: IndexChangeEvent): void
         {
             var list: List = List(event.currentTarget);
@@ -161,16 +162,15 @@
         private function onStageAdd(event: Event): void
         {
             MNLog.isDebug = true;
-            MNDirect.init(10900, "ae2b10f2-248f58d9-c9654f24-37960337");
+            MNDirect.init(GAME_ID, MNDirect.makeGameSecretByComponents(GAME_SECRET_PART1,
+                                                                       GAME_SECRET_PART2,
+                                                                       GAME_SECRET_PART3,
+                                                                       GAME_SECRET_PART4));
             MNDirect.attachUI(new MNWebUIAirStarter(this.stage));
             MNDirectPopup.init(MNDirectPopup.MNDIRECTPOPUP_NEW_HI_SCORES | MNDirectPopup.MNDIRECTPOPUP_ACHIEVEMENTS |
                                MNDirectPopup.MNDIRECTPOPUP_WELCOME, this.stage);
             MNDirectButton.init(MNDirectButton.MNDIRECTBUTTON_TOPRIGHT, this.stage);
             MNDirectButton.visible = true;
-            //            MNDirect.addEventListener(MNDirectEvent.onDoStartGameWithParams, onStartGame);
-            //            MNDirect.addEventListener(MNDirectEvent.onErrorOccurred, onCancelGame);
-            //            MNDirect.addEventListener(MNDirectEvent.onDoCancelGame, onCancelGame);
-            //            MNDirect.addEventListener(MNDirectEvent.onDoFinishGame, onFinishGame);
             MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onDirectReady);
         }
 

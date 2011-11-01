@@ -4,8 +4,8 @@
                  xmlns:hcode="hcode.*"
                  paddingLeft="5" paddingTop="5" paddingRight="5" gap="5">
 
-    <s:Button id="show_button" width="100%" top="20">Show button</s:Button>
-    <s:Button id="hide_button" width="100%" top="20">Hide button</s:Button>
-    <s:Button id="show_dashboard" width="100%" top="20">Show dashboard</s:Button>
+    <s:Button id="btnShow" width="100%" top="20">Show button</s:Button>
+    <s:Button id="btnHide" width="100%" top="20">Hide button</s:Button>
+    <s:Button id="btnShowDashboard" width="100%" top="20">Show dashboard</s:Button>
 
 </hcode:Dashboard>

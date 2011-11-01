@@ -12,9 +12,9 @@ package hcode
 
     public class Dashboard extends VGroup
     {
-        public var show_button: Button;
-        public var hide_button: Button;
-        public var show_dashboard: Button;
+        public var btnShow: Button;
+        public var btnHide: Button;
+        public var btnShowDashboard: Button;
 
         public function Dashboard()
         {
@@ -24,22 +24,22 @@ package hcode
         private function onCreationComplete(event: FlexEvent): void
         {
             this.removeEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
-            show_button.addEventListener(MouseEvent.CLICK, show_button_clickHandler);
-            show_dashboard.addEventListener(MouseEvent.CLICK, show_dashboard_clickHandler);
-            hide_button.addEventListener(MouseEvent.CLICK, hide_button_clickHandler);
+            btnShow.addEventListener(MouseEvent.CLICK, btnShow_clickHandler);
+            btnShowDashboard.addEventListener(MouseEvent.CLICK, btnShowDashboard_clickHandler);
+            btnHide.addEventListener(MouseEvent.CLICK, btnHide_clickHandler);
         }
 
-        private function show_dashboard_clickHandler(event: MouseEvent): void
+        private function btnShowDashboard_clickHandler(event: MouseEvent): void
         {
             MNDirectHelper.showDashboard();
         }
 
-        private function hide_button_clickHandler(event: MouseEvent): void
+        private function btnHide_clickHandler(event: MouseEvent): void
         {
             MNDirectButton.visible = false;
         }
 
-        private function show_button_clickHandler(event: MouseEvent): void
+        private function btnShow_clickHandler(event: MouseEvent): void
         {
             MNDirectButton.visible = true;
         }

@@ -5,7 +5,7 @@
           width="100%"
           paddingLeft="5" paddingTop="5" paddingRight="5" gap="5"
         >
-    <s:Button id="get_it" width="100%">Get it!</s:Button>
+    <s:Button id="btnGetIt" width="100%">Get it!</s:Button>
     <s:List id="list" dragEnabled="true" width="100%" height="100%">
         <s:itemRenderer>
             <fx:Component>

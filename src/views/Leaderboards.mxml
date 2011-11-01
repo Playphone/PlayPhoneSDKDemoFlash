@@ -22,8 +22,8 @@
                         </s:stroke>
                     </s:Rect>
                     <s:HGroup>
-                        <s:Label id="user_name" verticalAlign="middle" height="50"/>
-                        <s:Label id="user_score" verticalAlign="middle" height="50"/>
+                        <s:Label paddingLeft="5" id="user_name" verticalAlign="middle" height="50"/>
+                        <s:Label paddingLeft="5" id="user_score" verticalAlign="middle" height="50"/>
                     </s:HGroup>
 
                     <fx:Script><![CDATA[

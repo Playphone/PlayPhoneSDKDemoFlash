@@ -28,7 +28,7 @@ package hcode.veconomy
         public var currencies_list:List;
         public var items_list:List;
 
-        public var tab_bar:TabBar;
+        public var tabs:TabBar;
 
         public function VItems()
         {
@@ -56,8 +56,8 @@ package hcode.veconomy
                 onSessionReady(null);
             }
 
-            tab_bar.addEventListener( IndexChangeEvent.CHANGE, tabBar1_changeHandler );
-            showState(0);
+            tabs.addEventListener( IndexChangeEvent.CHANGE, tabs_changeHandler );
+            showState(tabs.selectedIndex);
         }
 
         private function showState(index: int): void
@@ -118,7 +118,7 @@ package hcode.veconomy
 
         }
 
-        private function tabBar1_changeHandler(event: IndexChangeEvent): void
+        private function tabs_changeHandler(event: IndexChangeEvent): void
         {
             if (isSessionReady)
             {
@@ -137,14 +137,14 @@ package hcode.veconomy
             else
             {
                 isSessionReady = true;
-                updateState(0);
+                updateState(tabs.selectedIndex);
             }
         }
 
         private function onInfoUpdated(event: Event): void
         {
             isSessionReady = true;
-            updateState(0);
+            updateState(tabs.selectedIndex);
         }
     }
 }

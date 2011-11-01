@@ -1,10 +1,3 @@
-/**
- * Created by IntelliJ IDEA.
- * User: AUsachov
- * Date: 11/1/11
- * Time: 1:27 PM
- * To change this template use File | Settings | File Templates.
- */
 package hcode
 {
     import flash.events.Event;

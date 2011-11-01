@@ -40,10 +40,10 @@ package hcode
         private function onCreationComplete(event: FlexEvent): void
         {
             this.removeEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
-            load.addEventListener(MouseEvent.CLICK, clickHandler);
+            load.addEventListener(MouseEvent.CLICK, load_clickHandler);
         }
 
-        private function clickHandler(event: MouseEvent): void
+        private function load_clickHandler(event: MouseEvent): void
         {
             var selectedItem: Object = settings.dataProvider.getItemAt(settings.selectedIndex);
             MNDirect.setDefaultGameSetId(selectedItem.data.id);
@@ -115,20 +115,20 @@ package hcode
         private function onSettingsReady(event: MNPluginEvent): void
         {
             var packs: Array = MNDirect.gameSettingsProvider.getGameSettingsList();
-            var combo_items: Array = [];
+            var setting_items: Array = [];
             for each(var pack: Object in packs)
             {
                 if (pack.name != null)
                 {
-                    combo_items.push({label:pack.name, data:pack});
+                    setting_items.push({label:pack.name, data:pack});
                 }
                 else
                 {
-                    combo_items.push({label:"Default", data:pack});
+                    setting_items.push({label:"Default", data:pack});
                 }
             }
 
-            settings.dataProvider = new ArrayList(combo_items);
+            settings.dataProvider = new ArrayList(setting_items);
             settings.selectedIndex = 0;
         }
     }
