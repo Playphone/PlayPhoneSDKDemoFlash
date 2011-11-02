@@ -3,7 +3,8 @@
               xmlns:s="library://ns.adobe.com/flex/spark"
               xmlns:mx="library://ns.adobe.com/flex/mx"
               xmlns:hcode="hcode.veconomy.*"
-              width="100%">
+              width="100%"
+              height="100%">
 
     <s:TabBar id="tabs" width="100%">
         <mx:ArrayCollection>

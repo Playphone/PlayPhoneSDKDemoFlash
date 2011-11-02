@@ -4,7 +4,8 @@
           xmlns:mx="library://ns.adobe.com/flex/mx"
           xmlns:controls="views.controls.*"
           xmlns:hcode="hcode.veconomy.*"
-          width="100%">
+          width="100%"
+          height="100%">
 
     <s:TabBar id="tabs" width="100%">
         <mx:ArrayCollection>
@@ -90,5 +91,4 @@
             <s:Button id="btnRemove" width="100%">Remove</s:Button>
         </s:HGroup>
     </s:VGroup>
-    
 </hcode:UserItems>
