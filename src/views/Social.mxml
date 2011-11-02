@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <hcode:Social xmlns:fx="http://ns.adobe.com/mxml/2009"
-          xmlns:s="library://ns.adobe.com/flex/spark"
-          xmlns:hcode="hcode.*"
-          width="100%"
-          paddingLeft="5" paddingTop="5" paddingRight="5" gap="5"
+              xmlns:s="library://ns.adobe.com/flex/spark"
+              xmlns:hcode="hcode.*"
+              width="100%"
+              paddingLeft="5" paddingBottom="5" paddingRight="5" paddingTop="5" gap="5"
         >
     <s:Button id="btnGetIt" width="100%">Get it!</s:Button>
     <s:List id="list" dragEnabled="true" width="100%" height="100%">

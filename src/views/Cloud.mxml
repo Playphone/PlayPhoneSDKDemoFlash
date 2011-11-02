@@ -3,7 +3,7 @@
              xmlns:s="library://ns.adobe.com/flex/spark"
              xmlns:hcode="hcode.*"
              width="100%"
-             paddingLeft="5" paddingTop="5" paddingRight="5" gap="5">
+             paddingLeft="5" paddingBottom="5" paddingRight="5" paddingTop="5" gap="5">
     <s:Label>Put data key(integer value) here</s:Label>
     <s:TextInput id="cookie_key" width="100%"/>
 

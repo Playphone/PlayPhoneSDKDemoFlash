@@ -3,8 +3,8 @@
                     xmlns:s="library://ns.adobe.com/flex/spark"
                     xmlns:hcode="hcode.*"
                     width="100%"
-                    paddingLeft="5" paddingTop="5" paddingRight="5" gap="5">
-    <s:TextInput id="achievement_id"/>
+                    paddingLeft="5" paddingBottom="5" paddingRight="5" paddingTop="5" gap="5">
+    <s:TextInput id="achievement_id" width="100%"/>
     <s:Button id="btnUnlock" width="100%" label="Unlock achievement"/>
     <s:List id="achievements_list" dragEnabled="true" width="100%" height="100%">
         <s:itemRenderer>
