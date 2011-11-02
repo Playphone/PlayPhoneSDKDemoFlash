@@ -2,12 +2,12 @@
 <s:TitleWindow xmlns:s="library://ns.adobe.com/flex/spark"
                xmlns:fx="http://ns.adobe.com/mxml/2009"
                width="60%">
-    <s:layout>
-        <s:VerticalLayout/>
-    </s:layout>
-    <s:Label id="mesage" textAlign="center" width="90%"/>
-    <s:Button width="40%" click="PopUpManager.removePopUp(this);">Ok</s:Button>
+    <s:VGroup paddingLeft="5" paddingBottom="5" paddingRight="5" paddingTop="5" horizontalAlign="center">
+        <s:Label id="mesage" textAlign="center" width="90%"/>
+        <s:Button width="40%" click="PopUpManager.removePopUp(this);">Ok</s:Button>
+    </s:VGroup>
     <fx:Script><![CDATA[
         import mx.managers.PopUpManager
         ]]></fx:Script>
+
 </s:TitleWindow>
