@@ -107,15 +107,12 @@
     <s:Panel includeIn="Social" width="100%" height="100%" title="Social graph">
         <views:Social/>
     </s:Panel>
-
     <s:Panel includeIn="RoomCookies" width="100%" height="100%" title="Room cookies">
         <views:RoomCookies/>
     </s:Panel>
-
     <s:Panel includeIn="AppInfo" width="100%" height="100%" title="Application info">
         <views:AppInfo/>
     </s:Panel>
-
     <s:Panel includeIn="Settings" width="100%" height="100%" title="Settings info">
         <views:Settings/>
     </s:Panel>

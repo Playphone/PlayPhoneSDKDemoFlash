@@ -24,6 +24,7 @@ package hcode
 
         private function initializeHandler(event: FlexEvent): void
         {
+            this.removeEventListener(FlexEvent.INITIALIZE, initializeHandler);
             if (MNDirect.getSession() != null)
             {
                 onSessionReady(null);

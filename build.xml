@@ -8,7 +8,7 @@
 
         <delete dir="${out}"/>
 
-        <mxmlc file="${src}/CrossDemoFlash.mxml"
+        <mxmlc file="${src}/PlayPhoneSDKDemoFlash.mxml"
                output="${out}/${SWFName}"
                debug="true"
                optimize="false"
