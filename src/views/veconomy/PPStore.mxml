@@ -7,11 +7,11 @@
                width="100%"
                height="100%">
 
-    <s:TabBar id="tabs" width="100%" height="50">
+    <s:TabBar id="tabs" width="100%" height="55">
         <mx:ArrayCollection>
-            <fx:String>Buy vshop packs</fx:String>
-            <fx:String>VShop categories</fx:String>
-            <fx:String>VShop packs</fx:String>
+            <fx:String>Buy packs</fx:String>
+            <fx:String>Categories</fx:String>
+            <fx:String>Packs</fx:String>
         </mx:ArrayCollection>
     </s:TabBar>
 
@@ -37,6 +37,11 @@
 
                         override public function set data(value: Object): void
                         {
+                            if( value == null )
+                            {
+                                return;
+                            }
+
                             cat_id.text = value.id;
                             cat_name.text = value.name;
                         }
@@ -67,6 +72,11 @@
 
                         override public function set data(value: Object): void
                         {
+                            if( value == null )
+                            {
+                                return;
+                            }
+
                             pack_img.source = MNDirect.virtualShopProvider.getVShopPackImageURL(value.id);
                             pack_id.text = value.id;
                             pack_name.text = value.name;
@@ -86,11 +96,8 @@
         </s:itemRenderer>
     </s:List>
 
-    <s:VGroup id="buy_group"  width="100%">
-        <s:HGroup width="100%">
-            <s:Label>VShop packs</s:Label>
-            <controls:DropDown id="vShopPacks" width="100%"/>
-        </s:HGroup>
+    <s:VGroup horizontalAlign="left" id="buy_group" width="100%" verticalAlign="bottom">
+        <controls:DropDown id="vShopPacks" label="Choose VShop pack" width="100%"/>
         <s:Button id="btnBuy" width="100%">BUY!</s:Button>
     </s:VGroup>
 

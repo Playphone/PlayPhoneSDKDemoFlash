@@ -6,7 +6,7 @@
               width="100%"
               height="100%">
 
-    <s:TabBar id="tabs" width="100%">
+    <s:TabBar id="tabs" width="100%" height="55">
         <mx:ArrayCollection>
             <fx:String>Virtual items</fx:String>
             <fx:String>Virtual currencies</fx:String>
@@ -52,6 +52,11 @@
 
                         override public function set data(value: Object): void
                         {
+                            if( value == null )
+                            {
+                                return;
+                            }
+
                             user_data = value;
                             item_img.source = MNDirect.virtualItemsProvider.getVItemImageURL(value.id);
                             item_id.text = value.id;
@@ -115,6 +120,11 @@
 
                         override public function set data(value: Object): void
                         {
+                            if( value == null )
+                            {
+                                return;
+                            }
+
                             user_data = value;
                             curr_item_img.source = MNDirect.virtualItemsProvider.getVItemImageURL(value.id);
                             cur_id.text = value.id;

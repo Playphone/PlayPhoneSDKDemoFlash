@@ -62,18 +62,18 @@
                 </s:itemRenderer>
                 <s:dataProvider>
                     <s:ArrayList>
-                        <hcode:ViewObject caption="Login" stateName="Login"/>
+                        <hcode:ViewObject caption="Login user" stateName="Login"/>
                         <hcode:ViewObject caption="Dashboard" stateName="Dashboard"/>
                         <hcode:ViewObject caption="Virtual economy" stateName="VEconomy"/>
-                        <hcode:ViewObject caption="Achievements" stateName="Achievements"/>
-                        <hcode:ViewObject caption="Dashboard control" stateName="DashboardControl"/>
+                        <hcode:ViewObject caption="Current user info" stateName="Userinfo"/>
+                        <hcode:ViewObject caption="Settings info" stateName="Settings"/>
                         <hcode:ViewObject caption="Leaderboards" stateName="Leaderboards"/>
-                        <hcode:ViewObject caption="Cloud storage" stateName="Cloud"/>
-                        <hcode:ViewObject caption="User info" stateName="Userinfo"/>
+                        <hcode:ViewObject caption="Achievements" stateName="Achievements"/>
                         <hcode:ViewObject caption="Social graph" stateName="Social"/>
+                        <hcode:ViewObject caption="Dashboard control" stateName="DashboardControl"/>
+                        <hcode:ViewObject caption="Cloud storage" stateName="Cloud"/>
                         <hcode:ViewObject caption="Room cookies" stateName="RoomCookies"/>
                         <hcode:ViewObject caption="Application info" stateName="AppInfo"/>
-                        <hcode:ViewObject caption="Settings info" stateName="Settings"/>
                     </s:ArrayList>
                 </s:dataProvider>
             </s:List>
@@ -123,6 +123,7 @@
         import com.playphone.multinet.core.MNSession
         import com.playphone.multinet.core.MNSessionEvent
         import com.playphone.multinet.ui.MNWebUIAirStarter
+        import com.playphone.multinet.ui.MNWebUIStarter;
         import com.playphone.multinet.ui.common.MNDirectButton
         import com.playphone.multinet.ui.common.MNDirectPopup
         import com.playphone.multinet.utils.MNLog

@@ -3,6 +3,7 @@
               xmlns:s="library://ns.adobe.com/flex/spark"
               xmlns:hcode="hcode.*"
               width="100%"
+              height="100%"
               paddingLeft="5" paddingBottom="5" paddingRight="5" paddingTop="5" gap="5"
         >
     <s:Button id="btnGetIt" width="100%">Get it!</s:Button>
@@ -19,7 +20,7 @@
                                  enterState="selected_enterStateHandler(event)"
                                  exitState="selected_exitStateHandler(event)"/>
                     </s:states>
-                    <s:Rect height="50" width="100%">
+                    <s:Rect height="60" width="100%">
                         <s:fill>
                             <s:SolidColor color="0x999999" alpha="0"/>
                         </s:fill>
@@ -27,8 +28,8 @@
                             <s:SolidColorStroke color="0xcccccc" weight="1"/>
                         </s:stroke>
                     </s:Rect>
-                    <s:HGroup height="50" verticalAlign="middle">
-                        <s:Image id="user_avatar" height="50"/>
+                    <s:HGroup height="60" verticalAlign="middle">
+                        <s:Image id="user_avatar" height="55"/>
                         <s:VGroup verticalAlign="middle">
                             <s:Label id="user_name" verticalAlign="top"/>
                             <s:Label id="user_online" verticalAlign="bottom"/>
@@ -47,6 +48,11 @@
 
                         override public function set data(value: Object): void
                         {
+                            if( value == null )
+                            {
+                                return;
+                            }
+
                             user_data = value;
                             var friend: MNWSBuddyListItem = value as MNWSBuddyListItem;
                             user_name.text = friend.friend_user_nick_name;
@@ -58,7 +64,7 @@
                         {
                             additional = new FriendRenderer();
                             addElement(additional);
-                            additional.y = 50;
+                            additional.y = 62;
                             additional.data = user_data;
                         }
 

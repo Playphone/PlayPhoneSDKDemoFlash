@@ -31,6 +31,11 @@
 
                         override public function set data(value: Object): void
                         {
+                            if( value == null )
+                            {
+                                return;
+                            }
+
                             var data: MNWSLeaderboardListItem = value as MNWSLeaderboardListItem;
                             user_name.text = data.user_nick_name;
                             user_score.text = data.out_hi_score.toString();

@@ -7,14 +7,14 @@
 
     <s:VGroup>
         <s:Label fontWeight="bold">SDK version</s:Label>
-        <s:Label id="version"/>
+        <s:Label id="version" width="100%"/>
         <s:Label fontWeight="bold">Multinet plist url</s:Label>
-        <s:Label id="plist_url"/>
+        <s:Label id="plist_url" width="100%"/>
         <s:Label fontWeight="bold">Web server url</s:Label>
-        <s:Label id="web_url"/>
+        <s:Label id="web_url" width="100%"/>
         <s:Label fontWeight="bold">Smartfox (url:port)</s:Label>
-        <s:Label id="sf_url"/>
+        <s:Label id="sf_url" width="100%"/>
         <s:Label fontWeight="bold">Swf creation date:</s:Label>
-        <s:Label id="swf_metadata"/>
+        <s:Label id="swf_metadata" width="100%"/>
     </s:VGroup>
 </hcode:AppInfo>

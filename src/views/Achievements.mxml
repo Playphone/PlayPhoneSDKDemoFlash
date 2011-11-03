@@ -26,6 +26,10 @@
                     <fx:Script><![CDATA[
                         override public function set data(value: Object): void
                         {
+                            if( value == null )
+                            {
+                                return;
+                            }
                             achievement_id.text = value.id;
                             achievement_name.text = value.name;
                         }

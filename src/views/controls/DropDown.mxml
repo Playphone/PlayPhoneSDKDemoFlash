@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
           xmlns:s="library://ns.adobe.com/flex/spark">
-    <s:Button id="dropdown" width="100%" click="button1_clickHandler(event)">Choose item</s:Button>
+    <s:Button id="dropdown" width="100%" icon="{ICON}" iconPlacement="right" click="button1_clickHandler(event)">Choose item</s:Button>
 
     <fx:Script><![CDATA[
         import mx.collections.ArrayList
@@ -13,13 +13,22 @@
         private var data: ArrayList;
         private var index: int = 0;
 
+        [Embed("../../../res/dropdown.png")]
+        protected const ICON: Class;
+
+        protected function init(): void
+        {
+            dropdown.setStyle("icon", "assets/ErrorIndicator.png");
+            dropdown.setStyle("icon", ICON);
+        }
+
         public function set dataProvider(val: ArrayList): void
         {
             data = val;
             if (listItems != null && val != null)
             {
                 listItems.dataProvider = val;
-                if( val.length > 3 )
+                if (val.length > 3)
                 {
                     listItems.height = 50 * 3.5;
                 }
@@ -65,6 +74,15 @@
             }
         }
 
+        public function set label(value: String): void
+        {
+            dropdown.label = value;
+        }
+
+        public function get label(): String
+        {
+            return dropdown.label;
+        }
 
         private function button1_clickHandler(event: MouseEvent): void
         {

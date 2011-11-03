@@ -7,7 +7,7 @@
           width="100%"
           height="100%">
 
-    <s:TabBar id="tabs" width="100%">
+    <s:TabBar id="tabs" width="100%" height="55">
         <mx:ArrayCollection>
             <fx:String>User items</fx:String>
             <fx:String>Mange inventory</fx:String>
@@ -54,6 +54,11 @@
 
                         override public function set data(value: Object): void
                         {
+                            if( value == null )
+                            {
+                                return;
+                            }
+
                             var item: Object = MNDirect.virtualItemsProvider.findGameVItemById(value.id);
                             user_data = item;
                             item_id.text = value.id;

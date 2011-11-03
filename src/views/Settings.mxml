@@ -39,6 +39,11 @@
 
                         override public function set data(value: Object): void
                         {
+                            if( value == null )
+                            {
+                                return;
+                            }
+
                             user_data = value;
                             if (value.name != null)
                             {
