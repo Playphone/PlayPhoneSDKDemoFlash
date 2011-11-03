@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4207cd95-cc22-4d63-8577-ddcbbbcadb54" name="Default" comment="another few useless changes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/dropdown.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iml" afterPath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iml" />
+    <list default="true" id="4207cd95-cc22-4d63-8577-ddcbbbcadb54" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hcode/FullLeaderboards.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/FullLeaderboards.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iws" afterPath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml" afterPath="$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Achievements.mxml" afterPath="$PROJECT_DIR$/src/views/Achievements.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/AppInfo.mxml" afterPath="$PROJECT_DIR$/src/views/AppInfo.mxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/Leaderboards.as" afterPath="$PROJECT_DIR$/src/hcode/Leaderboards.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Cloud.mxml" afterPath="$PROJECT_DIR$/src/views/Cloud.mxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Leaderboards.mxml" afterPath="$PROJECT_DIR$/src/views/Leaderboards.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Settings.mxml" afterPath="$PROJECT_DIR$/src/views/Settings.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Social.mxml" afterPath="$PROJECT_DIR$/src/views/Social.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/controls/DropDown.mxml" afterPath="$PROJECT_DIR$/src/views/controls/DropDown.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/veconomy/PPStore.mxml" afterPath="$PROJECT_DIR$/src/views/veconomy/PPStore.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/veconomy/UserItems.mxml" afterPath="$PROJECT_DIR$/src/views/veconomy/UserItems.mxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/veconomy/VItems.mxml" afterPath="$PROJECT_DIR$/src/views/veconomy/VItems.mxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/RoomCookies.mxml" afterPath="$PROJECT_DIR$/src/views/RoomCookies.mxml" />
     </list>
     <ignored path="PlayPhoneSDKDemoFlash.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,8 +75,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="field_breakpoints_viewId" value="TABLE" />
+      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -90,146 +85,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PlayPhoneSDKDemoFlash.mxml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml">
+      <file leaf-file-name="Leaderboards.as" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/hcode/Leaderboards.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="90" selection-start="3996" selection-end="3996" vertical-scroll-proportion="0.5929648">
-              <folding>
-                <marker date="1320318020309" expanded="true" signature="223:247" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="223:247" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="1260:1279" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="1260:1279" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="1519:1539" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="1519:1539" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="2587:2688" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="2587:2688" placeholder="{...}" />
-                <marker date="1320318020309" expanded="false" signature="5676:6345" placeholder="..." />
-                <marker date="1320318020309" expanded="true" signature="5676:6345" placeholder="..." />
-                <marker date="1320318020309" expanded="true" signature="6746:7028" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="6746:7028" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="7127:7303" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="7127:7303" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="7380:7455" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="7380:7455" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="7521:8411" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="7521:8411" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="8488:8589" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="8488:8589" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="8661:8782" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="8661:8782" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="8707:8772" placeholder="{...}" />
-                <marker date="1320318020309" expanded="true" signature="8707:8772" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Social.mxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/Social.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="66" selection-start="1766" selection-end="1766" vertical-scroll-proportion="-10.0">
-              <folding>
-                <marker date="1320317695931" expanded="true" signature="711:744" placeholder="{...}" />
-                <marker date="1320317695931" expanded="true" signature="790:822" placeholder="{...}" />
-                <marker date="1320317695931" expanded="true" signature="920:953" placeholder="{...}" />
-                <marker date="1320317695931" expanded="true" signature="999:1031" placeholder="{...}" />
-                <marker date="1320317695931" expanded="false" signature="1920:2086" placeholder="..." />
-                <marker date="1320317695931" expanded="true" signature="2311:2878" placeholder="{...}" />
-                <marker date="1320317695931" expanded="true" signature="2389:2460" placeholder="{...}" />
-                <marker date="1320317695931" expanded="true" signature="2996:3242" placeholder="{...}" />
-                <marker date="1320317695931" expanded="true" signature="3359:3441" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PPStore.mxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/veconomy/PPStore.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="13" selection-start="4003" selection-end="4003" vertical-scroll-proportion="-17.074074">
-              <folding>
-                <marker date="1320315667625" expanded="true" signature="1580:1864" placeholder="{...}" />
-                <marker date="1320315667625" expanded="true" signature="1658:1729" placeholder="{...}" />
-                <marker date="1320315667625" expanded="true" signature="2991:3464" placeholder="{...}" />
-                <marker date="1320315667625" expanded="true" signature="3069:3140" placeholder="{...}" />
-                <marker date="1320315667625" expanded="true" signature="3566:3861" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DropDown.mxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/controls/DropDown.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="614" selection-end="614" vertical-scroll-proportion="-9.333333">
-              <folding>
-                <marker date="1320317155757" expanded="true" signature="212:239" placeholder="{...}" />
-                <marker date="1320317155757" expanded="false" signature="305:412" placeholder="..." />
-                <marker date="1320317155757" expanded="true" signature="305:412" placeholder="..." />
-                <marker date="1320317155757" expanded="true" signature="663:787" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="860:1253" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="1317:1523" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="1366:1439" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="1469:1513" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="1582:1784" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="1631:1699" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="1729:1774" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="1852:2107" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="1926:2097" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="2172:2219" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="2273:2319" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="2400:3263" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="2449:3046" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="3076:3253" placeholder="{...}" />
-                <marker date="1320317155757" expanded="true" signature="3349:3619" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserItems.mxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/veconomy/UserItems.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="48" selection-start="368" selection-end="368" vertical-scroll-proportion="-6.0">
-              <folding>
-                <marker date="1320315538043" expanded="true" signature="881:914" placeholder="{...}" />
-                <marker date="1320315538043" expanded="true" signature="960:992" placeholder="{...}" />
-                <marker date="1320315538043" expanded="true" signature="1090:1123" placeholder="{...}" />
-                <marker date="1320315538043" expanded="true" signature="1169:1201" placeholder="{...}" />
-                <marker date="1320315538043" expanded="false" signature="2069:2213" placeholder="..." />
-                <marker date="1320315538043" expanded="true" signature="2437:3038" placeholder="{...}" />
-                <marker date="1320315538043" expanded="true" signature="2515:2586" placeholder="{...}" />
-                <marker date="1320315538043" expanded="true" signature="3156:3401" placeholder="{...}" />
-                <marker date="1320315538043" expanded="true" signature="3518:3600" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VItems.mxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/veconomy/VItems.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="37" selection-start="330" selection-end="330" vertical-scroll-proportion="-5.3333335">
-              <folding>
-                <marker date="1320315545471" expanded="true" signature="855:886" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="932:962" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="1060:1091" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="1137:1167" placeholder="{...}" />
-                <marker date="1320315545471" expanded="false" signature="1948:2092" placeholder="..." />
-                <marker date="1320315545471" expanded="true" signature="2316:2753" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="2394:2465" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="2869:3114" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="3229:3311" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="3793:3824" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="3870:3900" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="3998:4029" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="4075:4105" placeholder="{...}" />
-                <marker date="1320315545471" expanded="false" signature="4889:5033" placeholder="..." />
-                <marker date="1320315545471" expanded="true" signature="5257:5697" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="5335:5406" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="5813:6058" placeholder="{...}" />
-                <marker date="1320315545471" expanded="true" signature="6173:6255" placeholder="{...}" />
-              </folding>
+            <state line="80" column="0" selection-start="2775" selection-end="2775" vertical-scroll-proportion="0.024930747">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -253,22 +113,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/views/Userinfo.mxml" />
-        <option value="$PROJECT_DIR$/src/views/Login.mxml" />
-        <option value="$PROJECT_DIR$/src/views/DashboardControl.mxml" />
-        <option value="$PROJECT_DIR$/src/views/Dashboard.mxml" />
-        <option value="$PROJECT_DIR$/src/views/Cloud.mxml" />
-        <option value="$PROJECT_DIR$/src/views/RoomCookies.mxml" />
         <option value="$PROJECT_DIR$/src/views/AppInfo.mxml" />
         <option value="$PROJECT_DIR$/src/views/Achievements.mxml" />
-        <option value="$PROJECT_DIR$/src/views/Leaderboards.mxml" />
         <option value="$PROJECT_DIR$/src/views/Settings.mxml" />
         <option value="$PROJECT_DIR$/src/views/veconomy/UserItems.mxml" />
         <option value="$PROJECT_DIR$/src/views/veconomy/VItems.mxml" />
         <option value="$PROJECT_DIR$/src/views/veconomy/PPStore.mxml" />
         <option value="$PROJECT_DIR$/src/views/controls/DropDown.mxml" />
         <option value="$PROJECT_DIR$/src/views/Social.mxml" />
+        <option value="$PROJECT_DIR$/src/hcode/veconomy/FullLeaderboards.as" />
+        <option value="$PROJECT_DIR$/src/views/Leaderboards.mxml" />
+        <option value="$PROJECT_DIR$/src/views/FullLeaderboards.mxml" />
+        <option value="$PROJECT_DIR$/src/hcode/Leaderboards.as" />
+        <option value="$PROJECT_DIR$/src/views/Cloud.mxml" />
+        <option value="$PROJECT_DIR$/src/views/RoomCookies.mxml" />
         <option value="$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml" />
+        <option value="$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/playphone/multinet/core/ws/MNWSRequestSender.as" />
       </list>
     </option>
   </component>
@@ -533,25 +393,25 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="184" />
-    <property name="project.structure.proportion" value="0.15" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="199" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="recentsLimit" value="5" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="202" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="206" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="774" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="779" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="774" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="199" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="193" />
     <property name="GoToClass.includeJavaFiles" value="false" />
@@ -566,13 +426,13 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.searchVisible" value="true" />
   </component>
-  <component name="RunManager" selected="AIR Mobile.device">
+  <component name="RunManager" selected="AIR Mobile.emul">
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -585,13 +445,6 @@
       </method>
     </configuration>
     <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" adl_options="" air_descriptor_path="" air_program_params="" air_publisher_id="" air_root_dir_path="" air_run_mode="AppDescriptor" browser_family="FIREFOX" class_name="" debugger_sdk="Module SDK" html_or_swf_file_path="" launcher_type="OSDefault" main_class_name="" method_name="" module_name="" output_log_level="" package_name="" player_path="FlashPlayer.exe" port="0" run_mode="HtmlOrSwfFile" run_trusted="false" scope="Class" socket_policy_port="0" url_to_launch="http://">
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="FlexRunConfigurationType" factoryName="Flex" browser_family="FIREFOX" debugger_sdk="Module SDK" html_or_swf_file_path="" launcher_type="OSDefault" main_class_name="" module_name="" player_path="FlashPlayer.exe" run_mode="HtmlOrSwfFile" run_trusted="false" url_to_launch="http://">
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -615,18 +468,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
+    <configuration default="true" type="FlexRunConfigurationType" factoryName="Flex" browser_family="FIREFOX" debugger_sdk="Module SDK" html_or_swf_file_path="" launcher_type="OSDefault" main_class_name="" module_name="" player_path="FlashPlayer.exe" run_mode="HtmlOrSwfFile" run_trusted="false" url_to_launch="http://">
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -648,6 +490,24 @@
       <option name="screenHeight" value="0" />
       <option name="screenWidth" value="0" />
       <option name="usbDebugPort" value="7936" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -752,7 +612,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-5" y="-5" width="1450" height="870" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36448598" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.56608814" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -762,8 +622,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15974212" sideWeight="0.635514" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17120343" sideWeight="0.635514" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19627507" sideWeight="0.6208278" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37917224" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1991404" sideWeight="0.635514" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37917224" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977304" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.71028036" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -798,7 +658,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="paddings changed a bit" />
+    <option name="LAST_COMMIT_MESSAGE" value="another few useless changes" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -827,9 +687,25 @@
     <MESSAGE value="fixed problems with max height of veconimy list's" />
     <MESSAGE value="changed popup button aligment" />
     <MESSAGE value="paddings changed a bit" />
+    <MESSAGE value="another few useless changes" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/src/hcode/Leaderboards.as</url>
+          <line>75</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/src/hcode/Leaderboards.as</url>
+          <line>83</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/playphone/multinet/providers/MNVShopProvider.as</url>
+          <line>327</line>
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -848,208 +724,151 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/views/Login.mxml">
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/playphone/multinet/core/ws/MNWSRequest.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="79" selection-start="247" selection-end="247" vertical-scroll-proportion="-2.6666667" />
+        <state line="50" column="43" selection-start="1688" selection-end="1688" vertical-scroll-proportion="0.02538787">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/DashboardControl.mxml">
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/playphone/multinet/core/ws/MNWSDefHandlerEvent.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="90" selection-start="328" selection-end="328" vertical-scroll-proportion="-3.3333333" />
+        <state line="4" column="17" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Dashboard.mxml">
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/playphone/multinet/core/ws/MNWSRequestDefHandler.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="83" selection-start="263" selection-end="263" vertical-scroll-proportion="-2.6666667" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Cloud.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="79" selection-start="273" selection-end="273" vertical-scroll-proportion="-3.3333333" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Multinet.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="17" column="0" selection-start="496" selection-end="496" vertical-scroll-proportion="0.4238227">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/RoomCookies.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="68" selection-start="670" selection-end="670" vertical-scroll-proportion="0.64122134" />
+        <state line="16" column="24" selection-start="791" selection-end="791" vertical-scroll-proportion="0.7007299">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/AppInfo.mxml">
+    <entry file="file://$PROJECT_DIR$/src/views/Cloud.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="42" selection-start="544" selection-end="544" vertical-scroll-proportion="0.52554744" />
+        <state line="6" column="25" selection-start="307" selection-end="307" vertical-scroll-proportion="0.26277372">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Achievements.mxml">
+    <entry file="file://$PROJECT_DIR$/src/views/FullLeaderboards.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1418" selection-end="1566" vertical-scroll-proportion="0.5612472">
+        <state line="57" column="13" selection-start="1985" selection-end="1985" vertical-scroll-proportion="1.476259">
           <folding>
-            <marker date="1320315031127" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320315031127" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320328783188" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Leaderboards.mxml">
+    <entry file="file://$PROJECT_DIR$/src/hcode/Social.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.792873">
-          <folding>
-            <marker date="1320315084489" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320315084489" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
+        <state line="22" column="24" selection-start="649" selection-end="649" vertical-scroll-proportion="-0.3961219">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Settings.mxml">
+    <entry file="file://$PROJECT_DIR$/src/hcode/Settings.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="2011" selection-end="2011" vertical-scroll-proportion="0.2806236">
-          <folding>
-            <marker date="1320315084410" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320315084410" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320315084410" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320315084410" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320315084410" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1320315084410" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320315084410" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320315084410" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320315084410" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1320315084410" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/veconomy/VItems.mxml">
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/adobe/serialization/json/JSON.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="37" selection-start="330" selection-end="330" vertical-scroll-proportion="-5.3333335">
-          <folding>
-            <marker date="1320315545471" expanded="true" signature="855:886" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="932:962" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="1060:1091" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="1137:1167" placeholder="{...}" />
-            <marker date="1320315545471" expanded="false" signature="1948:2092" placeholder="..." />
-            <marker date="1320315545471" expanded="true" signature="2316:2753" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="2394:2465" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="2869:3114" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="3229:3311" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="3793:3824" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="3870:3900" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="3998:4029" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="4075:4105" placeholder="{...}" />
-            <marker date="1320315545471" expanded="false" signature="4889:5033" placeholder="..." />
-            <marker date="1320315545471" expanded="true" signature="5257:5697" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="5335:5406" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="5813:6058" placeholder="{...}" />
-            <marker date="1320315545471" expanded="true" signature="6173:6255" placeholder="{...}" />
-          </folding>
+        <state line="80" column="0" selection-start="2879" selection-end="2879" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/veconomy/UserItems.mxml">
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/playphone/multinet/core/ws/MNWSRequestSender.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="48" selection-start="368" selection-end="368" vertical-scroll-proportion="-6.0">
-          <folding>
-            <marker date="1320315538043" expanded="true" signature="881:914" placeholder="{...}" />
-            <marker date="1320315538043" expanded="true" signature="960:992" placeholder="{...}" />
-            <marker date="1320315538043" expanded="true" signature="1090:1123" placeholder="{...}" />
-            <marker date="1320315538043" expanded="true" signature="1169:1201" placeholder="{...}" />
-            <marker date="1320315538043" expanded="false" signature="2069:2213" placeholder="..." />
-            <marker date="1320315538043" expanded="true" signature="2437:3038" placeholder="{...}" />
-            <marker date="1320315538043" expanded="true" signature="2515:2586" placeholder="{...}" />
-            <marker date="1320315538043" expanded="true" signature="3156:3401" placeholder="{...}" />
-            <marker date="1320315538043" expanded="true" signature="3518:3600" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/veconomy/PPStore.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="13" selection-start="4003" selection-end="4003" vertical-scroll-proportion="-17.074074">
-          <folding>
-            <marker date="1320315667625" expanded="true" signature="1580:1864" placeholder="{...}" />
-            <marker date="1320315667625" expanded="true" signature="1658:1729" placeholder="{...}" />
-            <marker date="1320315667625" expanded="true" signature="2991:3464" placeholder="{...}" />
-            <marker date="1320315667625" expanded="true" signature="3069:3140" placeholder="{...}" />
-            <marker date="1320315667625" expanded="true" signature="3566:3861" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/controls/DropDown.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="614" selection-end="614" vertical-scroll-proportion="-9.333333">
-          <folding>
-            <marker date="1320317155757" expanded="true" signature="212:239" placeholder="{...}" />
-            <marker date="1320317155757" expanded="false" signature="305:412" placeholder="..." />
-            <marker date="1320317155757" expanded="true" signature="305:412" placeholder="..." />
-            <marker date="1320317155757" expanded="true" signature="663:787" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="860:1253" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="1317:1523" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="1366:1439" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="1469:1513" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="1582:1784" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="1631:1699" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="1729:1774" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="1852:2107" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="1926:2097" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="2172:2219" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="2273:2319" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="2400:3263" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="2449:3046" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="3076:3253" placeholder="{...}" />
-            <marker date="1320317155757" expanded="true" signature="3349:3619" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Social.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="66" selection-start="1766" selection-end="1766" vertical-scroll-proportion="-10.0">
-          <folding>
-            <marker date="1320317695931" expanded="true" signature="711:744" placeholder="{...}" />
-            <marker date="1320317695931" expanded="true" signature="790:822" placeholder="{...}" />
-            <marker date="1320317695931" expanded="true" signature="920:953" placeholder="{...}" />
-            <marker date="1320317695931" expanded="true" signature="999:1031" placeholder="{...}" />
-            <marker date="1320317695931" expanded="false" signature="1920:2086" placeholder="..." />
-            <marker date="1320317695931" expanded="true" signature="2311:2878" placeholder="{...}" />
-            <marker date="1320317695931" expanded="true" signature="2389:2460" placeholder="{...}" />
-            <marker date="1320317695931" expanded="true" signature="2996:3242" placeholder="{...}" />
-            <marker date="1320317695931" expanded="true" signature="3359:3441" placeholder="{...}" />
-          </folding>
+        <state line="387" column="46" selection-start="18033" selection-end="18033" vertical-scroll-proportion="0.35180056">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="90" selection-start="3996" selection-end="3996" vertical-scroll-proportion="0.5929648">
+        <state line="173" column="78" selection-start="7781" selection-end="7781" vertical-scroll-proportion="0.29912025">
           <folding>
-            <marker date="1320318020309" expanded="true" signature="223:247" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="223:247" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="1260:1279" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="1260:1279" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="1519:1539" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="1519:1539" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="2587:2688" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="2587:2688" placeholder="{...}" />
-            <marker date="1320318020309" expanded="false" signature="5676:6345" placeholder="..." />
-            <marker date="1320318020309" expanded="true" signature="5676:6345" placeholder="..." />
-            <marker date="1320318020309" expanded="true" signature="6746:7028" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="6746:7028" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="7127:7303" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="7127:7303" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="7380:7455" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="7380:7455" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="7521:8411" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="7521:8411" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="8488:8589" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="8488:8589" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="8661:8782" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="8661:8782" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="8707:8772" placeholder="{...}" />
-            <marker date="1320318020309" expanded="true" signature="8707:8772" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1320336035297" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/playphone/multinet/providers/MNVShopProvider.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="326" column="37" selection-start="14045" selection-end="14045" vertical-scroll-proportion="0.44569817">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/it/gotoandplay/smartfoxserver/SmartFoxClient.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2691" column="0" selection-start="110095" selection-end="110095" vertical-scroll-proportion="0.0719323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/adobe/serialization/json/JSONTokenizer.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="547" column="5" selection-start="14253" selection-end="14253" vertical-scroll-proportion="0.77562326">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/adobe/serialization/json/JSONDecoder.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="198" column="0" selection-start="6237" selection-end="6237" vertical-scroll-proportion="0.35180056">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hcode/Leaderboards.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="0" selection-start="2775" selection-end="2775" vertical-scroll-proportion="0.024930747">
+          <folding />
         </state>
       </provider>
     </entry>
