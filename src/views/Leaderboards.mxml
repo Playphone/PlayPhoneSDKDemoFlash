@@ -1,15 +1,33 @@
 <?xml version="1.0"?>
 <hcode:Leaderboards xmlns:fx="http://ns.adobe.com/mxml/2009"
                     xmlns:s="library://ns.adobe.com/flex/spark"
-                    xmlns:controls="views.controls.*"
                     xmlns:hcode="hcode.*"
                     width="100%"
+                    height="100%"
                     paddingLeft="5" paddingBottom="5" paddingRight="5" paddingTop="5" gap="5">
 
-    <controls:DropDown id="settings" width="100%"/>
+    <!--<controls:DropDown id="settings" width="100%"/>-->
+
+    <s:CheckBox id="is_global" width="100%">Check if global(default local)</s:CheckBox>
+
+    <s:HGroup width="100%">
+        <s:TextInput id="game_settings" width="25%" />
+        <s:Label width="75%" height="100%" verticalAlign="middle" >Setting id</s:Label>
+    </s:HGroup>
+
+    <s:HGroup width="100%">
+        <s:TextInput id="any_user_id" width="25%" enabled="false"/>
+        <s:CheckBox id="any_user_box" width="75%" change="any_user_id.enabled = any_user_box.selected">User id</s:CheckBox>
+    </s:HGroup>
+
+    <s:HGroup width="100%">
+        <s:TextInput id="any_game_id" width="25%" enabled="false"/>
+        <s:CheckBox id="any_game_box" width="75%" change="any_game_id.enabled = any_game_box.selected">Game id</s:CheckBox>
+    </s:HGroup>
+
     <s:Button id="load" width="100%">Load leaderboard!</s:Button>
 
-    <s:List id="list" dragEnabled="true" width="100%">
+    <s:List id="list" dragEnabled="true" width="100%" height="100%">
         <s:itemRenderer>
             <fx:Component>
                 <s:ItemRenderer>
@@ -31,7 +49,7 @@
 
                         override public function set data(value: Object): void
                         {
-                            if( value == null )
+                            if (value == null)
                             {
                                 return;
                             }

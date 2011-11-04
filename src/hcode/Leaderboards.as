@@ -16,7 +16,9 @@ package hcode
     import mx.events.FlexEvent
 
     import spark.components.Button;
+    import spark.components.CheckBox;
     import spark.components.List;
+    import spark.components.TextInput;
 
     import spark.components.VGroup;
 
@@ -25,16 +27,21 @@ package hcode
 
     public class Leaderboards extends VGroup
     {
-        public var load:Button;
-        public var settings:DropDown;
-        public var list:List;
+        public var load: Button;
+        public var list: List;
         private var req_block: String;
+
+        public var game_settings: TextInput;
+        public var any_user_id: TextInput;
+        public var any_user_box: CheckBox;
+        public var any_game_id: TextInput;
+        public var any_game_box: CheckBox;
+        public var is_global: CheckBox;
 
         public function Leaderboards()
         {
             super();
             this.addEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
-            this.addEventListener(FlexEvent.INITIALIZE, initializeHandler);
         }
 
         private function onCreationComplete(event: FlexEvent): void
@@ -45,16 +52,59 @@ package hcode
 
         private function load_clickHandler(event: MouseEvent): void
         {
-            var selectedItem: Object = settings.dataProvider.getItemAt(settings.selectedIndex);
-            MNDirect.setDefaultGameSetId(selectedItem.data.id);
+            MNDirect.setDefaultGameSetId(int(game_settings.text));
 
             var handler: MNWSRequestDefHandler = new MNWSRequestDefHandler();
             handler.addEventListener(MNWSDefHandlerEvent.onRequestComplete, onComplete);
             handler.addEventListener(MNWSDefHandlerEvent.onRequestError, onError);
 
+            var leaderboardType: String = is_global.selected ? MNWSRequestContent.LEADERBOARD_SCOPE_GLOBAL : MNWSRequestContent.LEADERBOARD_SCOPE_LOCAL;
             var content: MNWSRequestContent = new MNWSRequestContent();
-            req_block = content..addCurrUserLeaderboard(MNWSRequestContent.LEADERBOARD_SCOPE_GLOBAL,
-                                                        MNWSRequestContent.LEADERBOARD_PERIOD_ALL_TIME);
+
+            if (any_game_box.selected)
+            {
+                if (any_user_box.selected)
+                {
+                    if (is_global.selected)
+                    {
+                        req_block = content.addAnyUserAnyGameLeaderboardGlobal(int(any_user_id.text),
+                                                                               int(any_game_id.text),
+                                                                               int(game_settings.text),
+                                                                               MNWSRequestContent.LEADERBOARD_PERIOD_ALL_TIME);
+                    }
+                }
+                else
+                {
+                    if (!is_global.selected)
+                    {
+                        req_block = content.addCurrUserAnyGameLeaderboardLocal(int(any_game_id.text),
+                                                                               int(game_settings.text),
+                                                                               MNWSRequestContent.LEADERBOARD_PERIOD_ALL_TIME);
+                    }
+                    else
+                    {
+                        req_block = content.addAnyGameLeaderboardGlobal(int(any_game_id.text),
+                                                                               int(game_settings.text),
+                                                                               MNWSRequestContent.LEADERBOARD_PERIOD_ALL_TIME);
+                    }
+                }
+            }
+            else
+            {
+                if (!any_user_box.selected)
+                {
+                    if (is_global.selected)
+                    {
+                        req_block = content.addCurrUserLeaderboard(MNWSRequestContent.LEADERBOARD_SCOPE_GLOBAL,
+                                                                   MNWSRequestContent.LEADERBOARD_PERIOD_ALL_TIME);
+                    }
+                    else
+                    {
+                        req_block = content.addCurrUserLeaderboard(MNWSRequestContent.LEADERBOARD_SCOPE_LOCAL,
+                                                                   MNWSRequestContent.LEADERBOARD_PERIOD_ALL_TIME);
+                    }
+                }
+            }
 
             MNWSRequestSender.instance.sendRequest(content, handler);
         }
@@ -79,57 +129,6 @@ package hcode
         private function onError(event: MNWSDefHandlerEvent): void
         {
             PlayPhoneSDKDemoFlash.showMessage(this, event.params.message);
-        }
-
-        private function initializeHandler(event: FlexEvent): void
-        {
-            if (MNDirect.getSession() == null)
-            {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
-            }
-            else
-            {
-                onSessionReady(null);
-            }
-        }
-
-        private function onSessionReady(event: MNDirectEvent): void
-        {
-            checkSettings();
-        }
-
-        private function checkSettings(): void
-        {
-            if (MNDirect.gameSettingsProvider.isGameSettingListNeedUpdate())
-            {
-                MNDirect.gameSettingsProvider.addEventListener(MNGameSettingsProvider.onGameSettingsListDownloaded,
-                                                               onSettingsReady)
-                MNDirect.gameSettingsProvider.doGameSettingListUpdate();
-            }
-            else
-            {
-                onSettingsReady(null);
-            }
-        }
-
-        private function onSettingsReady(event: MNPluginEvent): void
-        {
-            var packs: Array = MNDirect.gameSettingsProvider.getGameSettingsList();
-            var setting_items: Array = [];
-            for each(var pack: Object in packs)
-            {
-                if (pack.name != null)
-                {
-                    setting_items.push({label:pack.name, data:pack});
-                }
-                else
-                {
-                    setting_items.push({label:"Default", data:pack});
-                }
-            }
-
-            settings.dataProvider = new ArrayList(setting_items);
-            settings.selectedIndex = 0;
         }
     }
 }
