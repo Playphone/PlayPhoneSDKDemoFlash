@@ -1,67 +1,27 @@
 <?xml version="1.0"?>
-<hcode:Leaderboards xmlns:fx="http://ns.adobe.com/mxml/2009"
+<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
                     xmlns:s="library://ns.adobe.com/flex/spark"
                     xmlns:hcode="hcode.*"
+                    xmlns:views="views.*"
                     width="100%"
                     height="100%"
                     paddingLeft="5" paddingBottom="5" paddingRight="5" paddingTop="5" gap="5">
 
-    <!--<controls:DropDown id="settings" width="100%"/>-->
+    <s:states>
+        <s:State name="Base"/>
+        <s:State name="OldLeaderboard"/>
+        <s:State name="GameLeaderboard"/>
+        <s:State name="UserLeaderboard"/>
+    </s:states>
 
-    <s:CheckBox id="is_global" width="100%">Check if global(default local)</s:CheckBox>
+    <s:Button includeIn="OldLeaderboard, GameLeaderboard, UserLeaderboard" width="100%" click="currentState='Base'">Back</s:Button>
+    <s:Button includeIn="Base" width="100%" click="currentState='OldLeaderboard'">Simple leaderboard</s:Button>
+    <s:Button includeIn="Base" width="100%" click="currentState='GameLeaderboard'">Game leaderboard</s:Button>
+    <s:Button includeIn="Base" width="100%" click="currentState='UserLeaderboard'">User leaderboard</s:Button>
 
-    <s:HGroup width="100%">
-        <s:TextInput id="game_settings" width="25%" />
-        <s:Label width="75%" height="100%" verticalAlign="middle" >Setting id</s:Label>
-    </s:HGroup>
+    <views:OldLeaderboard includeIn="OldLeaderboard" width="100%" height="100%"/>
+    <views:GameLeaderboard includeIn="GameLeaderboard" width="100%" height="100%"/>
+    <views:UserLeaderboard includeIn="UserLeaderboard" width="100%" height="100%"/>
 
-    <s:HGroup width="100%">
-        <s:TextInput id="any_user_id" width="25%" enabled="false"/>
-        <s:CheckBox id="any_user_box" width="75%" change="any_user_id.enabled = any_user_box.selected">User id</s:CheckBox>
-    </s:HGroup>
-
-    <s:HGroup width="100%">
-        <s:TextInput id="any_game_id" width="25%" enabled="false"/>
-        <s:CheckBox id="any_game_box" width="75%" change="any_game_id.enabled = any_game_box.selected">Game id</s:CheckBox>
-    </s:HGroup>
-
-    <s:Button id="load" width="100%">Load leaderboard!</s:Button>
-
-    <s:List id="list" dragEnabled="true" width="100%" height="100%">
-        <s:itemRenderer>
-            <fx:Component>
-                <s:ItemRenderer>
-                    <s:Rect id="item_bkg" height="50" width="100%">
-                        <s:fill>
-                            <s:SolidColor color="0x999999" alpha="0"/>
-                        </s:fill>
-                        <s:stroke>
-                            <s:SolidColorStroke color="0xcccccc" weight="1"/>
-                        </s:stroke>
-                    </s:Rect>
-                    <s:HGroup>
-                        <s:Label paddingLeft="5" id="user_name" verticalAlign="middle" height="50"/>
-                        <s:Label paddingLeft="5" id="user_score" verticalAlign="middle" height="50"/>
-                    </s:HGroup>
-
-                    <fx:Script><![CDATA[
-                        import com.playphone.multinet.core.data.MNWSLeaderboardListItem
-
-                        override public function set data(value: Object): void
-                        {
-                            if (value == null)
-                            {
-                                return;
-                            }
-
-                            var data: MNWSLeaderboardListItem = value as MNWSLeaderboardListItem;
-                            user_name.text = data.user_nick_name;
-                            user_score.text = data.out_hi_score.toString();
-                        }
-                        ]]></fx:Script>
-                </s:ItemRenderer>
-            </fx:Component>
-        </s:itemRenderer>
-    </s:List>
-</hcode:Leaderboards>
+</s:VGroup>
 
