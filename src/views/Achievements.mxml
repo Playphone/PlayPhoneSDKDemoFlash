@@ -21,6 +21,7 @@
                     <s:HGroup>
                         <s:Label id="achievement_id" paddingLeft="10" verticalAlign="middle" height="50"/>
                         <s:Label id="achievement_name" paddingLeft="10" verticalAlign="middle" height="50"/>
+                        <s:Label id="achievement_points" paddingLeft="10" verticalAlign="middle" height="50"/>
                     </s:HGroup>
 
                     <fx:Script><![CDATA[
@@ -32,6 +33,7 @@
                             }
                             achievement_id.text = value.id;
                             achievement_name.text = value.name;
+                            achievement_points.text = value.points;
                         }
                         ]]></fx:Script>
                 </s:ItemRenderer>
