@@ -2,15 +2,15 @@
 <s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
           xmlns:s="library://ns.adobe.com/flex/spark" width="100%" left="5">
 
-    <s:HGroup>
+    <s:HGroup width="100%">
         <s:Label>Category:</s:Label>
         <s:Label id="item_category" width="100%">-</s:Label>
     </s:HGroup>
-    <s:HGroup>
+    <s:HGroup width="100%">
         <s:Label>Description:</s:Label>
         <s:Label id="item_description" width="100%">-</s:Label>
     </s:HGroup>
-    <s:HGroup>
+    <s:HGroup width="100%">
         <s:Label>Param:</s:Label>
         <s:Label id="item_application_param" width="100%">-</s:Label>
     </s:HGroup>
