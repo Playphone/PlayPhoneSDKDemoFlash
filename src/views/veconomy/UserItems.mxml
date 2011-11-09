@@ -10,7 +10,7 @@
     <s:TabBar id="tabs" width="100%" height="55">
         <mx:ArrayCollection>
             <fx:String>User items</fx:String>
-            <fx:String>Mange inventory</fx:String>
+            <fx:String>Manage inventory</fx:String>
         </mx:ArrayCollection>
     </s:TabBar>
 
