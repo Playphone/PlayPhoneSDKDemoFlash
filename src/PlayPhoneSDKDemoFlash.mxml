@@ -171,7 +171,6 @@
 
         private function onStageAdd(event: Event): void
         {
-            MNLog.isDebug = true;
             MNDirect.init(GAME_ID, MNDirect.makeGameSecretByComponents(GAME_SECRET_PART1,
                                                                        GAME_SECRET_PART2,
                                                                        GAME_SECRET_PART3,

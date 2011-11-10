@@ -1,5 +1,7 @@
 package hcode
 {
+    import com.playphone.multinet.ui.common.MNDirectButton;
+
     import flash.display.MovieClip;
     import flash.events.MouseEvent;
     import flash.events.TimerEvent;
@@ -33,10 +35,11 @@ package hcode
         private var counter: int = -1;
 
         public var place: SpriteVisualElement;
-        public var home: Button;
         public var m_ten: Button;
         public var p_ten: Button;
         public var counter_lbl: Label;
+        public var tip: Label;
+        public var post_score:Button;
 
         public function Multinet()
         {
@@ -51,9 +54,9 @@ package hcode
             MNDirect.addEventListener(MNDirectEvent.onDoFinishGame, MNDirect_onDoFinishGameHandler);
             MNDirect.addEventListener(MNDirectEvent.onDoCancelGame, MNDirect_onDoCancelGameHandler);
 
-            home.addEventListener(MouseEvent.CLICK, home_clickHandler);
             m_ten.addEventListener(MouseEvent.CLICK, m_ten_clickHandler);
             p_ten.addEventListener(MouseEvent.CLICK, p_ten_clickHandler);
+            post_score.addEventListener(MouseEvent.CLICK, post_score_clickHandler);
 
             var shape: MovieClip = new MovieClip();
             shape.graphics.beginFill(0x000000, 0);
@@ -68,30 +71,67 @@ package hcode
             onSessionStatusChangedHandler(null);
         }
 
-
-        private function home_clickHandler(event: MouseEvent): void
-        {
-            MNDirect.execAppCommand("jumpToUserHome", null);
-            MNDirectHelper.showDashboard();
-        }
-
         private function onSessionStatusChangedHandler(event: MNSessionEvent): void
         {
-            if (MNSession.instance.getStatus() == MNConst.MN_IN_GAME_PLAY)
+            var sessionStatus: int = MNSession.instance.getStatus();
+            var userStatus: int = MNSession.instance.getRoomUserStatus();
+            trace("Multinet: Undefined state: SessionState: " + sessionStatus + " UserState: " + userStatus );
+
+            if ((sessionStatus == MNConst.MN_OFFLINE) || (sessionStatus == MNConst.MN_CONNECTING))
             {
-                MNDirectHelper.hideDashboard();
-                countdown = new Timer(1000, 60);
-                counter = 60;
-                counter_lbl.text = counter.toString();
-                countdown.addEventListener(TimerEvent.TIMER, countdown_timerHandler);
-                countdown.addEventListener(TimerEvent.TIMER_COMPLETE, countdown_timerCompleteHandler)
-                countdown.start();
+                tip.text = "Player should be logged in to use Multiplayer features. Please open PlayPhone " +
+                           "dashboard and login to PlayPhone network";
+            }
+            else if (sessionStatus == MNConst.MN_LOGGEDIN)
+            {
+                tip.text = "Please open PlayPhone dashboard and press PlayNow button to start Multiplater game.";
+            }
+            else
+            {
+                //SessionState is one of MN_IN_GAME_*
+
+                if (userStatus == MNConst.MN_USER_CHATER)
+                {
+                    tip.text = "Currently you are \"CHATTER\". Please wait for end of current game round and then press " +
+                               "\"Play next round\" button on PPS Dashboard.";
+                }
+                
+                if (sessionStatus == MNConst.MN_IN_GAME_WAIT)
+                {
+                    tip.text = "Waiting for opponents";
+                }
+                else if (sessionStatus == MNConst.MN_IN_GAME_START)
+                {
+                    tip.text = "Starting the game";
+                }
+                else if (sessionStatus == MNConst.MN_IN_GAME_PLAY)
+                {
+                    tip.text = "Use buttons to change your score. You will see the progress on the top indicator.";
+
+                    MNDirectHelper.hideDashboard();
+                    MNDirectButton.show();
+                    countdown = new Timer(1000, 60);
+                    counter = 60;
+                    counter_lbl.text = counter.toString();
+                    countdown.addEventListener(TimerEvent.TIMER, countdown_timerHandler);
+                    countdown.addEventListener(TimerEvent.TIMER_COMPLETE, countdown_timerCompleteHandler)
+                    countdown.start();
+                }
+                else if (sessionStatus == MNConst.MN_IN_GAME_END)
+                {
+                    tip.text = "Posting the scores.\nYou can use \"Post Score\" button to send current " +
+                               "score to PPS server";
+                }
+                else
+                {
+                    tip.text = "Undefined state: SessionState: " + sessionStatus + " UserState: " + userStatus;
+                }
             }
         }
 
         private function MNDirect_onDoFinishGameHandler(event: MNDirectEvent): void
         {
-            MNDirect.postGameScore(totalScore);
+            post_score.visible = true;
             totalScore = 0;
         }
 
@@ -130,6 +170,12 @@ package hcode
         private function resizeHandler(event: ResizeEvent): void
         {
             place.width = stage.stageWidth;
+        }
+
+        private function post_score_clickHandler(event: MouseEvent): void
+        {
+            MNDirect.postGameScore(totalScore);
+            post_score.visible = false;
         }
     }
 }

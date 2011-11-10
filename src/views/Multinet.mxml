@@ -5,15 +5,19 @@
           width="100%"
           height="100%">
 
-    <s:Label width="100%">Multinet</s:Label>
-    <s:SpriteVisualElement id="place" height="100"/>
-    <s:Button id="home" width="100%">Home</s:Button>
+    <s:SpriteVisualElement id="place" height="100" bottom="20"/>
+
+    <s:HGroup width="100%" horizontalAlign="center" paddingTop="50">
+        <s:Label>Time left:</s:Label>
+        <s:Label id="counter_lbl">0</s:Label>
+    </s:HGroup>
 
     <s:HGroup id="pm_group" width="100%" horizontalAlign="center">
         <s:Button id="m_ten">-10</s:Button>
         <s:Button id="p_ten">+10</s:Button>
     </s:HGroup>
 
-    <s:Label id="counter_lbl" width="100%"/>
+    <s:Label id="tip" width="100%" paddingLeft="5" paddingRight="5" paddingTop="5" paddingBottom="5"/>
+    <s:Button id="post_score" visible="false">Post scores</s:Button>
     
 </hcode:Multinet>
