@@ -20,16 +20,14 @@
         <s:State name="Social"/>
         <s:State name="RoomCookies"/>
         <s:State name="AppInfo"/>
+        <s:State name="Multinet"/>
         <s:State name="Settings"/>
     </s:states>
 
     <s:Group
-            includeIn="Login, Dashboard, VEconomy, Achievements, DashboardControl, Leaderboards, Cloud, Userinfo, Social, AppInfo, Settings, RoomCookies"
+            includeIn="Login, Dashboard, VEconomy, Achievements, DashboardControl, Leaderboards, Cloud, Userinfo, Social, AppInfo, Settings, RoomCookies, Multinet"
             width="100%">
-        <s:Button label="Go home" left="5" top="5"
-                  includeIn="Login, Dashboard, VEconomy, Achievements, DashboardControl, Leaderboards, Cloud, Userinfo, Social, AppInfo, Settings, RoomCookies"
-                  click="currentState='Home'">
-        </s:Button>
+        <s:Button label="Go home" left="5" top="5" click="currentState='Home'"/>
     </s:Group>
 
     <s:Panel includeIn="Home" width="100%" height="100%" title="Home">
@@ -76,6 +74,7 @@
                         <hcode:ViewObject caption="    Cloud storage" stateName="Cloud"/>
                         <hcode:ViewObject caption="    Room cookies" stateName="RoomCookies"/>
                         <hcode:ViewObject caption="    Application info" stateName="AppInfo"/>
+                        <hcode:ViewObject caption="    Multinet" stateName="Multinet"/>
                     </s:ArrayList>
                 </s:dataProvider>
             </s:List>
@@ -118,8 +117,12 @@
     <s:Panel includeIn="Settings" width="100%" height="100%" title="Settings info">
         <views:Settings/>
     </s:Panel>
+    <s:Panel includeIn="Multinet" width="100%" height="100%" title="Multinet">
+        <views:Multinet/>
+    </s:Panel>
 
     <fx:Script><![CDATA[
+        import com.playphone.multinet.MNConst;
         import com.playphone.multinet.MNDirect
         import com.playphone.multinet.MNDirectEvent
         import com.playphone.multinet.core.MNSession
@@ -184,6 +187,16 @@
         private function onDirectReady(event: MNDirectEvent): void
         {
             MNSession.instance.addEventListener(MNSessionEvent.onErrorOccurred, onError);
+            MNSession.instance.addEventListener(MNSessionEvent.onSessionStatusChanged, onSessionStatusChangedHandler);
+        }
+
+        private function onSessionStatusChangedHandler(event: MNSessionEvent): void
+        {
+            var sessionStatus: int = event.params.sessionStatus;
+            if (sessionStatus == MNConst.MN_IN_GAME_PLAY)
+            {
+                currentState = "Multinet";
+            }
         }
 
         private function onError(event: MNSessionEvent): void
@@ -193,5 +206,6 @@
                 showMessage(this, event._errMsg);
             }
         }
+
         ]]></fx:Script>
 </s:Application>

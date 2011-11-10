@@ -90,10 +90,10 @@
         <!-- <aspectRatio></aspectRatio> -->
 
         <!-- Whether the app will begin auto-orienting on launch. Optional. Mobile only. Default false -->
-        <!-- <autoOrients></autoOrients> -->
+         <autoOrients>true</autoOrients>
 
         <!-- Whether the app launches in full screen. Optional. Mobile only. Default false -->
-        <!-- <fullScreen></fullScreen> -->
+         <fullScreen>true</fullScreen>
 
         <!-- The render mode for the app (either auto, cpu, or gpu). Optional. Mobile only. Default auto -->
         <!-- <renderMode></renderMode> -->

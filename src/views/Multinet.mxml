@@ -1,5 +1,19 @@
 <?xml version="1.0"?>
-<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
-        xmlns:s="library://ns.adobe.com/flex/spark">
-<s:Label>Multinet</s:Label>
-</s:VGroup>
+<hcode:Multinet xmlns:fx="http://ns.adobe.com/mxml/2009"
+          xmlns:s="library://ns.adobe.com/flex/spark"
+          xmlns:hcode="hcode.*"
+          width="100%"
+          height="100%">
+
+    <s:Label width="100%">Multinet</s:Label>
+    <s:SpriteVisualElement id="place" height="100"/>
+    <s:Button id="home" width="100%">Home</s:Button>
+
+    <s:HGroup id="pm_group" width="100%" horizontalAlign="center">
+        <s:Button id="m_ten">-10</s:Button>
+        <s:Button id="p_ten">+10</s:Button>
+    </s:HGroup>
+
+    <s:Label id="counter_lbl" width="100%"/>
+    
+</hcode:Multinet>
