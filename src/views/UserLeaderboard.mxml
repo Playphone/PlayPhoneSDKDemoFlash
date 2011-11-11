@@ -6,7 +6,7 @@
           height="100%"
           gap="5">
 
-    <s:TabBar id="game" width="100%" height="10%" change="game_group.enabled=(game.selectedIndex==1);">
+    <s:TabBar id="game" width="100%" minHeight="45" change="game_group.enabled=(game.selectedIndex==1);">
         <mx:ArrayCollection>
             <fx:String>Current</fx:String>
             <fx:String>Other</fx:String>
@@ -18,7 +18,7 @@
         <s:TextInput id="game_id" width="75%"/>
     </s:HGroup>
 
-    <s:TabBar id="scope" width="100%" height="60">
+    <s:TabBar id="scope" width="100%" minHeight="45">
         <mx:ArrayCollection>
             <fx:String>Global</fx:String>
             <fx:String>Local</fx:String>
@@ -30,7 +30,7 @@
         <s:TextInput id="gameset_id" width="75%">0</s:TextInput>
     </s:HGroup>
 
-    <s:TabBar id="period" width="100%" height="60">
+    <s:TabBar id="period" width="100%"  minHeight="45">
         <mx:ArrayCollection>
             <fx:String>All period</fx:String>
             <fx:String>Week</fx:String>
@@ -40,7 +40,7 @@
 
     <s:Button id="load" width="100%">Load leaderboard!</s:Button>
 
-    <s:List id="list" dragEnabled="true" width="100%" height="100%">
+    <s:List id="list" dragEnabled="true" width="100%" height="100%" minHeight="150">
         <s:itemRenderer>
             <fx:Component>
                 <s:ItemRenderer>

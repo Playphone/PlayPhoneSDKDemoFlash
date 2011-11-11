@@ -39,7 +39,7 @@ package hcode
         public var p_ten: Button;
         public var counter_lbl: Label;
         public var tip: Label;
-        public var post_score:Button;
+        public var post_score: Button;
 
         public function Multinet()
         {
@@ -87,14 +87,12 @@ package hcode
             }
             else
             {
-                //SessionState is one of MN_IN_GAME_*
-
                 if (userStatus == MNConst.MN_USER_CHATER)
                 {
                     tip.text = "Currently you are \"CHATTER\". Please wait for end of current game round and then press " +
                                "\"Play next round\" button on PPS Dashboard.";
                 }
-                
+
                 if (sessionStatus == MNConst.MN_IN_GAME_WAIT)
                 {
                     tip.text = "Waiting for opponents";
@@ -130,12 +128,14 @@ package hcode
 
         private function MNDirect_onDoFinishGameHandler(event: MNDirectEvent): void
         {
+            stopTimer();
             post_score.visible = true;
             totalScore = 0;
         }
 
         private function MNDirect_onDoCancelGameHandler(event: MNDirectEvent): void
         {
+            stopTimer();
             totalScore = 0;
         }
 
@@ -146,6 +146,11 @@ package hcode
         }
 
         private function countdown_timerCompleteHandler(event: TimerEvent): void
+        {
+            stopTimer();
+        }
+
+        private function stopTimer(): void
         {
             countdown.stop();
             countdown.removeEventListener(TimerEvent.TIMER, countdown_timerHandler);

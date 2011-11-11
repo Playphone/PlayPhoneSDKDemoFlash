@@ -32,7 +32,7 @@
 
     <s:Panel includeIn="Home" width="100%" height="100%" title="Home">
         <s:VGroup width="100%" height="100%">
-            <s:List id="list" dragEnabled="true" width="100%" height="100%" change="onIndexChange(event)">
+            <s:List id="list" width="100%" height="100%" change="onIndexChange(event)">
                 <s:itemRenderer>
                     <fx:Component>
                         <s:ItemRenderer>
@@ -97,7 +97,9 @@
         <views:DashboardControl/>
     </s:Panel>
     <s:Panel includeIn="Leaderboards" width="100%" height="100%" title="Leaderboards">
-        <views:Leaderboards/>
+        <s:Scroller width="100%" height="100%">
+            <views:Leaderboards/>
+        </s:Scroller>
     </s:Panel>
     <s:Panel includeIn="Cloud" width="100%" height="100%" title="Cloud storage">
         <views:Cloud/>
@@ -207,6 +209,5 @@
                 showMessage(this, event._errMsg);
             }
         }
-
         ]]></fx:Script>
 </s:Application>
