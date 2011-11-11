@@ -102,7 +102,9 @@
         </s:Scroller>
     </s:Panel>
     <s:Panel includeIn="Cloud" width="100%" height="100%" title="Cloud storage">
-        <views:Cloud/>
+        <s:Scroller width="100%" height="100%">
+            <views:Cloud/>
+        </s:Scroller>
     </s:Panel>
     <s:Panel includeIn="Userinfo" width="100%" height="100%" title="User info">
         <views:Userinfo/>
@@ -111,7 +113,9 @@
         <views:Social/>
     </s:Panel>
     <s:Panel includeIn="RoomCookies" width="100%" height="100%" title="Room cookies">
-        <views:RoomCookies/>
+        <s:Scroller width="100%" height="100%">
+            <views:RoomCookies/>
+        </s:Scroller>
     </s:Panel>
     <s:Panel includeIn="AppInfo" width="100%" height="100%" title="Application info">
         <views:AppInfo/>
