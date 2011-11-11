@@ -45,7 +45,7 @@ package hcode
         {
             super();
             this.addEventListener(FlexEvent.CREATION_COMPLETE, creationCompleteHandler);
-            this.addEventListener(ResizeEvent.RESIZE, resizeHandler)
+            this.addEventListener(ResizeEvent.RESIZE, resizeHandler);
         }
 
         private function creationCompleteHandler(event: FlexEvent): void
@@ -75,7 +75,6 @@ package hcode
         {
             var sessionStatus: int = MNSession.instance.getStatus();
             var userStatus: int = MNSession.instance.getRoomUserStatus();
-            trace("Multinet: Undefined state: SessionState: " + sessionStatus + " UserState: " + userStatus );
 
             if ((sessionStatus == MNConst.MN_OFFLINE) || (sessionStatus == MNConst.MN_CONNECTING))
             {

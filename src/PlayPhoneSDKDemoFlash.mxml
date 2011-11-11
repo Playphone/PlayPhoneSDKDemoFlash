@@ -125,6 +125,7 @@
         import com.playphone.multinet.MNConst;
         import com.playphone.multinet.MNDirect
         import com.playphone.multinet.MNDirectEvent
+        import com.playphone.multinet.MNDirectHelper;
         import com.playphone.multinet.core.MNSession
         import com.playphone.multinet.core.MNSessionEvent
         import com.playphone.multinet.ui.MNWebUIAirStarter
@@ -185,6 +186,7 @@
 
         private function onDirectReady(event: MNDirectEvent): void
         {
+            MNDirectHelper.enableOutline();
             MNSession.instance.addEventListener(MNSessionEvent.onErrorOccurred, onError);
             MNSession.instance.addEventListener(MNSessionEvent.onSessionStatusChanged, onSessionStatusChangedHandler);
         }
