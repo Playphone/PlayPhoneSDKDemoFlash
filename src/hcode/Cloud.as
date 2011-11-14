@@ -59,7 +59,6 @@ package hcode
 
         private function initializeHandler(event: FlexEvent): void
         {
-            trace("Login initializeHandler");
             this.removeEventListener(FlexEvent.INITIALIZE, initializeHandler );
             if (MNDirect.getSession() == null)
             {

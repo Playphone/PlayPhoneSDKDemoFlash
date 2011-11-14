@@ -14,15 +14,16 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <content url="file://$MODULE_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash">
-      <sourceFolder url="file://$MODULE_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash" isTestSource="false" />
+    <content url="file://$MODULE_DIR$/../sdk_playphone/1.4.6/PlayPhoneMultiNet-Flash">
+      <sourceFolder url="file://$MODULE_DIR$/../sdk_playphone/1.4.6/PlayPhoneMultiNet-Flash" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../sdk_playphone/1.4.6/PlayPhoneMultiNet-Flash/res" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/res/mn_direct_ui_plus.swc!/" />
+          <root url="jar://$MODULE_DIR$/../sdk_playphone/1.4.6/PlayPhoneMultiNet-Flash/res/mn_direct_ui_plus.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
