@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4207cd95-cc22-4d63-8577-ddcbbbcadb54" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iml" afterPath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.ipr" afterPath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iws" afterPath="$PROJECT_DIR$/PlayPhoneSDKDemoFlash.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hcode/Cloud.as" afterPath="$PROJECT_DIR$/src/hcode/Cloud.as" />
     </list>
     <ignored path="PlayPhoneSDKDemoFlash.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,8 +70,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="exception_breakpoints_groupByClasses" value="true" />
+      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -80,10 +80,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Cloud.as" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/hcode/Cloud.as">
+      <file leaf-file-name="PlayPhoneSDKDemoFlash.mxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="17" selection-start="1628" selection-end="1628" vertical-scroll-proportion="0.8377997">
+            <state line="193" column="9" selection-start="9014" selection-end="9014" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MNJsonAdapter.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.7/PlayPhoneMultiNet-Air/com/playphone/adapter/MNJsonAdapter.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="0" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="multinet.plist" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.7/PlayPhoneMultiNet-Air/com/playphone/multinet/multinet.plist">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="312" selection-end="312" vertical-scroll-proportion="0.19944598">
               <folding />
             </state>
           </provider>
@@ -95,6 +113,10 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="FlexCompilerConfiguration">
+    <option name="USE_BUILT_IN_COMPILER" value="false" />
+    <option name="USE_MXMLC_COMPC" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
@@ -109,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/views/Achievements.mxml" />
         <option value="$PROJECT_DIR$/src/views/controls/VItemRenderer.mxml" />
         <option value="$PROJECT_DIR$/src/views/veconomy/UserItems.mxml" />
         <option value="$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/playphone/multinet/ui/common/MNDirectButton.as" />
@@ -125,19 +146,19 @@
         <option value="$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash-app.xml" />
         <option value="$PROJECT_DIR$/../sdk_playphone/1.4.6/PlayPhoneMultiNet-Flash/com/playphone/multinet/multinet.plist" />
         <option value="$PROJECT_DIR$/src/hcode/Cloud.as" />
+        <option value="$PROJECT_DIR$/../sdk_playphone/1.4.7/PlayPhoneMultiNet-Air/com/playphone/multinet/multinet.plist" />
       </list>
     </option>
   </component>
   <component name="MobileAirPackageParameters">
-    <option name="MOBILE_PLATFORM" value="iOS" />
     <option name="ANDROID_PACKAGE_TYPE" value="no debug" />
     <option name="IOS_PACKAGE_TYPE" value="test without debugging" />
     <option name="FAST_PACKAGING" value="false" />
     <option name="DEBUG_CONNECT_HOST" value="192.168.106.191" />
     <option name="PROVISIONING_PROFILE_PATH" value="D:\Work\PlayPhoneSDKDemoFlash\Casmul_games_development_profile.mobileprovision" />
     <option name="AIR_DESCRIPTOR_PATH" value="D:\Work\PlayPhoneSDKDemoFlash\src\PlayPhoneSDKDemoFlash-app.xml" />
-    <option name="SDK_NAME" value="AIR_2.7_SDK AIR Mobile" />
-    <option name="INSTALLER_FILE_NAME" value="PlayPhoneSDKDemoFlash.ipa" />
+    <option name="SDK_NAME" value="AIR_3.0_SDK AIR Mobile" />
+    <option name="INSTALLER_FILE_NAME" value="PlayPhoneSDKDemoFlash.apk" />
     <option name="INSTALLER_FILE_LOCATION" value="D:\Work\PlayPhoneSDKDemoFlash\out" />
     <option name="FILES_TO_PACKAGE">
       <list>
@@ -151,7 +172,8 @@
         </FilePathAndPathInPackage>
       </list>
     </option>
-    <option name="KEYSTORE_PATH" value="D:\Work\PlayPhoneSDKDemoFlash\Certificate.p12" />
+    <option name="KEYSTORE_PATH" value="D:\Work\keys\android-air.keystore" />
+    <option name="KEYSTORE_TYPE" value="JKS" />
   </component>
   <component name="ModuleEditorState">
     <option name="LAST_EDITED_MODULE_NAME" />
@@ -199,6 +221,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -230,28 +253,49 @@
               <option name="myItemId" value="PlayPhoneSDKDemoFlash" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlayPhoneSDKDemoFlash" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlayPhoneSDKDemoFlash" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlayPhoneSDKDemoFlash" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlayPhoneMultiNet-Air" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="184" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="199" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="199" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="202" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="202" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="206" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="779" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="774" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="779" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="199" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="193" />
     <property name="GoToClass.includeJavaFiles" value="false" />
@@ -266,13 +310,13 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
     <property name="options.lastSelected" value="flex.compiler" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.searchVisible" value="true" />
   </component>
-  <component name="RunManager" selected="AIR Mobile.emul">
+  <component name="RunManager" selected="AIR Mobile.device">
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -285,6 +329,13 @@
       </method>
     </configuration>
     <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" adl_options="" air_descriptor_path="" air_program_params="" air_publisher_id="" air_root_dir_path="" air_run_mode="AppDescriptor" browser_family="FIREFOX" class_name="" debugger_sdk="Module SDK" html_or_swf_file_path="" launcher_type="OSDefault" main_class_name="" method_name="" module_name="" output_log_level="" package_name="" player_path="FlashPlayer.exe" port="0" run_mode="HtmlOrSwfFile" run_trusted="false" scope="Class" socket_policy_port="0" url_to_launch="http://">
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="FlexRunConfigurationType" factoryName="Flex" browser_family="FIREFOX" debugger_sdk="Module SDK" html_or_swf_file_path="" launcher_type="OSDefault" main_class_name="" module_name="" player_path="FlashPlayer.exe" run_mode="HtmlOrSwfFile" run_trusted="false" url_to_launch="http://">
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -308,14 +359,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="FlexRunConfigurationType" factoryName="Flex" browser_family="FIREFOX" debugger_sdk="Module SDK" html_or_swf_file_path="" launcher_type="OSDefault" main_class_name="" module_name="" player_path="FlashPlayer.exe" run_mode="HtmlOrSwfFile" run_trusted="false" url_to_launch="http://">
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="AirRunConfigurationType" factoryName="AIR" adl_options="" air_descriptor_path="" air_program_params="" air_publisher_id="" air_root_dir_path="" air_run_mode="AppDescriptor" browser_family="FIREFOX" debugger_sdk="Module SDK" html_or_swf_file_path="" launcher_type="OSDefault" main_class_name="" module_name="" player_path="FlashPlayer.exe" run_mode="HtmlOrSwfFile" run_trusted="false" url_to_launch="http://">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -343,18 +398,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
+    <configuration default="true" type="AirRunConfigurationType" factoryName="AIR" adl_options="" air_descriptor_path="" air_program_params="" air_publisher_id="" air_root_dir_path="" air_run_mode="AppDescriptor" browser_family="FIREFOX" debugger_sdk="Module SDK" html_or_swf_file_path="" launcher_type="OSDefault" main_class_name="" module_name="" player_path="FlashPlayer.exe" run_mode="HtmlOrSwfFile" run_trusted="false" url_to_launch="http://">
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -465,22 +509,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-5" y="-5" width="1450" height="870" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36448598" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.56608814" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977304" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843792" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15974212" sideWeight="0.635514" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17120343" sideWeight="0.635514" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25143266" sideWeight="0.635514" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19842407" sideWeight="0.635514" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37917224" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977304" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.71028036" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843792" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36448598" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933258" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -570,36 +614,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.5/PlayPhoneMultiNet-Flash/com/playphone/multinet/ui/common/MNScoreProgressView.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="85" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Multinet.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="22" selection-end="22" vertical-scroll-proportion="0.02589928" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hcode/Multinet.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="29" selection-start="265" selection-end="265" vertical-scroll-proportion="0.17451523" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="29" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.5263158" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hcode/GameLeaderboard.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Leaderboards.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -625,11 +639,6 @@
         <state line="29" column="21" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.3151079" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="25" selection-start="5382" selection-end="5382" vertical-scroll-proportion="2.5073314" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash-app.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="47" selection-start="665" selection-end="665" vertical-scroll-proportion="0.38081804" />
@@ -640,18 +649,51 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.6/PlayPhoneMultiNet-Flash/com/playphone/multinet/multinet.plist">
+    <entry file="file://$PROJECT_DIR$/src/hcode/Cloud.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="382" selection-end="382" vertical-scroll-proportion="0.22437674">
+        <state line="12" column="32" selection-start="290" selection-end="290" vertical-scroll-proportion="-0.4583921" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sdks/AirAdapter/build_sfsdk.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="14" selection-start="185" selection-end="185" vertical-scroll-proportion="0.20310296" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sdks/AirAdapter/3.0/com/playphone/adapter/MNJsonAdapter.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="9" selection-start="257" selection-end="257" vertical-scroll-proportion="0.24930748" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="32" selection-start="614" selection-end="614" vertical-scroll-proportion="0.47368422" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="33" selection-start="269" selection-end="269" vertical-scroll-proportion="0.17451523" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.7/PlayPhoneMultiNet-Air/com/playphone/multinet/core/MNSmartFoxFacade.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="22" selection-start="1365" selection-end="1365" vertical-scroll-proportion="-1.0662905" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayPhoneSDKDemoFlash.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="193" column="9" selection-start="9014" selection-end="9014" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hcode/Cloud.as">
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.7/PlayPhoneMultiNet-Air/com/playphone/adapter/MNJsonAdapter.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="17" selection-start="1628" selection-end="1628" vertical-scroll-proportion="0.8377997">
-          <folding />
-        </state>
+        <state line="15" column="0" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sdk_playphone/1.4.7/PlayPhoneMultiNet-Air/com/playphone/multinet/multinet.plist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="312" selection-end="312" vertical-scroll-proportion="0.19944598" />
       </provider>
     </entry>
   </component>
@@ -712,6 +754,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
