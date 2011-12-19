@@ -17,7 +17,7 @@
     <content url="file://$MODULE_DIR$/../sdk_playphone/1.4.7/PlayPhoneMultiNet-Air">
       <sourceFolder url="file://$MODULE_DIR$/../sdk_playphone/1.4.7/PlayPhoneMultiNet-Air" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="AIR_3.1_SDK AIR Mobile" jdkType="AIR Mobile SDK Type" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library>
