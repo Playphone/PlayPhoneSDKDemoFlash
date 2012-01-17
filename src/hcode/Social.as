@@ -1,6 +1,8 @@
 package hcode
 {
     import flash.events.MouseEvent;
+    import flash.events.TimerEvent;
+    import flash.utils.Timer;
 
     import mx.events.FlexEvent;
 
@@ -22,6 +24,8 @@ package hcode
         private var req_block: String;
         public var btnGetIt: Button;
         public var list:List;
+        private var fill_timer:Timer;
+        private var buddies:Vector.<MNWSBuddyListItem>;
 
         public function Social()
         {
@@ -54,19 +58,39 @@ package hcode
 
         private function onComplete(event: MNWSDefHandlerEvent): void
         {
-            var buddies: Array = vectorToArray(event.params[req_block] as Vector.<MNWSBuddyListItem>);
-            list.dataProvider = new ArrayList(buddies);
+            buddies = event.params[req_block] as Vector.<MNWSBuddyListItem>;
+            if( buddies != null )
+            {
+                if( buddies.length > 1 )
+                {
+                    fill_timer = new Timer(50, buddies.length - 1);
+                    fill_timer.addEventListener( TimerEvent.TIMER, onAddNextPortion);
+                    fill_timer.addEventListener( TimerEvent.TIMER_COMPLETE, onFillComplete );
+                    fill_timer.start();
+                }
+                list.dataProvider = new ArrayList([buddies.shift()]);
+            }
         }
 
-        private function vectorToArray(v: Object): Array
+        private function onFillComplete(event: TimerEvent): void
         {
-            var len: int = v.length;
-            var ret: Array = new Array(len);
-            for (var i: int = 0; i < len; ++i)
+            fill_timer.stop();
+            fill_timer.removeEventListener( TimerEvent.TIMER, onAddNextPortion);
+            fill_timer.removeEventListener( TimerEvent.TIMER_COMPLETE, onFillComplete );
+            fill_timer = null;
+            buddies = null;
+        }
+
+        private function onAddNextPortion(event: TimerEvent): void
+        {
+            if( buddies.length > 0 )
             {
-                ret[i] = v[i];
+                list.dataProvider.addItem( buddies.shift() );
             }
-            return ret;
+            else
+            {
+                onFillComplete(null);
+            }
         }
     }
 }
