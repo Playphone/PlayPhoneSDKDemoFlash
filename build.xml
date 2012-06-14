@@ -1,10 +1,9 @@
 <project name="Build in-page mathcomp" basedir=".">
 
     <property file="build.properties"/>
-
     <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
 
-    <target name="compile Mathcomp Game">
+    <target name="compile">
 
         <delete dir="${out}"/>
 
@@ -15,36 +14,6 @@
                incremental="false"
                default-frame-rate="30"
                locale="en_US"
-               static-link-runtime-shared-libraries="true">
-
-            <default-size width="320" height="480"/>
-
-            <source-path path-element="${basedir}/src"/>
-            <source-path path-element="${ppf_sdk}"/>
-            <!--<source-path path-element="${mnsdk_src}"/>-->
-            <!--<source-path path-element="${sfsdk_src}"/>-->
-            <!--<source-path path-element="${mp_src}"/>-->
-
-            <load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
-
-            <include-libraries dir="${ppf_sdk}/res">
-                <include name="*.swc"/>
-            </include-libraries>
-        </mxmlc>
-    </target>
-
-    <target name="compile ipa">
-
-        <delete dir="${out}"/>
-
-        <mxmlc file="${src}/PlayPhoneSDKDemoFlash.mxml"
-               output="${out}/${SWFName}"
-               debug="true"
-               optimize="false"
-               incremental="false"
-               default-frame-rate="30"
-               locale="en_US"
-               swf-version="13"
                static-link-runtime-shared-libraries="true">
 
             <default-size width="320" height="480"/>
@@ -58,31 +27,27 @@
                 <include name="*.swc"/>
             </include-libraries>
 
-            <include-libraries dir="${ppa_sdk}/NE">
+            <include-libraries dir="${ppa_sdk}/NE/bin">
                 <include name="*.swc"/>
             </include-libraries>
         </mxmlc>
     </target>
 
-    <target name="create ipa" depends="compile ipa">
+    <target name="create apk" depends="compile">
         <java jar="${adt}" fork="true" failonerror="true">
             <arg value="-package"/>
             <arg value="-target"/>
-            <arg value="ipa-debug"/>
-            <arg value="-connect"/>
-            <arg value="192.168.106.191"/>
-            <arg value="-provisioning-profile"/>
-            <arg value="${ios_profile}"/>
+            <arg value="apk-debug"/>
             <arg value="-storetype"/>
-            <arg value="${ios_storetype}"/>
+            <arg value="${APK_STORETYPE}"/>
             <arg value="-keystore"/>
-            <arg value="${ios_keystore}"/>
+            <arg value="${APK_KEYSTORE}"/>
             <arg value="-storepass"/>
             <arg value="123456"/>
-            <arg value="${out}/${ios_name}"/>
+            <arg value="${out}/${apk_name}"/>
             <arg value="${src}/PlayPhoneSDKDemoFlash-app.xml"/>
             <arg value="-extdir"/>
-            <arg value="${ppa_sdk}/NE"/>
+            <arg value="${ppa_sdk}/NE/bin"/>
             <arg value="-C"/>
             <arg value="${out}"/>
             <arg value="${out}/${SWFName}"/>
@@ -99,15 +64,5 @@
             <arg value="${ppa_sdk}\assets\playphone_logo_loading.png"/>
             <arg value="assets\playphone_logo_loading.png"/>
         </java>
-    </target>
-
-    <target name="move game to server" depends="compile Mathcomp Game">
-        <scp port="22" trust="true"
-             todir="ausachov@pluto.vn.ua:/home/ausachov/anton.pluto.vn.ua/web/some"
-             keyfile="D:\Work\keys\ausachev_o.ppk" sftp="true">
-            <fileset dir="${basedir}\out">
-                <include name="**/*.swf"/>
-            </fileset>
-        </scp>
     </target>
 </project>
