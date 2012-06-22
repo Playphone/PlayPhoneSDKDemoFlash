@@ -4,31 +4,26 @@
     <option name="DO_BUILD" value="true" />
     <option name="MAIN_CLASS" value="PlayPhoneSDKDemoFlash" />
     <option name="OUTPUT_FILE_NAME" value="PlayPhoneSDKDemoFlash.swf" />
-    <option name="TARGET_PLAYER_VERSION" value="10.2.0" />
+    <option name="TARGET_PLAYER_VERSION" value="11.1" />
     <option name="VERSION" value="3" />
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/out" />
     <output-test url="file://$MODULE_DIR$/out_test" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../MultinetClient">
-      <sourceFolder url="file://$MODULE_DIR$/../MultinetClient" isTestSource="false" />
-    </content>
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <content url="file://$MODULE_DIR$/../sdks/AirAdapter/3.0">
-      <sourceFolder url="file://$MODULE_DIR$/../sdks/AirAdapter/3.0" isTestSource="false" />
+    <content url="file://E:/flash_sdk/fleshSDK/sdk_playphone/1.7.1/PlayPhone_AirSDK_1.7.1/PlayPhoneMultiNet-Air/SDK/PlayPhoneMultiNet-Air">
+      <sourceFolder url="file://E:/flash_sdk/fleshSDK/sdk_playphone/1.7.1/PlayPhone_AirSDK_1.7.1/PlayPhoneMultiNet-Air/SDK/PlayPhoneMultiNet-Air" isTestSource="false" />
+      <excludeFolder url="file://E:/flash_sdk/fleshSDK/sdk_playphone/1.7.1/PlayPhone_AirSDK_1.7.1/PlayPhoneMultiNet-Air/SDK/PlayPhoneMultiNet-Air/res" />
     </content>
-    <content url="file://$MODULE_DIR$/../sdks/SvnSFSDK">
-      <sourceFolder url="file://$MODULE_DIR$/../sdks/SvnSFSDK" isTestSource="false" />
-    </content>
-    <orderEntry type="jdk" jdkName="AIR_3.1_SDK AIR Mobile" jdkType="AIR Mobile SDK Type" />
+    <orderEntry type="jdk" jdkName="AIR3.2_4.6SDK AIR Mobile (1)" jdkType="AIR Mobile SDK Type" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../sdk_playphone/1.4.7/PlayPhoneMultiNet-Air/res/mn_direct_ui_plus.swc!/" />
+          <root url="jar://E:/flash_sdk/fleshSDK/sdk_playphone/1.7.1/PlayPhone_AirSDK_1.7.1/PlayPhoneMultiNet-Air/SDK/PlayPhoneMultiNet-Air/res/mn_direct_ui_plus.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -37,7 +32,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../sdk_playphone/1.4.8/PlayPhoneMultiNet-Air/NE/MultiNetNE.swc!/" />
+          <root url="jar://E:/flash_sdk/fleshSDK/sdk_playphone/1.7.1/PlayPhone_AirSDK_1.7.1/PlayPhoneMultiNet-Air/SDK/PlayPhoneMultiNet-Air/NE/bin/PlayPhoneMultiNetExt.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

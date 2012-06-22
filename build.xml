@@ -1,6 +1,7 @@
-<project name="Build in-page mathcomp" basedir=".">
+<project name="Build PPS FLASH SDK DEMO" basedir=".">
 
-    <property file="build.properties"/>
+    <property file="build_global.properties"/>
+    <property file="build_internal.properties"/>
     <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
 
     <target name="compile">
@@ -19,15 +20,15 @@
             <default-size width="320" height="480"/>
 
             <source-path path-element="${basedir}/src"/>
-            <source-path path-element="${ppa_sdk}"/>
+            <source-path path-element="${PPA_SDK}"/>
 
             <load-config filename="${FLEX_HOME}/frameworks/airmobile-config.xml"/>
 
-            <include-libraries dir="${ppa_sdk}/res">
+            <include-libraries dir="${PPA_SDK}/res">
                 <include name="*.swc"/>
             </include-libraries>
 
-            <include-libraries dir="${ppa_sdk}/NE/bin">
+            <include-libraries dir="${PPA_SDK}/NE/bin">
                 <include name="*.swc"/>
             </include-libraries>
         </mxmlc>
@@ -43,26 +44,62 @@
             <arg value="-keystore"/>
             <arg value="${APK_KEYSTORE}"/>
             <arg value="-storepass"/>
-            <arg value="123456"/>
+            <arg value="${APK_KEYPASS}"/>
             <arg value="${out}/${apk_name}"/>
             <arg value="${src}/PlayPhoneSDKDemoFlash-app.xml"/>
             <arg value="-extdir"/>
-            <arg value="${ppa_sdk}/NE/bin"/>
+            <arg value="${PPA_SDK}/NE/bin"/>
             <arg value="-C"/>
             <arg value="${out}"/>
             <arg value="${out}/${SWFName}"/>
             <arg value="-e"/>
-            <arg value="${ppa_sdk}\assets\multinet_boot.html"/>
+            <arg value="${PPA_SDK}\assets\multinet_boot.html"/>
             <arg value="assets\multinet_boot.html"/>
             <arg value="-e"/>
-            <arg value="${ppa_sdk}\assets\multinet_http_error.html"/>
+            <arg value="${PPA_SDK}\assets\multinet_http_error.html"/>
             <arg value="assets\multinet_http_error.html"/>
             <arg value="-e"/>
-            <arg value="${ppa_sdk}\assets\loader.gif"/>
+            <arg value="${PPA_SDK}\assets\loader.gif"/>
             <arg value="assets\loader.gif"/>
             <arg value="-e"/>
-            <arg value="${ppa_sdk}\assets\playphone_logo_loading.png"/>
+            <arg value="${PPA_SDK}\assets\playphone_logo_loading.png"/>
             <arg value="assets\playphone_logo_loading.png"/>
         </java>
     </target>
+
+    <target name="create ipa" depends="compile">
+        <java jar="${adt}" fork="true" failonerror="true">
+            <arg value="-package"/>
+            <arg value="-target"/>
+            <arg value="ipa-debug"/>
+            <arg value="-storetype"/>
+            <arg value="${IPA_STORETYPE}"/>
+            <arg value="-keystore"/>
+            <arg value="${IPA_KEYSTORE}"/>
+            <arg value="-storepass"/>
+            <arg value="${IPA_KEYPASS}"/>
+            <arg value="-provisioning-profile"/>
+            <arg value="${PROFILE_PATH}"/>
+            <arg value="${out}/${ipa_name}"/>
+            <arg value="${src}/PlayPhoneSDKDemoFlash-app.xml"/>
+            <arg value="-extdir"/>
+            <arg value="${PPA_SDK}/NE/bin"/>
+            <arg value="-C"/>
+            <arg value="${out}"/>
+            <arg value="${out}/${SWFName}"/>
+            <arg value="-e"/>
+            <arg value="${PPA_SDK}\assets\multinet_boot.html"/>
+            <arg value="assets\multinet_boot.html"/>
+            <arg value="-e"/>
+            <arg value="${PPA_SDK}\assets\multinet_http_error.html"/>
+            <arg value="assets\multinet_http_error.html"/>
+            <arg value="-e"/>
+            <arg value="${PPA_SDK}\assets\loader.gif"/>
+            <arg value="assets\loader.gif"/>
+            <arg value="-e"/>
+            <arg value="${PPA_SDK}\assets\playphone_logo_loading.png"/>
+            <arg value="assets\playphone_logo_loading.png"/>
+        </java>
+    </target>
+
 </project>
