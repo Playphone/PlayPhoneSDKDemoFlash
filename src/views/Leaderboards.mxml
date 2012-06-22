@@ -15,9 +15,9 @@
     </s:states>
 
     <s:Button includeIn="OldLeaderboard, GameLeaderboard, UserLeaderboard" width="100%" click="currentState='Base'">Back</s:Button>
-    <s:Button includeIn="Base" width="100%" click="currentState='OldLeaderboard'">Simple leaderboard</s:Button>
-    <s:Button includeIn="Base" width="100%" click="currentState='GameLeaderboard'">Game leaderboard</s:Button>
-    <s:Button includeIn="Base" width="100%" click="currentState='UserLeaderboard'">User leaderboard</s:Button>
+    <s:Button includeIn="Base" width="100%" click="currentState='OldLeaderboard'">Score Posting</s:Button>
+    <s:Button includeIn="Base" width="100%" click="currentState='GameLeaderboard'">Game Leaderboard</s:Button>
+    <s:Button includeIn="Base" width="100%" click="currentState='UserLeaderboard'">Player Leaderboard</s:Button>
 
     <views:OldLeaderboard includeIn="OldLeaderboard" width="100%" height="100%"/>
     <views:GameLeaderboard includeIn="GameLeaderboard" width="100%" height="100%"/>

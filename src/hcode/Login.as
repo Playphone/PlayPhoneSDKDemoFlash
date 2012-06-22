@@ -41,7 +41,6 @@ package hcode
             else
             {
                 MNDirectHelper.showDashboard();
-//                MNSession.instance.loginWithUserLoginAndPassword(username.text, pass.text, false);
             }
         }
 
@@ -49,8 +48,6 @@ package hcode
         {
             login.label = "Logout";
             username.text = MNSession.instance.getMyUserInfo().userName;
-//                username.enabled = false;
-//                pass.enabled = false;
         }
 
         private function onLogout(event: MNSessionEvent): void
@@ -59,8 +56,6 @@ package hcode
             {
                 login.label = "Login";
                 username.text = "";
-//                username.enabled = true;
-//                pass.enabled = true;
             }
         }
 

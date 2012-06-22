@@ -28,19 +28,22 @@ package hcode
     {
         private var req_block: String;
 
-        private static var scope_values:Array = [MNWSRequestContent.LEADERBOARD_SCOPE_GLOBAL,
+/*        private static var scope_values:Array = [MNWSRequestContent.LEADERBOARD_SCOPE_GLOBAL,
                                                  MNWSRequestContent.LEADERBOARD_SCOPE_LOCAL];
         private static var period_values:Array = [MNWSRequestContent.LEADERBOARD_PERIOD_ALL_TIME,
                                                   MNWSRequestContent.LEADERBOARD_PERIOD_THIS_WEEK,
-                                                  MNWSRequestContent.LEADERBOARD_PERIOD_THIS_MONTH];
+                                                  MNWSRequestContent.LEADERBOARD_PERIOD_THIS_MONTH];*/
 
         public var score: TextInput;
         public var settings: DropDown;
         public var load: Button;
         public var list: List;
+        public var postScore: Button;
+        private var handler: MNWSRequestDefHandler;
+        private var content: MNWSRequestContent;
 
-        public var scope:TabBar;
-        public var period:TabBar;
+/*        public var scope:TabBar;
+        public var period:TabBar;*/
 
         public function OldLeaderboard()
         {
@@ -52,6 +55,7 @@ package hcode
         {
             this.removeEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
             load.addEventListener(MouseEvent.CLICK, load_clickHandler);
+            postScore.addEventListener(MouseEvent.CLICK, postScore_clickHandler);
 
             if (MNDirect.getSession() == null)
             {
@@ -105,16 +109,43 @@ package hcode
 
         private function load_clickHandler(event: MouseEvent): void
         {
+            setGameId();
+
+            updateScore();
+        }
+
+        private function updateScore(): void
+        {
+            if (handler == null)
+            {
+                handler = new MNWSRequestDefHandler();
+                handler.addEventListener(MNWSDefHandlerEvent.onRequestComplete, onComplete);
+                handler.addEventListener(MNWSDefHandlerEvent.onRequestError, onError);
+            }
+
+            if (content == null)
+            {
+                content = new MNWSRequestContent();
+            }
+
+            req_block = content.addCurrUserLeaderboard( MNWSRequestContent.LEADERBOARD_SCOPE_GLOBAL, MNWSRequestContent.LEADERBOARD_PERIOD_ALL_TIME );
+            MNWSRequestSender.instance.sendRequest( content, handler );
+        }
+
+        private function setGameId(): void
+        {
             var selectedItem: Object = settings.dataProvider.getItemAt(settings.selectedIndex);
             MNDirect.setDefaultGameSetId(selectedItem.data.id);
+        }
 
-            var handler: MNWSRequestDefHandler = new MNWSRequestDefHandler();
-            handler.addEventListener(MNWSDefHandlerEvent.onRequestComplete, onComplete);
-            handler.addEventListener(MNWSDefHandlerEvent.onRequestError, onError);
+        private function postScore_clickHandler(event: MouseEvent): void
+        {
+            var scoreToPost: int = int(score.text);
 
-            var content: MNWSRequestContent = new MNWSRequestContent();
-            req_block = content.addCurrUserLeaderboard( scope_values[scope.selectedIndex], period_values[period.selectedIndex] );
-            MNWSRequestSender.instance.sendRequest( content, handler );
+            setGameId();
+
+            MNDirect.postGameScore(scoreToPost);
+            updateScore();
         }
 
         private function onError(event: MNWSDefHandlerEvent): void

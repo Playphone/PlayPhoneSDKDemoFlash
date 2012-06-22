@@ -7,28 +7,29 @@
                       width="100%"
                       height="100%"
                       gap="5">
-        <!--    <s:HGroup width="100%">
-            <s:TextInput id="score" width="65%"/>
-            <s:Button id="post_score" width="35%">Post score</s:Button>
-        </s:HGroup>-->
 
-        <controls:DropDown id="settings" width="100%"/>
+        <s:HGroup width="100%">
+            <s:TextInput id="score" width="65%" height="100%"/>
+            <s:Button id="postScore" width="35%" height="100%">Post score</s:Button>
+        </s:HGroup>
 
-        <s:TabBar id="scope" width="100%" minHeight="45">
-            <mx:ArrayCollection>
-                <fx:String>Global</fx:String>
-                <fx:String>Local</fx:String>
-            </mx:ArrayCollection>
-        </s:TabBar>
+       <controls:DropDown id="settings" width="100%"/>
 
-        <s:TabBar id="period" width="100%" minHeight="45">
-            <mx:ArrayCollection>
-                <fx:String>All period</fx:String>
-                <fx:String>Week</fx:String>
-                <fx:String>Month</fx:String>
-            </mx:ArrayCollection>
+    <!--         <s:TabBar id="scope" width="100%" minHeight="45">
+        <mx:ArrayCollection>
+            <fx:String>Global</fx:String>
+            <fx:String>Local</fx:String>
+        </mx:ArrayCollection>
+    </s:TabBar>
 
-        </s:TabBar>
+    <s:TabBar id="period" width="100%" minHeight="45">
+        <mx:ArrayCollection>
+            <fx:String>All period</fx:String>
+            <fx:String>Week</fx:String>
+            <fx:String>Month</fx:String>
+        </mx:ArrayCollection>
+
+    </s:TabBar>-->
 
         <s:Button id="load" width="100%">Load leaderboard!</s:Button>
 

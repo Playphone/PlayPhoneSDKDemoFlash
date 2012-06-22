@@ -15,9 +15,9 @@
     </s:states>
 
     <s:Button includeIn="PPStore, VItems, UserItems" width="100%" click="currentState='Main'">Back</s:Button>
-    <s:Button includeIn="Main" width="100%" click="currentState='PPStore'">Playphone store</s:Button>
     <s:Button includeIn="Main" width="100%" click="currentState='VItems'">Virtual items</s:Button>
-    <s:Button includeIn="Main" width="100%" click="currentState='UserItems'">User items</s:Button>
+    <s:Button includeIn="Main" width="100%" click="currentState='PPStore'">PlayPhone store</s:Button>
+    <s:Button includeIn="Main" width="100%" click="currentState='UserItems'">User inventory</s:Button>
 
     <s:Panel includeIn="VItems" width="100%" height="100%" title="Virtual items">
         <veconomy:VItems/>

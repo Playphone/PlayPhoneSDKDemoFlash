@@ -67,9 +67,9 @@ package hcode
             if (!MNSession.instance.isLoggedIn)
             {
                 onSessionReady(null);
-                room_id.text = "-1";
-                user_name.text = "---";
-                user_id.text = "-1";
+                room_id.text = "User is not logged in";
+                user_name.text = "User is not logged in";
+                user_id.text = "User is not logged in";
             }
         }
     }
