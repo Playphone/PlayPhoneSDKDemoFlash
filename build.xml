@@ -187,6 +187,4 @@
         </java>
         <echo message="ipa created"/>
     </target>
-
-
 </project>
