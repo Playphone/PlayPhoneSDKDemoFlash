@@ -1,10 +1,25 @@
 <project name="Build PPS FLASH SDK DEMO" basedir=".">
 
-    <property file="build_global.properties"/>
-    <property file="build_internal.properties"/>
+    <property file="build_local.properties"/>
+
+    <property name="adt" value="${FLEX_HOME}/lib/adt.jar"/>
+    <property name="out" value="${basedir}/out"/>
+    <property name="src" value="${basedir}/src"/>
+    <property name="SWFName" value="PlayPhoneSDKDemoFlash.swf"/>
+    <property name="apk_name" value="PlayPhoneSDKDemoFlash.apk"/>
+    <property name="ipa_name" value="PlayPhoneSDKDemoFlash.ipa"/>
+
     <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
 
-    <target name="compile">
+    <target name="check-setup">
+        <available file="${FLEX_HOME}" type="dir" property="check.status2"/>
+        <fail message="Flex SDK not found. Probably you set incorrect paths in build_global.properties" unless="check.status2"/>
+
+        <available file="${PPA_SDK}" type="dir" property="check.status3"/>
+        <fail message="PlayPhoneAIR SDK not found. Probably you set incorrect paths in build_global.properties" unless="check.status3"/>
+    </target>
+
+    <target name="compile" depends="check-setup">
 
         <delete dir="${out}"/>
 
@@ -34,7 +49,7 @@
         </mxmlc>
     </target>
 
-    <target name="create apk" depends="compile">
+    <target name="create-apk" depends="compile">
         <java jar="${adt}" fork="true" failonerror="true">
             <arg value="-package"/>
             <arg value="-target"/>
@@ -67,7 +82,7 @@
         </java>
     </target>
 
-    <target name="create ipa" depends="compile">
+    <target name="create-ipa" depends="compile">
         <java jar="${adt}" fork="true" failonerror="true">
             <arg value="-package"/>
             <arg value="-target"/>
