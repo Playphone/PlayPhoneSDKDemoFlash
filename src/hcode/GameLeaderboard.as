@@ -1,12 +1,13 @@
 package hcode
 {
     import com.playphone.multinet.MNDirect;
+    import com.playphone.multinet.MNDirect;
     import com.playphone.multinet.core.MNSession;
     import com.playphone.multinet.core.data.MNWSLeaderboardListItem;
-    import com.playphone.multinet.core.ws.MNWSDefHandlerEvent;
     import com.playphone.multinet.core.ws.MNWSRequestContent;
-    import com.playphone.multinet.core.ws.MNWSRequestDefHandler;
-    import com.playphone.multinet.core.ws.MNWSRequestSender;
+    import com.playphone.multinet.providers.requests.*;
+    import com.playphone.multinet.providers.results.LeaderboardRequestResult;
+    import com.playphone.multinet.providers.results.RequestResult;
 
     import flash.events.Event;
     import flash.events.MouseEvent;
@@ -60,11 +61,6 @@ package hcode
         {
             MNDirect.setDefaultGameSetId(int(gameset_id.text));
 
-            var handler: MNWSRequestDefHandler = new MNWSRequestDefHandler();
-            handler.addEventListener(MNWSDefHandlerEvent.onRequestComplete, onComplete);
-            handler.addEventListener(MNWSDefHandlerEvent.onRequestError, onError);
-
-            var content: MNWSRequestContent = new MNWSRequestContent();
             var user_id_val: int;
             var game_id_val: int;
 
@@ -74,7 +70,7 @@ package hcode
             }
             else
             {
-                user_id_val = MNSession.instance.getMyUserId();
+                user_id_val = MNDirect.getSession().getMyUserId();
             }
 
             if (game.selectedIndex == 1)
@@ -83,26 +79,33 @@ package hcode
             }
             else
             {
-                game_id_val = MNSession.instance.getGameId();
+                game_id_val = MNDirect.getSession().getGameId();
             }
 
-            req_block = content.addAnyUserAnyGameLeaderboardGlobal(user_id_val,
-                                                                   game_id_val,
-                                                                   int(gameset_id),
-                                                                   period_values[period.selectedIndex]);
+            var request:MNWSInfoRequestLeaderboard =
+                    new MNWSInfoRequestLeaderboard
+                        (new LeaderboardModeAnyUserAnyGameGlobal(user_id_val,
+                                                                 game_id_val,
+                                                                 int(gameset_id),
+                                                                 period_values[period.selectedIndex]));
 
-            MNWSRequestSender.instance.sendRequest(content, handler);
+            request.addEventListener(RequestResult.REPLY, onComplete);
+
+            MNDirect.getWSProvider().sendSingle(request);
         }
 
-        private function onError(event: MNWSDefHandlerEvent): void
+        private function onComplete(event: LeaderboardRequestResult): void
         {
-            PlayPhoneSDKDemoFlash.showMessage(this, event.params.message);
-        }
-
-        private function onComplete(event: MNWSDefHandlerEvent): void
-        {
-            var leaderboard: Vector.<MNWSLeaderboardListItem> = event.params[req_block] as Vector.<MNWSLeaderboardListItem>;
-            list.dataProvider = new ArrayList(vectorToArray(leaderboard));
+            event.currentTarget.removeEventListener(RequestResult.REPLY, onComplete);
+            if(event.hasError())
+            {
+                PlayPhoneSDKDemoFlash.showMessage(this, event.getErrorMessage());
+            }
+            else
+            {
+                var leaderboard: Vector.<MNWSLeaderboardListItem> = event.getDataEntry();
+                list.dataProvider = new ArrayList(vectorToArray(leaderboard));
+            }
         }
 
         private function vectorToArray(v: Object): Array

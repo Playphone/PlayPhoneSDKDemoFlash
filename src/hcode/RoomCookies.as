@@ -5,7 +5,7 @@ package hcode
     import com.playphone.multinet.core.MNSession;
     import com.playphone.multinet.providers.MNGameCookiesProvider;
     import com.playphone.multinet.providers.MNGameRoomCookiesProvider;
-    import com.playphone.multinet.providers.MNPluginEvent;
+    import com.playphone.multinet.providers.MNGameRoomCookiesProviderEvent;
 
     import flash.events.Event;
 
@@ -39,7 +39,7 @@ package hcode
 
             if (MNDirect.getSession() == null)
             {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
+                MNDirect.addEventListener(MNDirectEvent.mnDirectSessionReady, onSessionReady);
             }
             else
             {
@@ -53,19 +53,20 @@ package hcode
 
         private function onSessionReady(event: MNDirectEvent): void
         {
-            MNDirect.gameRoomCookiesProvider.addEventListener(MNGameRoomCookiesProvider.onGameRoomCookieDownloadFailedWithError,
-                                                              downloadError);
-            MNDirect.gameRoomCookiesProvider.addEventListener(MNGameRoomCookiesProvider.onGameRoomCookieDownloadSucceeded,
-                                                              downloadComplete);
+            MNDirect.getGameRoomCookiesProvider().addEventListener(
+                    MNGameRoomCookiesProviderEvent.onGameRoomCookieDownloadFailedWithError, downloadError);
+            MNDirect.getGameRoomCookiesProvider().addEventListener(
+                    MNGameRoomCookiesProviderEvent.onGameRoomCookieDownloadSucceeded, downloadComplete);
         }
 
         private function btnUpload_clickHandler(event: MouseEvent): void
         {
             if (MNDirect.getSession() != null)
             {
-                if (MNSession.instance.isLoggedIn)
+                if (MNDirect.getSession().isUserLoggedIn())
                 {
-                    MNDirect.gameRoomCookiesProvider.setCurrentGameRoomCookie(int(room_cookie_key.text), room_cookie_val.text);
+                    MNDirect.getGameRoomCookiesProvider().setCurrentGameRoomCookie(int(room_cookie_key.text),
+                                                                                   room_cookie_val.text);
                 }
                 else
                 {
@@ -82,9 +83,9 @@ package hcode
         {
             if (MNDirect.getSession() != null)
             {
-                if (MNSession.instance.isLoggedIn)
+                if (MNDirect.getSession().isUserLoggedIn())
                 {
-                    MNDirect.gameRoomCookiesProvider.downloadGameRoomCookie(MNSession.instance.getCurrentRoomId(), int(download_cookie_key.text));
+                    MNDirect.getGameRoomCookiesProvider().downloadGameRoomCookie(MNDirect.getSession().getCurrentRoomId(), int(download_cookie_key.text));
                 }
                 else
                 {
@@ -97,13 +98,13 @@ package hcode
             }
         }
 
-        private function downloadError(event: MNPluginEvent): void
+        private function downloadError(event: MNGameRoomCookiesProviderEvent): void
         {
             PlayPhoneSDKDemoFlash.showMessage(this,
                                               "Could not download cookie (id=" + event.params.key + ") " + event.params.error);
         }
 
-        private function downloadComplete(event: MNPluginEvent): void
+        private function downloadComplete(event: MNGameRoomCookiesProviderEvent): void
         {
             PlayPhoneSDKDemoFlash.showMessage(this,
                                               "Cookie (id=" + event.params.key + " value=" + event.params.cookie + ") download succsessfuly");

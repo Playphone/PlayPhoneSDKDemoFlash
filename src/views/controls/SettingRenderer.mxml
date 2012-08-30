@@ -27,14 +27,14 @@
                 setting_id.text = value.id.toString();
             }
 
-            if (value.isLeaderboardVisible != null)
+            if (value.leaderboardVisible != null)
             {
-                setting_leaderboard.text = value.isLeaderboardVisible ? "enabled" : "disabled";
+                setting_leaderboard.text = value.leaderboardVisible ? "enabled" : "disabled";
             }
 
-            if (value.isMultiplayerEnabled != null)
+            if (value.multiplayerEnabled != null)
             {
-                setting_multiplayer.text = value.isMultiplayerEnabled ? "enabled" : "disabled"
+                setting_multiplayer.text = value.multiplayerEnabled ? "enabled" : "disabled"
             }
 
             if (value.sysParams != null)

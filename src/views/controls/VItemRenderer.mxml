@@ -23,9 +23,9 @@
                 item_category.text = value.model.toString();
             }
 
-            if (value.desc != null)
+            if (value.description != null)
             {
-                item_description.text = value.desc.toString();
+                item_description.text = value.description.toString();
             }
 
             if (value.params != null)

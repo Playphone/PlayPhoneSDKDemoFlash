@@ -1,5 +1,7 @@
 package hcode.veconomy
 {
+    import com.playphone.multinet.providers.MNVItemsProviderEvent;
+
     import flash.events.Event;
 
     import mx.events.FlexEvent;
@@ -11,7 +13,6 @@ package hcode.veconomy
 
     import com.playphone.multinet.MNDirect
     import com.playphone.multinet.MNDirectEvent
-    import com.playphone.multinet.providers.MNVitemsProvider
 
     import mx.collections.ArrayList
     import mx.events.FlexEvent
@@ -49,7 +50,7 @@ package hcode.veconomy
 
             if (MNDirect.getSession() == null)
             {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
+                MNDirect.addEventListener(MNDirectEvent.mnDirectSessionReady, onSessionReady);
             }
             else
             {
@@ -89,7 +90,7 @@ package hcode.veconomy
         {
             var currencies: Array = [];
 
-            var items: Array = MNDirect.virtualItemsProvider.getGameVItemsList();
+            var items: Array = MNDirect.getVItemsProvider().getGameVItemsList();
             for each(var item: Object in items)
             {
                 if ((item.model & 1) == 0)
@@ -105,7 +106,7 @@ package hcode.veconomy
         {
             var currencies: Array = [];
 
-            var items: Array = MNDirect.virtualItemsProvider.getGameVItemsList();
+            var items: Array = MNDirect.getVItemsProvider().getGameVItemsList();
             for each(var item: Object in items)
             {
                 if ((item.model & 1) != 0)
@@ -129,10 +130,10 @@ package hcode.veconomy
 
         private function onSessionReady(event: MNDirectEvent): void
         {
-            if (MNDirect.virtualShopProvider.isVShopInfoNeedUpdate())
+            if (MNDirect.getVItemsProvider().isGameVItemsListNeedUpdate())
             {
-                MNDirect.virtualItemsProvider.addEventListener(MNVitemsProvider.onVItemsListUpdated, onInfoUpdated);
-                MNDirect.virtualItemsProvider.doGameVItemsListUpdate();
+                MNDirect.getVItemsProvider().addEventListener(MNVItemsProviderEvent.onVItemsListUpdated, onInfoUpdated);
+                MNDirect.getVItemsProvider().doGameVItemsListUpdate();
             }
             else
             {

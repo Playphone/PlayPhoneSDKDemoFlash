@@ -15,6 +15,11 @@ package hcode
 
     import mx.events.FlexEvent
 
+    import com.playphone.multinet.core.data.*;
+    import com.playphone.multinet.providers.requests.*;
+    import com.playphone.multinet.providers.results.*;
+
+    import com.playphone.multinet.providers.*;
 
     public class UserInfo extends VGroup
     {
@@ -34,7 +39,7 @@ package hcode
             trace("Userinfo initializeHandler");
             if (MNDirect.getSession() == null)
             {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
+                MNDirect.addEventListener(MNDirectEvent.mnDirectSessionReady, onSessionReady);
             }
             else
             {
@@ -44,8 +49,8 @@ package hcode
 
         private function onSessionReady(event: MNDirectEvent): void
         {
-            MNSession.instance.addEventListener(MNSessionEvent.onDidLogin, onLogin);
-            if (MNSession.instance.isLoggedIn)
+            MNDirect.getSession().addEventListener(MNSessionEvent.mnSessionStatusChanged, onLogin);
+            if (MNDirect.getSession().isUserLoggedIn())
             {
                 onLogin(null);
             }
@@ -53,23 +58,50 @@ package hcode
 
         private function onLogin(event: MNSessionEvent): void
         {
-            MNSession.instance.removeEventListener(MNSessionEvent.onDidLogin, onLogin);
-            MNSession.instance.addEventListener(MNSessionEvent.onSessionStatusChanged, onLogout);
-            var userinfo: MNUserInfo = MNSession.instance.getMyUserInfo();
-            room_id.text = String(MNSession.instance.getCurrentRoomId());
-            user_name.text = userinfo.userName;
-            user_id.text = String(userinfo.userId);
-            user_img.source = userinfo.userAvatar;
+            if( MNDirect.getSession().isUserLoggedIn() )
+            {
+                MNDirect.getSession().removeEventListener(MNSessionEvent.mnSessionStatusChanged, onLogin);
+                MNDirect.getSession().addEventListener(MNSessionEvent.mnSessionStatusChanged, onLogout);
+                var userinfo: MNUserInfo = MNDirect.getSession().getMyUserInfo();
+                room_id.text = String(MNDirect.getSession().getCurrentRoomId());
+                user_name.text = userinfo.userName;
+                user_id.text = String(userinfo.userId);
+                user_img.source = userinfo.userAvatarUrl;
+            }
+        }
+
+        private function onComplete(event: AnyGameRequestResult): void
+        {
+            var game_id: int          = event.getDataEntry().game_id;
+            var game_name: String     = event.getDataEntry().game_name;
+            var game_desc: String     = event.getDataEntry().game_desc;
+            var gamegenre_id: int     = event.getDataEntry().gamegenre_id;
+            var game_flags: Number    = event.getDataEntry().game_flags;
+            var game_status: int      = event.getDataEntry().game_status;
+            var game_play_model: int  = event.getDataEntry().game_play_model;
+            var game_icon_url: String = event.getDataEntry().game_icon_url;
+            var developer_id: Number  = event.getDataEntry().developer_id;
+
+            trace("AnyGameRequestResult:");
+            trace("game_id="+game_id);
+            trace("game_name="+game_name);
+            trace("game_desc="+game_desc);
+            trace("gamegenre_id="+gamegenre_id);
+            trace("game_flags="+game_flags);
+            trace("game_status="+game_status);
+            trace("game_play_model="+game_play_model);
+            trace("game_icon_url="+game_icon_url);
+            trace("developer_id="+developer_id);
         }
 
         private function onLogout(event: MNSessionEvent): void
         {
-            if (!MNSession.instance.isLoggedIn)
+            if (!MNDirect.getSession().isUserLoggedIn())
             {
                 onSessionReady(null);
-                room_id.text = "User is not logged in";
-                user_name.text = "User is not logged in";
-                user_id.text = "User is not logged in";
+                room_id.text = "-1";
+                user_name.text = "---";
+                user_id.text = "-1";
             }
         }
     }

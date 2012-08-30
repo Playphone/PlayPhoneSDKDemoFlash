@@ -1,0 +1,9 @@
+<extension xmlns="http://ns.adobe.com/air/extension/3.1">
+    <id>com.playphone.air.PlayPhoneMultiNetExt</id>
+    <versionNumber>1</versionNumber>
+    <platforms>
+        <platform name="default">
+            <applicationDeployment/>
+        </platform>
+    </platforms>
+</extension>

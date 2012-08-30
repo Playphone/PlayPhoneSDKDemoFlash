@@ -77,7 +77,7 @@
                                 return;
                             }
 
-                            pack_img.source = MNDirect.virtualShopProvider.getVShopPackImageURL(value.id);
+                            pack_img.source = MNDirect.getVShopProvider().getVShopPackImageURL(value.id);
                             pack_id.text = value.id;
                             pack_name.text = value.name;
                             pack_price.text = getPriceString(value.priceValue);

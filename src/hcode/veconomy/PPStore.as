@@ -1,5 +1,8 @@
 package hcode.veconomy
 {
+    import com.playphone.multinet.MNDirectUIHelper;
+    import com.playphone.multinet.providers.MNVShopProviderEvent;
+
     import flash.events.Event;
     import flash.events.MouseEvent;
 
@@ -10,8 +13,6 @@ package hcode.veconomy
 
     import com.playphone.multinet.MNDirect
     import com.playphone.multinet.MNDirectEvent
-    import com.playphone.multinet.MNDirectHelper
-    import com.playphone.multinet.providers.MNPluginEvent
     import com.playphone.multinet.providers.MNVShopProvider
 
     import mx.collections.ArrayList
@@ -60,7 +61,7 @@ package hcode.veconomy
 
             if (MNDirect.getSession() == null)
             {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
+                MNDirect.addEventListener(MNDirectEvent.mnDirectSessionReady, onSessionReady);
             }
             else
             {
@@ -75,15 +76,15 @@ package hcode.veconomy
 
         private function onSessionReady(event: MNDirectEvent): void
         {
-            MNDirect.virtualShopProvider.addEventListener(MNVShopProvider.showDashboard, onShowDashboard);
-            MNDirect.virtualShopProvider.addEventListener(MNVShopProvider.hideDashboard, onHideDashboard);
-            MNDirect.virtualShopProvider.addEventListener(MNVShopProvider.transactionSuccess, onTransactionComplete);
-            MNDirect.virtualShopProvider.addEventListener(MNVShopProvider.transactionFailed, onTransactionError);
+            MNDirect.getVShopProvider().addEventListener(MNVShopProviderEvent.showDashboard, onShowDashboard);
+            MNDirect.getVShopProvider().addEventListener(MNVShopProviderEvent.hideDashboard, onHideDashboard);
+            MNDirect.getVShopProvider().addEventListener(MNVShopProviderEvent.onCheckoutVShopPackSuccess, onTransactionComplete);
+            MNDirect.getVShopProvider().addEventListener(MNVShopProviderEvent.onCheckoutVShopPackFail, onTransactionError);
 
-            if (MNDirect.virtualShopProvider.isVShopInfoNeedUpdate())
+            if (MNDirect.getVShopProvider().isVShopInfoNeedUpdate())
             {
-                MNDirect.virtualShopProvider.addEventListener(MNVShopProvider.packListUpdated, onInfoUpdated);
-                MNDirect.virtualShopProvider.doVShopInfoUpdate();
+                MNDirect.getVShopProvider().addEventListener(MNVShopProviderEvent.onVShopInfoUpdated, onInfoUpdated);
+                MNDirect.getVShopProvider().doVShopInfoUpdate();
             }
             else
             {
@@ -125,7 +126,7 @@ package hcode.veconomy
 
         private function updateBuyScreen(): void
         {
-            var packs: Array = MNDirect.virtualShopProvider.getVShopPackList();
+            var packs: Array = MNDirect.getVShopProvider().getVShopPackList() as Array;
             var combo_items: Array = [];
             for each(var pack: Object in packs)
             {
@@ -137,13 +138,13 @@ package hcode.veconomy
 
         private function updatePacksScreen(): void
         {
-            var packs: Array = MNDirect.virtualShopProvider.getVShopPackList();
+            var packs: Array = MNDirect.getVShopProvider().getVShopPackList();
             vShopPacks_list.dataProvider = new ArrayList(packs);
         }
 
         private function updateCategories(): void
         {
-            vShopCategories_list.dataProvider = new ArrayList(MNDirect.virtualShopProvider.getVShopCategoryList());
+            vShopCategories_list.dataProvider = new ArrayList(MNDirect.getVShopProvider().getVShopCategoryList());
         }
 
         private function tabs_changeHandler(event: IndexChangeEvent): void
@@ -158,30 +159,31 @@ package hcode.veconomy
         private function btnBuy_clickHandler(event: MouseEvent): void
         {
             var vShopPackItem: Object = vShopPacks.dataProvider.getItemAt(vShopPacks.selectedIndex);
-
-            MNDirect.virtualShopProvider.execCheckoutVShopPacks([vShopPackItem.data.id], [1],
-                                                                MNDirect.virtualItemsProvider.getNewClientTransactionId());
+            MNDirect.getVShopProvider().execCheckoutVShopPacks([vShopPackItem.data.id], [1],
+                                                               int(MNDirect.getVItemsProvider().getNewClientTransactionId()));
         }
 
         private function onShowDashboard(event: Event): void
         {
-            MNDirectHelper.showDashboard();
+            MNDirectUIHelper.showDashboard();
         }
 
         private function onHideDashboard(event: Event): void
         {
-            MNDirectHelper.hideDashboard()
+            MNDirectUIHelper.hideDashboard();
         }
 
-        private function onTransactionComplete(event: MNPluginEvent): void
+        private function onTransactionComplete(event: MNVShopProviderEvent): void
         {
-            PlayPhoneSDKDemoFlash.showMessage(this, "Pack( id= " + event.params.items_to_add[0] + " ) succsessfully bought");
+            var addedItem:* = event.params.result.transaction.vItems[0];
+            PlayPhoneSDKDemoFlash.showMessage(this, "Item (id=" + addedItem.id + ") succsessfully bought. Count=" + addedItem.delta);
         }
 
-        private function onTransactionError(event: MNPluginEvent): void
+        private function onTransactionError(event: MNVShopProviderEvent): void
         {
+
             PlayPhoneSDKDemoFlash.showMessage(this, "Errort occurred due buying pack code: " +
-                                                    event.params.error_code + " " + event.params.error_message);
+                                                    event.params.result.errorCode + " " + event.params.result.errorMessage);
         }
     }
 }

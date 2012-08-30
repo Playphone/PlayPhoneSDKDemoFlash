@@ -1,7 +1,7 @@
 package hcode
 {
     import com.playphone.multinet.MNDirect;
-    import com.playphone.multinet.MNDirectHelper;
+    import com.playphone.multinet.MNDirectUIHelper;
 
     import flash.events.MouseEvent;
 
@@ -34,25 +34,24 @@ package hcode
         private function login_clickHandler(event: MouseEvent): void
         {
             MNDirect.execAppCommand("jumpToUserLogin", null);
-            MNDirectHelper.showDashboard();
+            MNDirectUIHelper.showDashboard();
         }
 
         private function leaderboards_clickHandler(event: MouseEvent): void
         {
             MNDirect.execAppCommand("jumpToLeaderboard", null);
-            MNDirectHelper.showDashboard();
-        }
+            MNDirectUIHelper.showDashboard();        }
 
         private function achievements_clickHandler(event: MouseEvent): void
         {
             MNDirect.execAppCommand("jumpToAchievements", null);
-            MNDirectHelper.showDashboard();
-        }
+            MNDirectUIHelper.showDashboard();        }
 
         private function home_clickHandler(event: MouseEvent): void
         {
-            MNDirect.execAppCommand("jumpToUserHome", null);
-            MNDirectHelper.showDashboard();
+            MNDirect.sendAppBeacon(null, null);
+/*            MNDirect.execAppCommand("jumpToUserHome", null);
+            MNDirectHelper.showDashboard();*/
         }
     }
 }

@@ -1,5 +1,7 @@
 package hcode
 {
+    import com.playphone.multinet.providers.MNGameCookiesProviderEvent;
+
     import flash.events.MouseEvent;
 
     import spark.components.Button;
@@ -12,7 +14,6 @@ package hcode
     import com.playphone.multinet.MNDirectEvent
     import com.playphone.multinet.core.MNSession
     import com.playphone.multinet.providers.MNGameCookiesProvider
-    import com.playphone.multinet.providers.MNPluginEvent
 
     import mx.events.FlexEvent
 
@@ -28,23 +29,23 @@ package hcode
         {
             super();
             this.addEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
-            this.addEventListener(FlexEvent.INITIALIZE, initializeHandler );
+            this.addEventListener(FlexEvent.INITIALIZE, initializeHandler);
         }
 
         private function onCreationComplete(event: FlexEvent): void
         {
             this.removeEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
-            btnUpload.addEventListener( MouseEvent.CLICK, btnUpload_clickHandler );
-            btnReload.addEventListener( MouseEvent.CLICK, btnReload_clickHandler );
+            btnUpload.addEventListener(MouseEvent.CLICK, btnUpload_clickHandler);
+            btnReload.addEventListener(MouseEvent.CLICK, btnReload_clickHandler);
         }
 
         private function btnUpload_clickHandler(event: MouseEvent): void
         {
             if (MNDirect.getSession() != null)
             {
-                if (MNSession.instance.isLoggedIn)
+                if (MNDirect.getSession().isUserLoggedIn())
                 {
-                    MNDirect.gameCookiesProvider.uploadUserCookie(int(cookie_key.text), cookie_val.text);
+                    MNDirect.getGameCookiesProvider().uploadUserCookie(int(cookie_key.text), cookie_val.text);
                 }
                 else
                 {
@@ -59,10 +60,10 @@ package hcode
 
         private function initializeHandler(event: FlexEvent): void
         {
-            this.removeEventListener(FlexEvent.INITIALIZE, initializeHandler );
+            this.removeEventListener(FlexEvent.INITIALIZE, initializeHandler);
             if (MNDirect.getSession() == null)
             {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
+                MNDirect.addEventListener(MNDirectEvent.mnDirectSessionReady, onSessionReady);
             }
             else
             {
@@ -72,35 +73,35 @@ package hcode
 
         private function onSessionReady(event: MNDirectEvent): void
         {
-            MNDirect.gameCookiesProvider.addEventListener(MNGameCookiesProvider.onGameCookieDownloadFailedWithError,
-                                                          downloadError);
-            MNDirect.gameCookiesProvider.addEventListener(MNGameCookiesProvider.onGameCookieDownloadSucceeded,
-                                                          downloadComplete);
-            MNDirect.gameCookiesProvider.addEventListener(MNGameCookiesProvider.onGameCookieUploadFailedWithError,
-                                                          uploadError);
-            MNDirect.gameCookiesProvider.addEventListener(MNGameCookiesProvider.onGameCookieUploadSucceeded,
-                                                          uploadComplete);
+            MNDirect.getGameCookiesProvider().addEventListener(
+                    MNGameCookiesProviderEvent.onGameCookieDownloadFailedWithError, downloadError);
+            MNDirect.getGameCookiesProvider().addEventListener(
+                    MNGameCookiesProviderEvent.onGameCookieDownloadSucceeded, downloadComplete);
+            MNDirect.getGameCookiesProvider().addEventListener(
+                    MNGameCookiesProviderEvent.onGameCookieUploadFailedWithError, uploadError);
+            MNDirect.getGameCookiesProvider().addEventListener(MNGameCookiesProviderEvent.onGameCookieUploadSucceeded,
+                                                               uploadComplete);
         }
 
-        private function downloadError(event: MNPluginEvent): void
+        private function downloadError(event: MNGameCookiesProviderEvent): void
         {
             PlayPhoneSDKDemoFlash.showMessage(this,
                                               "Could not download cookie (id=" + event.params.key + ") " + event.params.error);
         }
 
-        private function downloadComplete(event: MNPluginEvent): void
+        private function downloadComplete(event: MNGameCookiesProviderEvent): void
         {
             PlayPhoneSDKDemoFlash.showMessage(this,
                                               "Cookie (id=" + event.params.key + " value=" + event.params.cookie + ") download succsessfuly");
         }
 
-        private function uploadError(event: MNPluginEvent): void
+        private function uploadError(event: MNGameCookiesProviderEvent): void
         {
             PlayPhoneSDKDemoFlash.showMessage(this,
                                               "Could not upload cookie (id=" + event.params.key + ") " + event.params.error);
         }
 
-        private function uploadComplete(event: MNPluginEvent): void
+        private function uploadComplete(event: MNGameCookiesProviderEvent): void
         {
             PlayPhoneSDKDemoFlash.showMessage(this, "Cookie uploaded succsessfuly");
         }
@@ -109,9 +110,9 @@ package hcode
         {
             if (MNDirect.getSession() != null)
             {
-                if (MNSession.instance.isLoggedIn)
+                if (MNDirect.getSession().isUserLoggedIn())
                 {
-                    MNDirect.gameCookiesProvider.downloadUserCookie(int(dwcookie_key.text));
+                    MNDirect.getGameCookiesProvider().downloadUserCookie(int(dwcookie_key.text));
                 }
                 else
                 {

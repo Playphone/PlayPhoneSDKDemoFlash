@@ -1,0 +1,27 @@
+<extension xmlns="http://ns.adobe.com/air/extension/3.1">
+    <id>com.playphone.air.PlayPhoneMultiNetExt</id>
+    <versionNumber>1</versionNumber>
+    <platforms>
+		<platform name="iPhone-ARM">
+			<applicationDeployment>
+				<nativeLibrary>libPlayPhoneMultiNetExt.a</nativeLibrary>
+				<initializer>ExtInitializer</initializer>
+				<finalizer>ExtFinalizer</finalizer>
+			</applicationDeployment>
+		</platform>
+        <platform name="Android-ARM">
+            <applicationDeployment>
+                <nativeLibrary>libPlayPhoneMultiNetExt.jar</nativeLibrary>
+                <initializer>com.playphone.multinet.air.PlayPhoneMultiNetExt</initializer>
+                <finalizer>com.playphone.multinet.air.PlayPhoneMultiNetExt</finalizer>
+            </applicationDeployment>
+        </platform>
+		<platform name="iPhone-x86">
+			<applicationDeployment>
+				<nativeLibrary>libPlayPhoneMultiNetExt.a</nativeLibrary>
+				<initializer>ExtInitializer</initializer>
+				<finalizer>ExtFinalizer</finalizer>
+			</applicationDeployment>
+		</platform>
+    </platforms>
+</extension>

@@ -29,11 +29,13 @@
                     <s:Label id="setting_name" left="5" verticalAlign="middle" height="50">Default</s:Label>
 
                     <fx:Script><![CDATA[
+                        import com.playphone.multinet.providers.GameSettingInfo;
+
                         import mx.events.FlexEvent
 
                         import views.controls.SettingRenderer
 
-                        private var user_data: Object;
+                        private var user_data: GameSettingInfo;
                         private var additional: SettingRenderer;
 
 
@@ -44,8 +46,8 @@
                                 return;
                             }
 
-                            user_data = value;
-                            if (value.name != null)
+                            user_data = value as GameSettingInfo;
+                            if (user_data.name != null)
                             {
                                 setting_name.text = value.name.toString();
                             }

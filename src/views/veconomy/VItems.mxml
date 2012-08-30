@@ -58,7 +58,7 @@
                             }
 
                             user_data = value;
-                            item_img.source = MNDirect.virtualItemsProvider.getVItemImageURL(value.id);
+                            item_img.source = MNDirect.getVItemsProvider().getVItemImageURL(value.id);
                             item_id.text = value.id;
                             item_name.text = value.name;
                         }
@@ -126,7 +126,7 @@
                             }
 
                             user_data = value;
-                            curr_item_img.source = MNDirect.virtualItemsProvider.getVItemImageURL(value.id);
+                            curr_item_img.source = MNDirect.getVItemsProvider().getVItemImageURL(value.id);
                             cur_id.text = value.id;
                             cur_name.text = value.name;
                         }

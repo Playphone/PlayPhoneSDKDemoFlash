@@ -3,10 +3,11 @@ package hcode
     import com.playphone.multinet.MNDirect;
     import com.playphone.multinet.core.MNSession;
     import com.playphone.multinet.core.data.MNWSLeaderboardListItem;
-    import com.playphone.multinet.core.ws.MNWSDefHandlerEvent;
     import com.playphone.multinet.core.ws.MNWSRequestContent;
-    import com.playphone.multinet.core.ws.MNWSRequestDefHandler;
-    import com.playphone.multinet.core.ws.MNWSRequestSender;
+    import com.playphone.multinet.providers.results.LeaderboardRequestResult;
+    import com.playphone.multinet.providers.results.RequestResult;
+
+import com.playphone.multinet.providers.requests.*
 
     import flash.events.MouseEvent;
 
@@ -55,11 +56,6 @@ package hcode
         {
             MNDirect.setDefaultGameSetId(int(gameset_id.text));
 
-            var handler: MNWSRequestDefHandler = new MNWSRequestDefHandler();
-            handler.addEventListener(MNWSDefHandlerEvent.onRequestComplete, onComplete);
-            handler.addEventListener(MNWSDefHandlerEvent.onRequestError, onError);
-
-            var content: MNWSRequestContent = new MNWSRequestContent();
             var game_id_val: int;
 
             if (game.selectedIndex == 1)
@@ -68,35 +64,50 @@ package hcode
             }
             else
             {
-                game_id_val = MNSession.instance.getGameId();
+                game_id_val = MNDirect.getSession().getGameId();
             }
 
 
-            if (scope.selectedIndex==1)
+            if (scope.selectedIndex == 1)
             {
-                req_block = content.addCurrUserAnyGameLeaderboardLocal(game_id_val,
-                                                                       int(gameset_id.text),
-                                                                       period_values[period.selectedIndex]);
+                var localRequest: MNWSInfoRequestLeaderboard =
+                        new MNWSInfoRequestLeaderboard(
+                            new LeaderboardModeCurrUserAnyGameLocal(
+                                game_id_val,
+                                int(gameset_id.text),
+                                period_values[period.selectedIndex]));
+
+                localRequest.addEventListener(RequestResult.REPLY, onComplete);
+
+                MNDirect.getWSProvider().sendSingle(localRequest);
             }
             else
             {
-                req_block = content.addAnyGameLeaderboardGlobal(game_id_val,
-                                                                int(gameset_id.text),
-                                                                period_values[period.selectedIndex]);
+                var request: MNWSInfoRequestLeaderboard =
+                        new MNWSInfoRequestLeaderboard(
+                            new LeaderboardModeAnyGameGlobal(
+                                game_id_val,
+                                int(gameset_id.text),
+                                period_values[period.selectedIndex]));
+
+                request.addEventListener(RequestResult.REPLY, onComplete);
+
+                MNDirect.getWSProvider().sendSingle(request);
             }
-
-            MNWSRequestSender.instance.sendRequest(content, handler);
         }
 
-        private function onError(event: MNWSDefHandlerEvent): void
+        private function onComplete(event: LeaderboardRequestResult): void
         {
-            PlayPhoneSDKDemoFlash.showMessage(this, event.params.message);
-        }
-
-        private function onComplete(event: MNWSDefHandlerEvent): void
-        {
-            var leaderboard: Vector.<MNWSLeaderboardListItem> = event.params[req_block] as Vector.<MNWSLeaderboardListItem>;
-            list.dataProvider = new ArrayList(vectorToArray(leaderboard));
+            event.currentTarget.removeEventListener(RequestResult.REPLY, onComplete);
+            if (event.hasError())
+            {
+                PlayPhoneSDKDemoFlash.showMessage(this, event.getErrorMessage());
+            }
+            else
+            {
+                var leaderboard: Vector.<MNWSLeaderboardListItem> = event.getDataEntry();
+                list.dataProvider = new ArrayList(vectorToArray(leaderboard));
+            }
         }
 
         private function vectorToArray(v: Object): Array

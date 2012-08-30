@@ -1,190 +1,200 @@
-<project name="Build PPS FLASH SDK DEMO" basedir=".">
+<project name="Build PPS SDK AIR" basedir=".">
 
-    <property file="build_local.properties"/>
-
-    <property name="adt" value="${FLEX_HOME}/lib/adt.jar"/>
-    <property name="out" value="${basedir}/out"/>
-    <property name="src" value="${basedir}/src"/>
-    <property name="SWFName" value="PlayPhoneSDKDemoFlash.swf"/>
-    <property name="apk_name" value="PlayPhoneSDKDemoFlash.apk"/>
-    <property name="ipa_name" value="PlayPhoneSDKDemoFlash.ipa"/>
+    <property file="build.properties"/>
+    <property file="env.properties"/>
+    <property file="signing.properties"/>
 
     <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
 
-    <target name="check-setup">
-        <available file="${FLEX_HOME}" type="dir" property="check.status2"/>
-        <fail message="Flex SDK not found. Probably you set incorrect paths in build_global.properties" unless="check.status2"/>
+    <target name="compile">
 
-        <available file="${PPA_SDK}" type="dir" property="check.status3"/>
-        <fail message="PlayPhoneAIR SDK not found. Probably you set incorrect paths in build_global.properties" unless="check.status3"/>
-    </target>
+        <delete dir="${OUT}"/>
 
-    <target name="compile" depends="check-setup">
-
-        <delete dir="${out}"/>
-
-        <mxmlc file="${src}/PlayPhoneSDKDemoFlash.mxml"
-               output="${out}/${SWFName}"
+        <mxmlc file="${SRC}/PlayPhoneSDKDemoFlash.mxml"
+               output="${OUT}/${APP_NAME}.swf"
                debug="true"
                optimize="false"
                incremental="false"
                default-frame-rate="30"
                locale="en_US"
+               swf-version="13"
                static-link-runtime-shared-libraries="true">
 
             <default-size width="320" height="480"/>
 
             <source-path path-element="${basedir}/src"/>
-            <source-path path-element="${PPA_SDK}"/>
+            <source-path path-element="${PPS_AIR_SRC}"/>
 
             <load-config filename="${FLEX_HOME}/frameworks/airmobile-config.xml"/>
 
-            <include-libraries dir="${PPA_SDK}/res">
+            <include-libraries dir="${PPS_AIR_EXT}">
                 <include name="*.swc"/>
             </include-libraries>
 
-            <include-libraries dir="${PPA_SDK}/NE/bin">
+            <include-libraries dir="${PPS_AIR_RES}">
                 <include name="*.swc"/>
             </include-libraries>
         </mxmlc>
     </target>
 
-    <target name="create-apk" depends="compile">
-        <java jar="${adt}" fork="true" failonerror="true">
+    <target name="rebuild apk" depends="compile, build apk">
+    </target>
+
+    <target name="build apk">
+        <input message="Enter password to ${APK_KEYSTORE}: " addproperty="APK_PASSWD">
+            <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
+        </input>
+
+        <exec executable="${ADT}" failonerror="true">
+        <!-- java jar="${ADT}" fork="true" failonerror="true" -->
             <arg value="-package"/>
             <arg value="-target"/>
             <arg value="apk-debug"/>
+
+            <!--<arg value="-connect"/>-->
+            <!--<arg value="192.168.106.106"/>-->
+            <!--<arg value="-listen"/>-->
+            <!--<arg value="7936"/>-->
+
             <arg value="-storetype"/>
             <arg value="${APK_STORETYPE}"/>
             <arg value="-keystore"/>
             <arg value="${APK_KEYSTORE}"/>
             <arg value="-storepass"/>
-            <arg value="${APK_KEYPASS}"/>
-            <arg value="${out}/${apk_name}"/>
-            <arg value="${src}/PlayPhoneSDKDemoFlash-app.xml"/>
+            <arg value="${APK_PASSWD}"/>
+            <arg value="${OUT}/${APP_NAME}.apk"/>
+            <arg value="${APP_XML}"/>
             <arg value="-extdir"/>
-            <arg value="${PPA_SDK}/NE/bin"/>
+            <arg value="${PPS_AIR_EXT}"/>
             <arg value="-C"/>
-            <arg value="${out}"/>
-            <arg value="${out}/${SWFName}"/>
+            <arg value="${OUT}"/>
+            <arg value="${OUT}/${APP_NAME}.swf"/>
+
             <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\multinet_boot.html"/>
-            <arg value="assets\multinet_boot.html"/>
+            <arg value="${ASSETS}/3rdpartylicenses/SmartFoxClient-license.txt"/>
+            <arg value="3rdpartylicenses/SmartFoxClient-license.txt"/>
             <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\multinet_http_error.html"/>
-            <arg value="assets\multinet_http_error.html"/>
+            <arg value="${ASSETS}/images-pp/orbit/loader.gif"/>
+            <arg value="images-pp/orbit/loader.gif"/>
             <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\loader.gif"/>
-            <arg value="assets\loader.gif"/>
+            <arg value="${ASSETS}/images-pp/orbit/playphone_logo_loading.png"/>
+            <arg value="images-pp/orbit/playphone_logo_loading.png"/>
             <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\playphone_logo_loading.png"/>
-            <arg value="assets\playphone_logo_loading.png"/>
-        </java>
+            <arg value="${ASSETS}/multinet.plist"/>
+            <arg value="multinet.plist"/>
+            <arg value="-e"/>
+            <arg value="${ASSETS}/multinet_boot.html"/>
+            <arg value="multinet_boot.html"/>
+            <arg value="-e"/>
+            <arg value="${ASSETS}/multinet_http_error.html"/>
+            <arg value="multinet_http_error.html"/>
+        </exec>
     </target>
 
-    <target name="create-ipa" depends="compile">
-        <java jar="${adt}" fork="true" failonerror="true">
-            <arg value="-package"/>
-            <arg value="-target"/>
-            <arg value="ipa-debug"/>
-            <arg value="-storetype"/>
-            <arg value="${IPA_STORETYPE}"/>
-            <arg value="-keystore"/>
-            <arg value="${IPA_KEYSTORE}"/>
-            <arg value="-storepass"/>
-            <arg value="${IPA_KEYPASS}"/>
-            <arg value="-provisioning-profile"/>
-            <arg value="${PROFILE_PATH}"/>
-            <arg value="${out}/${ipa_name}"/>
-            <arg value="${src}/PlayPhoneSDKDemoFlash-app.xml"/>
-            <arg value="-extdir"/>
-            <arg value="${PPA_SDK}/NE/bin"/>
-            <arg value="-C"/>
-            <arg value="${out}"/>
-            <arg value="${out}/${SWFName}"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\multinet_boot.html"/>
-            <arg value="assets\multinet_boot.html"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\multinet_http_error.html"/>
-            <arg value="assets\multinet_http_error.html"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\loader.gif"/>
-            <arg value="assets\loader.gif"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\playphone_logo_loading.png"/>
-            <arg value="assets\playphone_logo_loading.png"/>
-        </java>
+    <target name="rebuild ipa simul" depends="compile, build ipa simul">
     </target>
 
-    <target name="create-both" depends="compile">
+    <target name="build ipa simul">
+        <input message="Enter password to ${IOS_KEYSTORE}: " addproperty="IOS_PASSWD">
+            <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
+        </input>
 
-        <echo message="start creating apk"/>
-        <java jar="${adt}" fork="true" failonerror="true">
+        <exec executable="${ADT}" failonerror="true">
             <arg value="-package"/>
-            <arg value="-target"/>
-            <arg value="apk-debug"/>
-            <arg value="-storetype"/>
-            <arg value="${APK_STORETYPE}"/>
-            <arg value="-keystore"/>
-            <arg value="${APK_KEYSTORE}"/>
-            <arg value="-storepass"/>
-            <arg value="${APK_KEYPASS}"/>
-            <arg value="${out}/${apk_name}"/>
-            <arg value="${src}/PlayPhoneSDKDemoFlash-app.xml"/>
-            <arg value="-extdir"/>
-            <arg value="${PPA_SDK}/NE/bin"/>
-            <arg value="-C"/>
-            <arg value="${out}"/>
-            <arg value="${out}/${SWFName}"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\multinet_boot.html"/>
-            <arg value="assets\multinet_boot.html"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\multinet_http_error.html"/>
-            <arg value="assets\multinet_http_error.html"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\loader.gif"/>
-            <arg value="assets\loader.gif"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\playphone_logo_loading.png"/>
-            <arg value="assets\playphone_logo_loading.png"/>
-        </java>
-        <echo message="apk created"/>
+            <arg line="-target ipa-debug-interpreter-simulator"/>
+            <!--arg value="-connect"/-->
 
-        <echo message="start creating ipa"/>
-        <java jar="${adt}" fork="true" failonerror="true">
-            <arg value="-package"/>
-            <arg value="-target"/>
-            <arg value="ipa-debug"/>
-            <arg value="-storetype"/>
-            <arg value="${IPA_STORETYPE}"/>
-            <arg value="-keystore"/>
-            <arg value="${IPA_KEYSTORE}"/>
-            <arg value="-storepass"/>
-            <arg value="${IPA_KEYPASS}"/>
-            <arg value="-provisioning-profile"/>
-            <arg value="${PROFILE_PATH}"/>
-            <arg value="${out}/${ipa_name}"/>
-            <arg value="${src}/PlayPhoneSDKDemoFlash-app.xml"/>
+            <arg line="-storetype ${IOS_STORETYPE}"/>
+            <arg line="-keystore ${IOS_KEYSTORE} -storepass ${IOS_PASSWD}"/>
+            <arg line="-provisioning-profile ${IOS_PROVISION_PROFILE}"/>
+
+
+            <arg value="${OUT}/${APP_NAME}.ipa"/>
+            <arg value="${APP_XML}"/>
             <arg value="-extdir"/>
-            <arg value="${PPA_SDK}/NE/bin"/>
+            <arg value="${PPS_AIR_EXT}"/>
             <arg value="-C"/>
-            <arg value="${out}"/>
-            <arg value="${out}/${SWFName}"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\multinet_boot.html"/>
-            <arg value="assets\multinet_boot.html"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\multinet_http_error.html"/>
-            <arg value="assets\multinet_http_error.html"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\loader.gif"/>
-            <arg value="assets\loader.gif"/>
-            <arg value="-e"/>
-            <arg value="${PPA_SDK}\assets\playphone_logo_loading.png"/>
-            <arg value="assets\playphone_logo_loading.png"/>
-        </java>
-        <echo message="ipa created"/>
+            <arg value="${OUT}"/>
+            <arg value="${OUT}/${APP_NAME}.swf"/>
+
+            <arg line="${APP_RESOURCES}"/>
+            <arg line="-platformsdk ${IOS_SIMULATOR_SDK}"/>
+        </exec>
+    </target>
+
+    <target name="rebuild ipa" depends="compile, build ipa">
+    </target>
+
+    <target name="build ipa">
+        <input message="Enter password to ${IOS_KEYSTORE}: " addproperty="IOS_PASSWD">
+            <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
+        </input>
+
+        <exec executable="${ADT}" failonerror="true">
+            <arg value="-package"/>
+
+<arg line="-target ipa-debug"/>
+            <!--arg value="-connect"/-->
+
+            <arg line="-storetype ${IOS_STORETYPE}"/>
+            <arg line="-keystore ${IOS_KEYSTORE} -storepass ${IOS_PASSWD}"/>
+            <arg line="-provisioning-profile ${IOS_PROVISION_PROFILE}"/>
+
+
+            <arg value="${APP_NAME}.ipa"/>
+            <arg value="${APP_XML}"/>
+            <arg value="-extdir"/>
+            <arg value="${PPS_AIR_EXT}"/>
+            <arg value="-C"/>
+            <arg value="${OUT}"/>
+            <arg value="${OUT}/${APP_NAME}.swf"/>
+
+            <arg line="${APP_RESOURCES}"/>
+            <arg line="-platformsdk ${IOS_SDK}"/>
+        </exec>
+    </target>
+
+    <target name="reinstall ipa simul" depends="uninstall ipa simul,install ipa simul">
+    </target>
+
+    <target name="uninstall ipa simul">
+        <exec executable="${ADT}" failonerror="true">
+            <arg value="-uninstallApp"/>
+            <arg line="-platform ios"/>
+            <arg line="-platformsdk ${IOS_SIMULATOR_SDK}"/>
+            <arg line="-device ios-simulator"/>
+            <arg line="-appid com.playphone.sdk.example.flash"/>
+        </exec>
+    </target>
+
+    <target name="install ipa simul">
+        <exec executable="${ADT}" failonerror="true">
+            <arg value="-installApp"/>
+            <arg line="-platform ios"/>
+            <arg line="-platformsdk ${IOS_SIMULATOR_SDK}"/>
+            <arg line="-device ios-simulator"/>
+            <arg line="-package ${APP_NAME}.ipa"/>
+        </exec>
+    </target>
+
+    <target name="reinstall ipa" depends="uninstall ipa,install ipa">
+    </target>
+
+    <target name="uninstall ipa">
+        <exec executable="${ADT}" failonerror="true">
+            <arg value="-uninstallApp"/>
+            <arg line="-platform ios"/>
+            <arg line="-platformsdk ${IOS_SDK}"/>
+            <arg line="-appid com.playphone.sdk.example.flash"/>
+        </exec>
+    </target>
+
+    <target name="install ipa">
+        <exec executable="${ADT}" failonerror="true">
+            <arg value="-installApp"/>
+            <arg line="-platform ios"/>
+            <arg line="-platformsdk ${IOS_SDK}"/>
+            <arg line="-package ${APP_NAME}.ipa"/>
+        </exec>
     </target>
 </project>

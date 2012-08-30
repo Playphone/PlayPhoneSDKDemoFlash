@@ -1,11 +1,11 @@
 package hcode
 {
+    import com.playphone.multinet.MNDirectButton;
+    import com.playphone.multinet.MNDirectUIHelper;
+
     import flash.events.MouseEvent;
 
     import mx.events.FlexEvent;
-
-    import com.playphone.multinet.MNDirectHelper
-    import com.playphone.multinet.ui.common.MNDirectButton
 
     import spark.components.VGroup;
     import spark.components.Button;
@@ -31,17 +31,17 @@ package hcode
 
         private function btnShowDashboard_clickHandler(event: MouseEvent): void
         {
-            MNDirectHelper.showDashboard();
+            MNDirectUIHelper.showDashboard();
         }
 
         private function btnHide_clickHandler(event: MouseEvent): void
         {
-            MNDirectButton.visible = false;
+            MNDirectButton.hide();
         }
 
         private function btnShow_clickHandler(event: MouseEvent): void
         {
-            MNDirectButton.visible = true;
+            MNDirectButton.show();
         }
     }
 }

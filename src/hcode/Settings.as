@@ -1,12 +1,13 @@
 package hcode
 {
+    import com.playphone.multinet.providers.MNGameSettingsProviderEvent;
+
     import spark.components.List;
     import spark.components.VGroup;
 
     import com.playphone.multinet.MNDirect
     import com.playphone.multinet.MNDirectEvent
     import com.playphone.multinet.providers.MNGameSettingsProvider
-    import com.playphone.multinet.providers.MNPluginEvent
 
     import mx.collections.ArrayList
     import mx.events.FlexEvent
@@ -31,7 +32,7 @@ package hcode
             }
             else
             {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
+                MNDirect.addEventListener(MNDirectEvent.mnDirectSessionReady, onSessionReady);
             }
         }
 
@@ -42,11 +43,11 @@ package hcode
 
         private function checkSettings(): void
         {
-            if (MNDirect.gameSettingsProvider.isGameSettingListNeedUpdate())
+            if (MNDirect.getGameSettingsProvider().isGameSettingListNeedUpdate())
             {
-                MNDirect.gameSettingsProvider.addEventListener(MNGameSettingsProvider.onGameSettingsListDownloaded,
-                                                               onSettingsReady)
-                MNDirect.gameSettingsProvider.doGameSettingListUpdate();
+                MNDirect.getGameSettingsProvider().addEventListener(MNGameSettingsProviderEvent.onGameSettingListUpdated,
+                                                                    onSettingsReady);
+                MNDirect.getGameSettingsProvider().doGameSettingListUpdate();
             }
             else
             {
@@ -54,9 +55,10 @@ package hcode
             }
         }
 
-        private function onSettingsReady(event: MNPluginEvent): void
+        private function onSettingsReady(event: MNGameSettingsProviderEvent): void
         {
-            settings_list.dataProvider = new ArrayList(MNDirect.gameSettingsProvider.getGameSettingsList());
+            var settingsArr: Array = MNDirect.getGameSettingsProvider().getGameSettingList();
+            settings_list.dataProvider = new ArrayList(settingsArr);
         }
     }
 }

@@ -59,12 +59,12 @@
                                 return;
                             }
 
-                            var item: Object = MNDirect.virtualItemsProvider.findGameVItemById(value.id);
+                            var item: Object = MNDirect.getVItemsProvider().findGameVItemById(value.id);
                             user_data = item;
                             item_id.text = value.id;
                             item_name.text = item.name;
                             item_count.text = value.count;
-                            items_img.source = MNDirect.virtualItemsProvider.getVItemImageURL(value.id);
+                            items_img.source = MNDirect.getVItemsProvider().getVItemImageURL(value.id);
                         }
 
                         private function selected_enterStateHandler(event: FlexEvent): void

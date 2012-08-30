@@ -65,7 +65,7 @@
                             additional = new FriendRenderer();
                             addElement(additional);
                             additional.y = 62;
-                            additional.data = user_data;
+//                            additional.data = user_data;
                         }
 
                         private function selected_exitStateHandler(event: FlexEvent): void

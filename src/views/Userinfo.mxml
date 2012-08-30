@@ -9,16 +9,16 @@
 
     <s:HGroup>
         <s:Label fontWeight="bold">User name:</s:Label>
-        <s:Label id="user_name">User is not logged in</s:Label>
+        <s:Label id="user_name">---</s:Label>
     </s:HGroup>
 
     <s:HGroup>
         <s:Label fontWeight="bold">User id:</s:Label>
-        <s:Label id="user_id">User is not logged in</s:Label>
+        <s:Label id="user_id">-1</s:Label>
     </s:HGroup>
 
     <s:HGroup>
         <s:Label fontWeight="bold">Room id:</s:Label>
-        <s:Label id="room_id">User is not logged in</s:Label>
+        <s:Label id="room_id">-1</s:Label>
     </s:HGroup>
 </hcode:UserInfo>

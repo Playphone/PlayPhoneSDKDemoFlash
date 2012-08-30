@@ -2,7 +2,7 @@ package hcode
 {
     import com.playphone.multinet.MNDirect
     import com.playphone.multinet.MNDirectEvent
-    import com.playphone.multinet.MNDirectHelper
+    import com.playphone.multinet.MNUserInfo;
     import com.playphone.multinet.core.MNSession
     import com.playphone.multinet.core.MNSessionEvent
 
@@ -34,28 +34,39 @@ package hcode
 
         private function login_clickHandler(event: MouseEvent): void
         {
-            if (MNSession.instance.isLoggedIn)
+            if (MNDirect.getSession().isUserLoggedIn())
             {
-                MNSession.instance.logout();
+                MNDirect.getSession().logout();
             }
             else
             {
-                MNDirectHelper.showDashboard();
+//                MNDirectHelper.showDashboard();
+                MNDirect.getSession().loginWithUserLoginAndPassword("u1001@sample.com", "u1001", false);
             }
         }
 
         private function onLogin(event: MNSessionEvent): void
         {
-            login.label = "Logout";
-            username.text = MNSession.instance.getMyUserInfo().userName;
+            if(MNDirect.getSession().isUserLoggedIn())
+            {
+                MNDirect.getSession().addEventListener(MNSessionEvent.mnSessionStatusChanged, onLogout);
+                MNDirect.getSession().removeEventListener(MNSessionEvent.mnSessionStatusChanged, onLogin);
+                login.label = "Logout";
+                var my:MNUserInfo = MNDirect.getSession().getMyUserInfo();
+                username.text = my.userName;
+            }
         }
 
         private function onLogout(event: MNSessionEvent): void
         {
-            if (!MNSession.instance.isLoggedIn)
+            if (!MNDirect.getSession().isUserLoggedIn())
             {
+                MNDirect.getSession().removeEventListener(MNSessionEvent.mnSessionStatusChanged, onLogout);
+                MNDirect.getSession().addEventListener(MNSessionEvent.mnSessionStatusChanged, onLogin);
                 login.label = "Login";
                 username.text = "";
+//                username.enabled = true;
+//                pass.enabled = true;
             }
         }
 
@@ -63,7 +74,7 @@ package hcode
         {
             if (MNDirect.getSession() == null)
             {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
+                MNDirect.addEventListener(MNDirectEvent.mnDirectSessionReady, onSessionReady);
             }
             else
             {
@@ -73,10 +84,9 @@ package hcode
 
         private function onSessionReady(event: MNDirectEvent): void
         {
-            MNSession.instance.addEventListener(MNSessionEvent.onDidLogin, onLogin);
-            MNSession.instance.addEventListener(MNSessionEvent.onSessionStatusChanged, onLogout);
+            MNDirect.getSession().addEventListener(MNSessionEvent.mnSessionStatusChanged, onLogin);
 
-            if (MNSession.instance.isLoggedIn)
+            if (MNDirect.getSession().isUserLoggedIn())
             {
                 onLogin(null);
             }

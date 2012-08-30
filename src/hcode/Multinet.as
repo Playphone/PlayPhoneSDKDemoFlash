@@ -1,6 +1,9 @@
 package hcode
 {
-    import com.playphone.multinet.ui.common.MNDirectButton;
+    import com.playphone.multinet.MNConst;
+    import com.playphone.multinet.MNDirectButton;
+    import com.playphone.multinet.MNDirectUIHelper;
+    import com.playphone.multinet.ui.common.MNScoreProgressView;
 
     import flash.display.MovieClip;
     import flash.events.MouseEvent;
@@ -14,13 +17,10 @@ package hcode
 
     import spark.components.VGroup;
 
-    import com.playphone.multinet.MNConst;
     import com.playphone.multinet.MNDirect;
     import com.playphone.multinet.MNDirectEvent;
-    import com.playphone.multinet.MNDirectHelper;
     import com.playphone.multinet.core.MNSession;
     import com.playphone.multinet.core.MNSessionEvent;
-    import com.playphone.multinet.ui.common.MNScoreProgressView;
 
     import mx.events.FlexEvent;
 
@@ -50,9 +50,9 @@ package hcode
 
         private function creationCompleteHandler(event: FlexEvent): void
         {
-            MNSession.instance.addEventListener(MNSessionEvent.onSessionStatusChanged, onSessionStatusChangedHandler);
-            MNDirect.addEventListener(MNDirectEvent.onDoFinishGame, MNDirect_onDoFinishGameHandler);
-            MNDirect.addEventListener(MNDirectEvent.onDoCancelGame, MNDirect_onDoCancelGameHandler);
+            MNDirect.getSession().addEventListener(MNSessionEvent.mnSessionStatusChanged, onSessionStatusChangedHandler);
+            MNDirect.addEventListener(MNDirectEvent.mnDirectDoFinishGame, MNDirect_onDoFinishGameHandler);
+            MNDirect.addEventListener(MNDirectEvent.mnDirectDoCancelGame, MNDirect_onDoCancelGameHandler);
 
             m_ten.addEventListener(MouseEvent.CLICK, m_ten_clickHandler);
             p_ten.addEventListener(MouseEvent.CLICK, p_ten_clickHandler);
@@ -73,8 +73,8 @@ package hcode
 
         private function onSessionStatusChangedHandler(event: MNSessionEvent): void
         {
-            var sessionStatus: int = MNSession.instance.getStatus();
-            var userStatus: int = MNSession.instance.getRoomUserStatus();
+            var sessionStatus: int = MNDirect.getSession().getStatus();
+            var userStatus: int = MNDirect.getSession().getRoomUserStatus();
 
             if ((sessionStatus == MNConst.MN_OFFLINE) || (sessionStatus == MNConst.MN_CONNECTING))
             {
@@ -105,10 +105,11 @@ package hcode
                 {
                     tip.text = "Use buttons to change your score. You will see the progress on the top indicator.";
 
-                    MNDirectHelper.hideDashboard();
+                    MNDirectUIHelper.hideDashboard();
                     MNDirectButton.show();
                     countdown = new Timer(1000, 60);
                     counter = 60;
+                    totalScore = 0;
                     counter_lbl.text = counter.toString();
                     countdown.addEventListener(TimerEvent.TIMER, countdown_timerHandler);
                     countdown.addEventListener(TimerEvent.TIMER_COMPLETE, countdown_timerCompleteHandler)
@@ -130,7 +131,6 @@ package hcode
         {
             stopTimer();
             post_score.visible = true;
-            totalScore = 0;
         }
 
         private function MNDirect_onDoCancelGameHandler(event: MNDirectEvent): void
@@ -180,6 +180,7 @@ package hcode
         {
             MNDirect.postGameScore(totalScore);
             post_score.visible = false;
+            totalScore = 0;
         }
     }
 }

@@ -1,5 +1,7 @@
 package hcode.veconomy
 {
+    import com.playphone.multinet.providers.MNVItemsProviderEvent;
+
     import flash.events.Event;
     import flash.events.MouseEvent;
 
@@ -16,9 +18,6 @@ package hcode.veconomy
 
     import com.playphone.multinet.MNDirect
     import com.playphone.multinet.MNDirectEvent
-    import com.playphone.multinet.providers.MNPluginEvent
-    import com.playphone.multinet.providers.MNVitemsProvider
-    import com.playphone.multinet.providers.TransactionInfo
 
     import mx.collections.ArrayList
     import mx.events.FlexEvent
@@ -64,7 +63,7 @@ package hcode.veconomy
 
             if (MNDirect.getSession() == null)
             {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
+                MNDirect.addEventListener(MNDirectEvent.mnDirectSessionReady, onSessionReady);
             }
             else
             {
@@ -79,13 +78,13 @@ package hcode.veconomy
 
         private function onSessionReady(event: MNDirectEvent): void
         {
-            MNDirect.virtualItemsProvider.addEventListener(MNVitemsProvider.onVItemsTransactionCompleted, onComplete);
-            MNDirect.virtualItemsProvider.addEventListener(MNVitemsProvider.onVItemsTransactionFailed, onFail);
+            MNDirect.getVItemsProvider().addEventListener(MNVItemsProviderEvent.onVItemsTransactionCompleted, onComplete);
+            MNDirect.getVItemsProvider().addEventListener(MNVItemsProviderEvent.onVItemsTransactionFailed, onFail);
 
-            if (MNDirect.virtualShopProvider.isVShopInfoNeedUpdate())
+            if (MNDirect.getVItemsProvider().isGameVItemsListNeedUpdate())
             {
-                MNDirect.virtualItemsProvider.addEventListener(MNVitemsProvider.onVItemsListUpdated, onInfoUpdated);
-                MNDirect.virtualItemsProvider.doGameVItemsListUpdate();
+                MNDirect.getVItemsProvider().addEventListener(MNVItemsProviderEvent.onVItemsListUpdated, onInfoUpdated);
+                MNDirect.getVItemsProvider().doGameVItemsListUpdate();
             }
             else
             {
@@ -127,13 +126,13 @@ package hcode.veconomy
 
         private function updateInventory(): void
         {
-            var userItems: Array = MNDirect.virtualItemsProvider.getPlayerVItemList();
+            var userItems: Array = MNDirect.getVItemsProvider().getPlayerVItemList();
             user_items_list.dataProvider = new ArrayCollection(userItems);
         }
 
         private function updateManager(): void
         {
-            var packs: Array = MNDirect.virtualItemsProvider.getGameVItemsList();
+            var packs: Array = MNDirect.getVItemsProvider().getGameVItemsList();
             var vItems: Array = [];
             for each(var pack: Object in packs)
             {
@@ -156,31 +155,31 @@ package hcode.veconomy
         private function btnAdd_clickHandler(event: MouseEvent): void
         {
             var selectedItem: Object = items.dataProvider.getItemAt(items.selectedIndex);
-            var transactionId: int = MNDirect.virtualItemsProvider.getNewClientTransactionId();
+            var transactionId: int = MNDirect.getVItemsProvider().getNewClientTransactionId();
             PlayPhoneSDKDemoFlash.showMessage(this,
                                               "Transaction ( id=" + transactionId + " ) started. " + txtItemIdToAdd.text + " items will be added");
-            MNDirect.virtualItemsProvider.reqAddPlayerVItem(selectedItem.data.id, int(txtItemIdToAdd.text), transactionId);
+            MNDirect.getVItemsProvider().reqAddPlayerVItem(selectedItem.data.id, int(txtItemIdToAdd.text), transactionId);
         }
 
         private function btnRemove_clickHandler(event: MouseEvent): void
         {
             var selectedItem: Object = items.dataProvider.getItemAt(items.selectedIndex);
-            var transactionId: int = MNDirect.virtualItemsProvider.getNewClientTransactionId();
+            var transactionId: int = MNDirect.getVItemsProvider().getNewClientTransactionId();
             PlayPhoneSDKDemoFlash.showMessage(this,
                                               "Transaction ( id=" + transactionId + " ) started. " + txtItemIdToRemove.text + " items will be removed");
-            MNDirect.virtualItemsProvider.reqAddPlayerVItem(selectedItem.data.id, -1 * int(txtItemIdToRemove.text), transactionId);
+            MNDirect.getVItemsProvider().reqAddPlayerVItem(selectedItem.data.id, -1 * int(txtItemIdToRemove.text), transactionId);
         }
 
-        private function onComplete(event: MNPluginEvent): void
+        private function onComplete(event: MNVItemsProviderEvent): void
         {
-            var info: TransactionInfo = event.params as TransactionInfo;
+            var info: * = event.params.transaction;
             PlayPhoneSDKDemoFlash.showMessage(this, "Transaction ( id=" + info.clientTransactionId + " ) completed");
         }
 
-        private function onFail(event: MNPluginEvent): void
+        private function onFail(event: MNVItemsProviderEvent): void
         {
-            PlayPhoneSDKDemoFlash.showMessage(this, "Transaction ( id=" + event.params.clientTransactionId + " ) failed. " +
-                                                    event.params.failReasonCode + ":" + event.params.errorMessage);
+            PlayPhoneSDKDemoFlash.showMessage(this, "Transaction ( id=" + event.params.error.clientTransactionId + " ) failed. " +
+                                                    event.params.error.failReasonCode + ":" + event.params.error.errorMessage);
         }
     }
 }

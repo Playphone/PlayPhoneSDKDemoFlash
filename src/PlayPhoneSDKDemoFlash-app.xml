@@ -15,14 +15,14 @@
 
     <!-- A universally unique application identifier. Must be unique across all AIR applications.
      Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>com.playphone.pluto.sdk.example.flash</id>
+    <id>com.playphone.sdk.example.flash</id>
 
     <!-- Used as the filename for the application. Required. -->
-    <filename>PlayPhoneSDKDemoFlashPluto</filename>
+    <filename>PlayPhoneSDKDemoFlash</filename>
 
     <!-- The name that is displayed in the AIR application installer.
      May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <name>Playphone SDK Demo Flash(Pluto)</name>
+    <name>Playphone SDK Demo Flash</name>
 
     <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade.
      Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
@@ -42,9 +42,15 @@
     <!-- Publisher ID. Used if you're updating an application created prior to 1.5.3 -->
     <!-- <publisherID></publisherID> -->
 
+    <!--
+        <extensions>
+            <extensionID>com.playphone.air.ext.WebViewJSEvaluator</extensionID>
+        </extensions>
+    -->
+
     <extensions>
-        <extensionID>com.playphone.air.PlayPhoneMultiNetExt</extensionID>
-    </extensions>
+    <extensionID>com.playphone.air.PlayPhoneMultiNetExt</extensionID>
+</extensions>
 
     <!-- Settings for the application's initial window. Required. -->
     <initialWindow>
@@ -52,7 +58,7 @@
         <content>PlayPhoneSDKDemoFlash.swf</content>
 
         <!-- The title of the main window. Optional. -->
-        <title>Playphone SDK Demo Flash(Pluto)</title>
+        <title>Playphone SDK Demo Flash</title>
 
         <!-- The type of system chrome to use (either "standard" or "none"). Optional. Default standard. -->
         <!-- <systemChrome></systemChrome> -->
@@ -111,7 +117,7 @@
     <!-- devices supported by AIR. If you wish to restrict deployment -->
     <!-- (i.e., to only mobile devices) then add this element and list -->
     <!-- only the profiles which your application does support. -->
-    <!-- <supportedProfiles>desktop extendedDesktop mobileDevice extendedMobileDevice</supportedProfiles> -->
+    <!--<supportedProfiles>desktop extendedDesktop mobileDevice extendedMobileDevice</supportedProfiles>-->
 
     <!-- The subpath of the standard default installation location to use. Optional. -->
     <!-- <installFolder></installFolder> -->
@@ -121,17 +127,17 @@
 
     <!-- The icon the system uses for the application. For at least one resolution,
      specify the path to a PNG file included in the AIR package. Optional. -->
-<!--
-    <icon>
-        <image16x16></image16x16>
-        <image32x32></image32x32>
-        <image36x36></image36x36>
-        <image48x48></image48x48>
-        <image72x72>assets/icon.png</image72x72>
-        <image114x114></image114x114>
-        <image128x128></image128x128>
-    </icon>
--->
+    <!--
+        <icon>
+            <image16x16></image16x16>
+            <image32x32></image32x32>
+            <image36x36></image36x36>
+            <image48x48></image48x48>
+            <image72x72>assets/icon.png</image72x72>
+            <image114x114></image114x114>
+            <image128x128></image128x128>
+        </icon>
+    -->
 
     <!-- Whether the application handles the update when a user double-clicks an update version
      of the AIR file (true), or the default AIR application installer handles the update (false).
@@ -172,35 +178,44 @@
     <!-- </fileTypes> -->
 
     <!-- iOS specific capabilities -->
-<!--     <iPhone>
-    &lt;!&ndash; A list of plist key/value pairs to be added to the application Info.plist &ndash;&gt;
-     <InfoAdditions>
-             <![CDATA[
-                 <key>UIDeviceFamily</key>
-                     <array>
-                     <string>1</string>
-                     <string>2</string>
+    <iPhone>
+        <!--A list of plist key/value pairs to be added to the application Info.plist -->
+        <InfoAdditions>
+            <![CDATA[
+                 <key>CFBundleURLTypes</key>
+                 <array>
+                    <dict>
+                        <key>CFBundleURLName</key>
+                        <string>PPS Demo</string>
+                        <key>CFBundleURLSchemes</key>
+                        <array>
+                                <string>com-playphone-game-10900</string>
+                        </array>
+                    </dict>
                  </array>
-                 <key>UIStatusBarStyle</key>
-                 <string>UIStatusBarStyleBlackOpaque</string>
-                 <key>UIRequiresPersistentWiFi</key>
-                 <string>YES</string>
              ]]>
-         </InfoAdditions>-->
-<!--    &lt;!&ndash; <requestedDisplayResolution></requestedDisplayResolution> &ndash;&gt;
-     </iPhone>-->
+        </InfoAdditions>
+        <!--<requestedDisplayResolution></requestedDisplayResolution>-->
+    </iPhone>
 
     <!-- Specify Android specific tags that get passed to AndroidManifest.xml file. -->
     <android>
         <manifestAdditions>
             <![CDATA[
 			<manifest android:installLocation="auto">
-				<uses-permission android:name="android.permission.INTERNET"/>
-				<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-				<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+                <uses-permission android:name="android.permission.INTERNET"/>
+                <uses-permission android:name="android.permission.READ_CONTACTS"/>
+                <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+                <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+                <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+                <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+                <uses-permission android:name="com.android.vending.BILLING"/>
+
 				<uses-configuration android:reqFiveWayNav="true"/>
 				<supports-screens android:normalScreens="true"/>
 				<uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch"/>
+
 				<application android:enabled="true">
 					<activity android:excludeFromRecents="false">
 						<intent-filter>
@@ -208,6 +223,20 @@
 							<category android:name="android.intent.category.LAUNCHER"/>
 						</intent-filter>
 					</activity>
+
+					<activity android:name="com.playphone.multinet.core.MNProxyActivity"
+					    android:configChanges="orientation|keyboard|keyboardHidden">
+                    </activity>
+
+                    <service android:name="com.playphone.multinet.core.inappbilling.MNInAppBillingService"/>
+
+					<receiver android:name="com.playphone.multinet.core.inappbilling.MNInAppBillingReceiver">
+					 <intent-filter>
+					  <action android:name="com.android.vending.billing.RESPONSE_CODE"/>
+					  <action android:name="com.android.vending.billing.IN_APP_NOTIFY"/>
+					  <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED"/>
+					 </intent-filter>
+					</receiver>
 				</application>
 			</manifest>
 		]]>

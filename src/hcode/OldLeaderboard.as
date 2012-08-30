@@ -3,12 +3,13 @@ package hcode
     import com.playphone.multinet.MNDirect;
     import com.playphone.multinet.MNDirectEvent;
     import com.playphone.multinet.core.data.MNWSLeaderboardListItem;
-    import com.playphone.multinet.core.ws.MNWSDefHandlerEvent;
     import com.playphone.multinet.core.ws.MNWSRequestContent;
-    import com.playphone.multinet.core.ws.MNWSRequestDefHandler;
-    import com.playphone.multinet.core.ws.MNWSRequestSender;
     import com.playphone.multinet.providers.MNGameSettingsProvider;
-    import com.playphone.multinet.providers.MNPluginEvent;
+    import com.playphone.multinet.providers.MNGameSettingsProviderEvent;
+    import com.playphone.multinet.providers.requests.*;
+    import com.playphone.multinet.providers.results.CurrentUserInfoRequestResult;
+    import com.playphone.multinet.providers.results.LeaderboardRequestResult;
+    import com.playphone.multinet.providers.results.RequestResult;
 
     import flash.events.MouseEvent;
 
@@ -28,22 +29,19 @@ package hcode
     {
         private var req_block: String;
 
-/*        private static var scope_values:Array = [MNWSRequestContent.LEADERBOARD_SCOPE_GLOBAL,
+        private static var scope_values:Array = [MNWSRequestContent.LEADERBOARD_SCOPE_GLOBAL,
                                                  MNWSRequestContent.LEADERBOARD_SCOPE_LOCAL];
         private static var period_values:Array = [MNWSRequestContent.LEADERBOARD_PERIOD_ALL_TIME,
                                                   MNWSRequestContent.LEADERBOARD_PERIOD_THIS_WEEK,
-                                                  MNWSRequestContent.LEADERBOARD_PERIOD_THIS_MONTH];*/
+                                                  MNWSRequestContent.LEADERBOARD_PERIOD_THIS_MONTH];
 
         public var score: TextInput;
         public var settings: DropDown;
         public var load: Button;
         public var list: List;
-        public var postScore: Button;
-        private var handler: MNWSRequestDefHandler;
-        private var content: MNWSRequestContent;
 
-/*        public var scope:TabBar;
-        public var period:TabBar;*/
+        public var scope:TabBar;
+        public var period:TabBar;
 
         public function OldLeaderboard()
         {
@@ -55,11 +53,10 @@ package hcode
         {
             this.removeEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
             load.addEventListener(MouseEvent.CLICK, load_clickHandler);
-            postScore.addEventListener(MouseEvent.CLICK, postScore_clickHandler);
 
             if (MNDirect.getSession() == null)
             {
-                MNDirect.addEventListener(MNDirectEvent.onDirectSessionReady, onSessionReady);
+                MNDirect.addEventListener(MNDirectEvent.mnDirectSessionReady, onSessionReady);
             }
             else
             {
@@ -74,11 +71,11 @@ package hcode
 
         private function checkSettings(): void
         {
-            if (MNDirect.gameSettingsProvider.isGameSettingListNeedUpdate())
+            if (MNDirect.getGameSettingsProvider().isGameSettingListNeedUpdate())
             {
-                MNDirect.gameSettingsProvider.addEventListener(MNGameSettingsProvider.onGameSettingsListDownloaded,
-                                                               onSettingsReady)
-                MNDirect.gameSettingsProvider.doGameSettingListUpdate();
+                MNDirect.getGameSettingsProvider().addEventListener(
+                        MNGameSettingsProviderEvent.onGameSettingListUpdated, onSettingsReady)
+                MNDirect.getGameSettingsProvider().doGameSettingListUpdate();
             }
             else
             {
@@ -87,9 +84,9 @@ package hcode
         }
 
 
-        private function onSettingsReady(event: MNPluginEvent): void
+        private function onSettingsReady(event: MNGameSettingsProviderEvent): void
         {
-            var packs: Array = MNDirect.gameSettingsProvider.getGameSettingsList();
+            var packs: Array = MNDirect.getGameSettingsProvider().getGameSettingList();
             var setting_items: Array = [];
             for each(var pack: Object in packs)
             {
@@ -109,54 +106,29 @@ package hcode
 
         private function load_clickHandler(event: MouseEvent): void
         {
-            setGameId();
-
-            updateScore();
-        }
-
-        private function updateScore(): void
-        {
-            if (handler == null)
-            {
-                handler = new MNWSRequestDefHandler();
-                handler.addEventListener(MNWSDefHandlerEvent.onRequestComplete, onComplete);
-                handler.addEventListener(MNWSDefHandlerEvent.onRequestError, onError);
-            }
-
-            if (content == null)
-            {
-                content = new MNWSRequestContent();
-            }
-
-            req_block = content.addCurrUserLeaderboard( MNWSRequestContent.LEADERBOARD_SCOPE_GLOBAL, MNWSRequestContent.LEADERBOARD_PERIOD_ALL_TIME );
-            MNWSRequestSender.instance.sendRequest( content, handler );
-        }
-
-        private function setGameId(): void
-        {
             var selectedItem: Object = settings.dataProvider.getItemAt(settings.selectedIndex);
             MNDirect.setDefaultGameSetId(selectedItem.data.id);
+
+            var request: MNWSInfoRequestLeaderboard =
+                    new MNWSInfoRequestLeaderboard
+                        (new LeaderboardModeCurrentUser(scope_values[scope.selectedIndex],
+                                                        period_values[period.selectedIndex]));
+            request.addEventListener(RequestResult.REPLY, onComplete);
+            MNDirect.getWSProvider().sendSingle(request);
         }
 
-        private function postScore_clickHandler(event: MouseEvent): void
+        private function onComplete(event: LeaderboardRequestResult): void
         {
-            var scoreToPost: int = int(score.text);
-
-            setGameId();
-
-            MNDirect.postGameScore(scoreToPost);
-            updateScore();
-        }
-
-        private function onError(event: MNWSDefHandlerEvent): void
-        {
-            PlayPhoneSDKDemoFlash.showMessage(this, event.params.message);
-        }
-
-        private function onComplete(event: MNWSDefHandlerEvent): void
-        {
-            var leaderboard: Vector.<MNWSLeaderboardListItem> = event.params[req_block] as Vector.<MNWSLeaderboardListItem>;
-            list.dataProvider = new ArrayList(vectorToArray(leaderboard));
+            event.currentTarget.removeEventListener(RequestResult.REPLY, onComplete);
+            if(event.hasError())
+            {
+                PlayPhoneSDKDemoFlash.showMessage(this, event.getErrorMessage());
+            }
+            else
+            {
+                var leaderboard: Vector.<MNWSLeaderboardListItem> = event.getDataEntry();
+                list.dataProvider = new ArrayList(vectorToArray(leaderboard));
+            }
         }
 
         private function vectorToArray(v: Object): Array

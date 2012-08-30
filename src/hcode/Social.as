@@ -1,5 +1,11 @@
 package hcode
 {
+    import com.playphone.multinet.MNDirect;
+    import com.playphone.multinet.core.data.MNWSBuddyListItem;
+    import com.playphone.multinet.providers.requests.MNWSInfoRequestCurrUserBuddyList;
+    import com.playphone.multinet.providers.results.CurrUserBuddyListResponseResult;
+    import com.playphone.multinet.providers.results.RequestResult;
+
     import flash.events.MouseEvent;
     import flash.events.TimerEvent;
     import flash.utils.Timer;
@@ -10,12 +16,6 @@ package hcode
     import spark.components.List;
     import spark.components.VGroup;
 
-    import com.playphone.multinet.core.data.MNWSBuddyListItem
-    import com.playphone.multinet.core.ws.MNWSDefHandlerEvent
-    import com.playphone.multinet.core.ws.MNWSRequestContent
-    import com.playphone.multinet.core.ws.MNWSRequestDefHandler
-    import com.playphone.multinet.core.ws.MNWSRequestSender
-
     import mx.collections.ArrayList
 
 
@@ -25,6 +25,7 @@ package hcode
         public var btnGetIt: Button;
         public var list:List;
         private var fill_timer:Timer;
+
         private var buddies:Vector.<MNWSBuddyListItem>;
 
         public function Social()
@@ -41,34 +42,32 @@ package hcode
 
         private function btnGetIt_clickHandler(event: MouseEvent): void
         {
-            var handler: MNWSRequestDefHandler = new MNWSRequestDefHandler();
-            handler.addEventListener(MNWSDefHandlerEvent.onRequestComplete, onComplete);
-            handler.addEventListener(MNWSDefHandlerEvent.onRequestError, onError);
-
-            var content: MNWSRequestContent = new MNWSRequestContent();
-            req_block = content.addCurrUserBuddyList();
-
-            MNWSRequestSender.instance.sendRequest(content, handler);
+            var request:MNWSInfoRequestCurrUserBuddyList = new MNWSInfoRequestCurrUserBuddyList();
+            request.addEventListener(RequestResult.REPLY, onComplete);
+            MNDirect.getWSProvider().sendSingle(request);
         }
 
-        private function onError(event: MNWSDefHandlerEvent): void
+        private function onComplete(event: CurrUserBuddyListResponseResult): void
         {
-            PlayPhoneSDKDemoFlash.showMessage(this, event.params.message);
-        }
-
-        private function onComplete(event: MNWSDefHandlerEvent): void
-        {
-            buddies = event.params[req_block] as Vector.<MNWSBuddyListItem>;
-            if( buddies != null )
+            event.currentTarget.removeEventListener(RequestResult.REPLY, onComplete);
+            if(event.hasError())
             {
-                if( buddies.length > 1 )
+                PlayPhoneSDKDemoFlash.showMessage(this, event.getErrorMessage());
+            }
+            else
+            {
+                buddies = event.getDataEntry();
+                if( buddies.length > 0 )
                 {
-                    fill_timer = new Timer(50, buddies.length - 1);
-                    fill_timer.addEventListener( TimerEvent.TIMER, onAddNextPortion);
-                    fill_timer.addEventListener( TimerEvent.TIMER_COMPLETE, onFillComplete );
-                    fill_timer.start();
+                    if( buddies.length > 1 )
+                    {
+                        fill_timer = new Timer(50, buddies.length - 1);
+                        fill_timer.addEventListener( TimerEvent.TIMER, onAddNextPortion);
+                        fill_timer.addEventListener( TimerEvent.TIMER_COMPLETE, onFillComplete );
+                        fill_timer.start();
+                    }
+                    list.dataProvider = new ArrayList([buddies.shift()]);
                 }
-                list.dataProvider = new ArrayList([buddies.shift()]);
             }
         }
 
