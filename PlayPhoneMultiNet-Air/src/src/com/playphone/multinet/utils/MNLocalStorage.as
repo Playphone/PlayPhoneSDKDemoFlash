@@ -33,7 +33,7 @@ package com.playphone.multinet.utils
             tmpData = new Dictionary();
         }
 
-        public static function resaveCred()
+        public static function resaveCred():void
         {
             inst = new MNLocalStorage();
             var data: Array = inst.getVariablesByMask("cred.*");

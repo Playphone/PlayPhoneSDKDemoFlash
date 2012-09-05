@@ -25,10 +25,10 @@
         public function set data(value: Object): void
         {
             var friend: MNWSBuddyListItem = value as MNWSBuddyListItem;
-            user_id.text = friend.friend_user_id.toString();
-            user_has_game.text = friend.friend_has_current_game ? "true" : "false";
-            user_ignored.text = friend.friend_is_ignored ? "true" : "false";
-            user_p_game.text = friend.friend_in_game_name;
+            user_id.text = friend.friendUserId.toString();
+            user_has_game.text = friend.friendHasCurrentGame ? "true" : "false";
+            user_ignored.text = friend.friendIsIgnored ? "true" : "false";
+            user_p_game.text = friend.friendInGameName;
         }
         ]]></fx:Script>
 

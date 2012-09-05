@@ -55,9 +55,9 @@
 
                             user_data = value;
                             var friend: MNWSBuddyListItem = value as MNWSBuddyListItem;
-                            user_name.text = friend.friend_user_nick_name;
-                            user_online.text = friend.friend_user_online_now ? "online" : "offline";
-                            user_avatar.source = friend.friend_user_avatar_url;
+                            user_name.text = friend.friendUserNickName;
+                            user_online.text = friend.friendUserOnlineNow ? "online" : "offline";
+                            user_avatar.source = friend.friendUserAvatarUrl;
                         }
 
                         private function selected_enterStateHandler(event: FlexEvent): void

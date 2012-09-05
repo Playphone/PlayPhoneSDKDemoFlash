@@ -6,6 +6,8 @@
 
     <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
 
+    <property name="adt" value="${FLEX_HOME}/lib/adt.jar"/>
+
     <target name="compile">
 
         <delete dir="${OUT}"/>
@@ -41,27 +43,23 @@
     </target>
 
     <target name="build apk">
-        <input message="Enter password to ${APK_KEYSTORE}: " addproperty="APK_PASSWD">
+ <!--       <input message="Enter password to ${APK_KEYSTORE}: " addproperty="APK_PASSWD">
             <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
-        </input>
+        </input>-->
 
-        <exec executable="${ADT}" failonerror="true">
-        <!-- java jar="${ADT}" fork="true" failonerror="true" -->
+        <!--<exec executable="${ADT}" failonerror="true">-->
+        <java jar="${adt}" fork="true" failonerror="true">
             <arg value="-package"/>
             <arg value="-target"/>
             <arg value="apk-debug"/>
-
-            <!--<arg value="-connect"/>-->
-            <!--<arg value="192.168.106.106"/>-->
-            <!--<arg value="-listen"/>-->
-            <!--<arg value="7936"/>-->
 
             <arg value="-storetype"/>
             <arg value="${APK_STORETYPE}"/>
             <arg value="-keystore"/>
             <arg value="${APK_KEYSTORE}"/>
             <arg value="-storepass"/>
-            <arg value="${APK_PASSWD}"/>
+            <!--<arg value="${APK_PASSWD}"/>-->
+            <arg value="1234"/>
             <arg value="${OUT}/${APP_NAME}.apk"/>
             <arg value="${APP_XML}"/>
             <arg value="-extdir"/>
@@ -70,14 +68,14 @@
             <arg value="${OUT}"/>
             <arg value="${OUT}/${APP_NAME}.swf"/>
 
-            <arg value="-e"/>
+<!--            <arg value="-e"/>
             <arg value="${ASSETS}/3rdpartylicenses/SmartFoxClient-license.txt"/>
-            <arg value="3rdpartylicenses/SmartFoxClient-license.txt"/>
+            <arg value="3rdpartylicenses/SmartFoxClient-license.txt"/>-->
             <arg value="-e"/>
-            <arg value="${ASSETS}/images-pp/orbit/loader.gif"/>
+            <arg value="${ASSETS}/loader.gif"/>
             <arg value="images-pp/orbit/loader.gif"/>
             <arg value="-e"/>
-            <arg value="${ASSETS}/images-pp/orbit/playphone_logo_loading.png"/>
+            <arg value="${ASSETS}/playphone_logo_loading.png"/>
             <arg value="images-pp/orbit/playphone_logo_loading.png"/>
             <arg value="-e"/>
             <arg value="${ASSETS}/multinet.plist"/>
@@ -88,7 +86,8 @@
             <arg value="-e"/>
             <arg value="${ASSETS}/multinet_http_error.html"/>
             <arg value="multinet_http_error.html"/>
-        </exec>
+         </java>
+        <!--</exec>-->
     </target>
 
     <target name="rebuild ipa simul" depends="compile, build ipa simul">

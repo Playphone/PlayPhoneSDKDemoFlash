@@ -62,15 +62,15 @@ package hcode
             {
                 MNDirect.getSession().removeEventListener(MNSessionEvent.mnSessionStatusChanged, onLogin);
                 MNDirect.getSession().addEventListener(MNSessionEvent.mnSessionStatusChanged, onLogout);
-                var userinfo: MNUserInfo = MNDirect.getSession().getMyUserInfo();
+                var userInfo: MNUserInfo = MNDirect.getSession().getMyUserInfo();
                 room_id.text = String(MNDirect.getSession().getCurrentRoomId());
-                user_name.text = userinfo.userName;
-                user_id.text = String(userinfo.userId);
-                user_img.source = userinfo.userAvatarUrl;
+                user_name.text = userInfo.userName;
+                user_id.text = String(userInfo.userId);
+                user_img.source = userInfo.userAvatarUrl;
             }
         }
 
-        private function onComplete(event: AnyGameRequestResult): void
+/*        private function onComplete(event: AnyGameRequestResult): void
         {
             var game_id: int          = event.getDataEntry().game_id;
             var game_name: String     = event.getDataEntry().game_name;
@@ -92,7 +92,7 @@ package hcode
             trace("game_play_model="+game_play_model);
             trace("game_icon_url="+game_icon_url);
             trace("developer_id="+developer_id);
-        }
+        }*/
 
         private function onLogout(event: MNSessionEvent): void
         {
