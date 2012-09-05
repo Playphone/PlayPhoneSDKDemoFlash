@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<hcode:WSTest xmlns:fx="http://ns.adobe.com/mxml/2009"
+                        xmlns:s="library://ns.adobe.com/flex/spark"
+                        xmlns:hcode="hcode.*"
+                        width="100%"
+                        paddingLeft="5" paddingBottom="5" paddingRight="5" paddingTop="5" gap="5">
+
+    <s:Button id="MNWSAnyGame" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSAnyGame</s:Button>
+    <s:Button id="MNWSAnyUser" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSAnyUser</s:Button>
+    <s:Button id="MNWSSessionAnyUserGameCookies" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSSessionAnyUserGameCookies</s:Button>
+    <s:Button id="MNWSCurrentUserInfo" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSCurrentUserInfo</s:Button>
+    <s:Button id="MNWSCurrentGameRoomList" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSCurrentGameRoomList</s:Button>
+    <s:Button id="MNWSCurrentGameRoomUserList" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSCurrentGameRoomUserList</s:Button>
+    <s:Button id="MNWSCurrentUserBuddyList" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSCurrentUserBuddyList</s:Button>
+    <s:Button id="MNWSCurrUserSubscriptionStatus" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSCurrUserSubscriptionStatus</s:Button>
+    <s:Button id="MNWSSessionSignedClientToken" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSSessionSignedClientToken</s:Button>
+    <s:Button id="MNWSSystemNetStat" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSSystemNetStat</s:Button>
+
+    <s:Button id="MNWSLeaderboardModeCurrentUser" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSLeaderboardModeCurrentUser</s:Button>
+    <s:Button id="MNWSLeaderboardModeCurrUserAnyGameLocal" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSLeaderboardModeCurrUserAnyGameLocal</s:Button>
+    <s:Button id="MNWSLeaderboardModeCurrUserAnyGameGlobal" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSLeaderboardModeCurrUserAnyGameGlobal</s:Button>
+    <s:Button id="MNWSLeaderboardModeAnyGameGlobal" width="100%" height="30" top="5" bottom="20" fontSize="15">MNWSLeaderboardModeAnyGameGlobal</s:Button>
+
+    <s:Label id="dataLabel" width="100%" left="5" verticalAlign="middle" fontSize="10"> </s:Label>
+</hcode:WSTest>
