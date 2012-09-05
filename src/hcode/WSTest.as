@@ -224,16 +224,9 @@ import spark.components.VGroup;
 
         private function onCompleteAnyGameRequestResult(event: AnyGameRequestResult): void
         {
-            if(event.hasError())
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "error = " + event.getErrorMessage());
-                dataLabel.text = event.getErrorMessage();
-            }
-            else
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "success = " + anyGameItemTOStr(event.getDataEntry()));
-                dataLabel.text = anyGameItemTOStr(event.getDataEntry())
-            }
+            dataLabel.text = "has error '" + event.hasError() +
+                             "'; \n error message '" + ((event.getErrorMessage() == null)?"null": event.getErrorMessage()) +
+                             "'; \n data entry '" + ((event.getDataEntry() == null)? "null": anyGameItemTOStr(event.getDataEntry())) + "'";
         }
 
         private function anyGameItemTOStr(v: MNWSAnyGameItem): String
@@ -263,16 +256,9 @@ import spark.components.VGroup;
 
         private function onCompleteAnyUserRequestResult(event: AnyUserRequestResult): void
         {
-        if(event.hasError())
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "error = " + event.getErrorMessage());
-                dataLabel.text = event.getErrorMessage();
-            }
-            else
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "success = " + anyUserItemTOStr(event.getDataEntry()));
-                dataLabel.text = anyUserItemTOStr(event.getDataEntry());
-            }
+            dataLabel.text = "has error '" + event.hasError() +
+                    "'; \n error message '" + ((event.getErrorMessage() == null)?"null": event.getErrorMessage()) +
+                    "'; \n data entry '" + ((event.getDataEntry() == null)? "null": anyUserItemTOStr(event.getDataEntry())) + "'";
         }
 
         private function anyUserItemTOStr(v: MNWSAnyUserItem): String
@@ -298,16 +284,9 @@ import spark.components.VGroup;
 
         private function onCompleteAnyUserGameCoockiesRequestResult(event: AnyUserGameCookiesRequestResult): void
         {
-            if(event.hasError())
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "error = " + event.getErrorMessage());
-                dataLabel.text = event.getErrorMessage();
-            }
-            else
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "success = " + userGameCookieTOStr(event.getDataEntry()));
-                dataLabel.text = userGameCookieTOStr(event.getDataEntry());
-            }
+            dataLabel.text = "has error '" + event.hasError() +
+                    "'; \n error message '" + ((event.getErrorMessage() == null)?"null": event.getErrorMessage()) +
+                    "'; \n data entry '" + ((event.getDataEntry() == null)? "null": userGameCookieTOStr(event.getDataEntry())) + "'";
         }
 
         private function userGameCookieTOStr(v: Vector.<com.playphone.multinet.core.data.MNWSUserGameCookie>): String
@@ -329,16 +308,9 @@ import spark.components.VGroup;
 
         private function onCompleteCurrUserInfoRequestResult(event: CurrentUserInfoRequestResult): void
         {
-            if(event.hasError())
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "error = " + event.getErrorMessage());
-                dataLabel.text = event.getErrorMessage();
-            }
-            else
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "success = " + currentUserInfoTOStr(event.getDataEntry()));
-                dataLabel.text = currentUserInfoTOStr(event.getDataEntry());
-            }
+            dataLabel.text = "has error '" + event.hasError() +
+                    "'; \n error message '" + ((event.getErrorMessage() == null)?"null": event.getErrorMessage()) +
+                    "'; \n data entry '" + ((event.getDataEntry() == null)? "null": currentUserInfoTOStr(event.getDataEntry())) + "'";
         }
 
         private function currentUserInfoTOStr(v: com.playphone.multinet.core.data.MNWSCurrentUserInfo): String
@@ -370,16 +342,9 @@ import spark.components.VGroup;
 
         private function onCompleteCurrGameRoomListRequestResult(event: CurrGameRoomListRequestResult): void
         {
-            if(event.hasError())
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "error = " + event.getErrorMessage());
-                dataLabel.text = event.getErrorMessage();
-            }
-            else
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "success = " + roomListItemTOStr(event.getDataEntry()));
-                dataLabel.text = roomListItemTOStr(event.getDataEntry());
-            }
+            dataLabel.text = "has error '" + event.hasError() +
+                    "'; \n error message '" + ((event.getErrorMessage() == null)?"null": event.getErrorMessage()) +
+                    "'; \n data entry '" + ((event.getDataEntry() == null)? "null": roomListItemTOStr(event.getDataEntry())) + "'";
         }
 
         private function roomListItemTOStr(v: Vector.<com.playphone.multinet.core.data.MNWSRoomListItem>): String
@@ -407,16 +372,9 @@ import spark.components.VGroup;
 
         private function onCompleteCurrGameRoomUserListRequestResult(event: CurrGameRoomUserListRequestResult): void
         {
-            if(event.hasError())
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "error = " + event.getErrorMessage());
-                dataLabel.text = event.getErrorMessage();
-            }
-            else
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "success = " + roomUserInfoItemTOStr(event.getDataEntry()));
-                dataLabel.text = roomUserInfoItemTOStr(event.getDataEntry());
-            }
+            dataLabel.text = "has error '" + event.hasError() +
+                    "'; \n error message '" + ((event.getErrorMessage() == null)?"null": event.getErrorMessage()) +
+                    "'; \n data entry '" + ((event.getDataEntry() == null)? "null": roomUserInfoItemTOStr(event.getDataEntry())) + "'";
         }
 
         private function roomUserInfoItemTOStr(v: Vector.<com.playphone.multinet.core.data.MNWSRoomUserInfoItem>): String
@@ -444,16 +402,9 @@ import spark.components.VGroup;
 
         private function onCompleteCurrUserBuddyListRequestResult(event: CurrUserBuddyListResponseResult): void
         {
-            if(event.hasError())
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "error = " + event.getErrorMessage());
-                dataLabel.text = event.getErrorMessage();
-            }
-            else
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "success = " + buddyListItemTOStr(event.getDataEntry()));
-                dataLabel.text = buddyListItemTOStr(event.getDataEntry());
-            }
+            dataLabel.text = "has error '" + event.hasError() +
+                    "'; \n error message '" + ((event.getErrorMessage() == null)?"null": event.getErrorMessage()) +
+                    "'; \n data entry '" + ((event.getDataEntry() == null)? "null": buddyListItemTOStr(event.getDataEntry())) + "'";
         }
 
         private function buddyListItemTOStr(v: Vector.<com.playphone.multinet.core.data.MNWSBuddyListItem>): String
@@ -507,16 +458,9 @@ import spark.components.VGroup;
 
         private function onCompleteCurrUserSubscriptionStatusRequestResult(event: CurrUserSubscriptionStatusRequestResult): void
         {
-            if(event.hasError())
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "error = " + event.getErrorMessage());
-                dataLabel.text = event.getErrorMessage();
-            }
-            else
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "success = " + currUserSubscriptionStatusTOStr(event.getDataEntry()));
-                dataLabel.text = currUserSubscriptionStatusTOStr(event.getDataEntry());
-            }
+            dataLabel.text = "has error '" + event.hasError() +
+                    "'; \n error message '" + ((event.getErrorMessage() == null)?"null": event.getErrorMessage()) +
+                    "'; \n data entry '" + ((event.getDataEntry() == null)? "null": currUserSubscriptionStatusTOStr(event.getDataEntry())) + "'";
         }
 
         private function currUserSubscriptionStatusTOStr(v: com.playphone.multinet.core.data.MNWSCurrUserSubscriptionStatus): String
@@ -534,16 +478,9 @@ import spark.components.VGroup;
 
         private function onCompleteSessionSignedClientTokenRequestResult(event: SessionSignedClientTokenRequestResult): void
         {
-            if(event.hasError())
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "error = " + event.getErrorMessage());
-                dataLabel.text = event.getErrorMessage();
-            }
-            else
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "success = " + sessionSignedClientTokenTOStr(event.getDataEntry()));
-                dataLabel.text = sessionSignedClientTokenTOStr(event.getDataEntry());
-            }
+            dataLabel.text = "has error '" + event.hasError() +
+                    "'; \n error message '" + ((event.getErrorMessage() == null)?"null": event.getErrorMessage()) +
+                    "'; \n data entry '" + ((event.getDataEntry() == null)? "null": sessionSignedClientTokenTOStr(event.getDataEntry())) + "'";
         }
 
         private function sessionSignedClientTokenTOStr(v: com.playphone.multinet.core.data.MNWSSessionSignedClientToken): String
@@ -560,16 +497,9 @@ import spark.components.VGroup;
 
         private function onCompleteSystemGameNetStatsRequestResult(event: SystemGameNetStatsRequestResult): void
         {
-            if(event.hasError())
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "error = " + event.getErrorMessage());
-                dataLabel.text = event.getErrorMessage();
-            }
-            else
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "success = " + sysGameNetStatTOStr(event.getDataEntry()));
-                dataLabel.text = sysGameNetStatTOStr(event.getDataEntry());
-            }
+            dataLabel.text = "has error '" + event.hasError() +
+                    "'; \n error message '" + ((event.getErrorMessage() == null)?"null": event.getErrorMessage()) +
+                    "'; \n data entry '" + ((event.getDataEntry() == null)? "null": sysGameNetStatTOStr(event.getDataEntry())) + "'";
         }
     
         private function sysGameNetStatTOStr(v: MNWSSystemGameNetStats): String
@@ -593,17 +523,9 @@ import spark.components.VGroup;
 
         private function onCompleteLeaderboard(event: LeaderboardRequestResult): void
         {
-            if(event.hasError())
-            {
-                //PlayPhoneSDKDemoFlash.showMessage(this, "error = " + event.getErrorMessage());
-                dataLabel.text = event.getErrorMessage();
-            }
-            else
-            {
-                var leaderboard: Vector.<MNWSLeaderboardListItem> = event.getDataEntry();
-                dataLabel.text =  vectorToStrLeaderboard(leaderboard);
-                //PlayPhoneSDKDemoFlash.showMessage(this, "success = " + vectorToStrLeaderboard(leaderboard));
-            }
+            dataLabel.text = "has error '" + event.hasError() +
+                    "'; \n error message '" + ((event.getErrorMessage() == null)?"null": event.getErrorMessage()) +
+                    "'; \n data entry '" + ((event.getDataEntry() == null)? "null": vectorToStrLeaderboard(event.getDataEntry())) + "'";
         }
 
         private function vectorToStrLeaderboard(v: Vector.<MNWSLeaderboardListItem>): String
