@@ -172,7 +172,7 @@
             <arg line="-platform ios"/>
             <arg line="-platformsdk ${IOS_SIMULATOR_SDK}"/>
             <arg line="-device ios-simulator"/>
-            <arg line="-package ${APP_NAME}.ipa"/>
+            <arg line="-package ${OUT}/${APP_NAME}.ipa"/>
         </exec>
     </target>
 
