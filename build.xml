@@ -6,7 +6,7 @@
 
     <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
 
-    <property name="adt" value="${FLEX_HOME}/lib/adt.jar"/>
+    <!--property name="ADT" value="${FLEX_HOME}/lib/adt.jar"/-->
 
     <target name="compile">
 
@@ -43,23 +43,24 @@
     </target>
 
     <target name="build apk">
- <!--       <input message="Enter password to ${APK_KEYSTORE}: " addproperty="APK_PASSWD">
+        <input message="Enter password to ${APK_KEYSTORE}: " addproperty="APK_PASSWD">
             <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
-        </input>-->
+        </input>
 
-        <!--<exec executable="${ADT}" failonerror="true">-->
-        <java jar="${adt}" fork="true" failonerror="true">
+        <exec executable="${ADT}" failonerror="true">
+        <!-- java jar="${ADT}" fork="true" failonerror="true" -->
             <arg value="-package"/>
             <arg value="-target"/>
             <arg value="apk-debug"/>
+
+            <!--<arg value="-connect"/>-->
 
             <arg value="-storetype"/>
             <arg value="${APK_STORETYPE}"/>
             <arg value="-keystore"/>
             <arg value="${APK_KEYSTORE}"/>
             <arg value="-storepass"/>
-            <!--<arg value="${APK_PASSWD}"/>-->
-            <arg value="1234"/>
+            <arg value="${APK_PASSWD}"/>
             <arg value="${OUT}/${APP_NAME}.apk"/>
             <arg value="${APP_XML}"/>
             <arg value="-extdir"/>
@@ -68,7 +69,7 @@
             <arg value="${OUT}"/>
             <arg value="${OUT}/${APP_NAME}.swf"/>
 
-<!--            <arg value="-e"/>
+            <!--<arg value="-e"/>
             <arg value="${ASSETS}/3rdpartylicenses/SmartFoxClient-license.txt"/>
             <arg value="3rdpartylicenses/SmartFoxClient-license.txt"/>-->
             <arg value="-e"/>
@@ -86,8 +87,7 @@
             <arg value="-e"/>
             <arg value="${ASSETS}/multinet_http_error.html"/>
             <arg value="multinet_http_error.html"/>
-         </java>
-        <!--</exec>-->
+        </exec>
     </target>
 
     <target name="rebuild ipa simul" depends="compile, build ipa simul">
@@ -132,7 +132,7 @@
         <exec executable="${ADT}" failonerror="true">
             <arg value="-package"/>
 
-<arg line="-target ipa-debug"/>
+            <arg line="-target ipa-debug"/>
             <!--arg value="-connect"/-->
 
             <arg line="-storetype ${IOS_STORETYPE}"/>
@@ -140,7 +140,7 @@
             <arg line="-provisioning-profile ${IOS_PROVISION_PROFILE}"/>
 
 
-            <arg value="${APP_NAME}.ipa"/>
+            <arg value="${OUT}/${APP_NAME}.ipa"/>
             <arg value="${APP_XML}"/>
             <arg value="-extdir"/>
             <arg value="${PPS_AIR_EXT}"/>
@@ -157,7 +157,7 @@
     </target>
 
     <target name="uninstall ipa simul">
-        <exec executable="${ADT}" failonerror="true">
+        <exec executable="${ADT}" failonerror="false">
             <arg value="-uninstallApp"/>
             <arg line="-platform ios"/>
             <arg line="-platformsdk ${IOS_SIMULATOR_SDK}"/>
