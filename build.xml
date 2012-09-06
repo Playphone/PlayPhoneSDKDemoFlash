@@ -6,6 +6,8 @@
 
     <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
 
+    <!--property name="ADT" value="${FLEX_HOME}/lib/adt.jar"/-->
+
     <target name="compile">
 
         <delete dir="${OUT}"/>
@@ -52,9 +54,6 @@
             <arg value="apk-debug"/>
 
             <!--<arg value="-connect"/>-->
-            <!--<arg value="192.168.106.106"/>-->
-            <!--<arg value="-listen"/>-->
-            <!--<arg value="7936"/>-->
 
             <arg value="-storetype"/>
             <arg value="${APK_STORETYPE}"/>
@@ -70,14 +69,14 @@
             <arg value="${OUT}"/>
             <arg value="${OUT}/${APP_NAME}.swf"/>
 
-            <arg value="-e"/>
+            <!--<arg value="-e"/>
             <arg value="${ASSETS}/3rdpartylicenses/SmartFoxClient-license.txt"/>
-            <arg value="3rdpartylicenses/SmartFoxClient-license.txt"/>
+            <arg value="3rdpartylicenses/SmartFoxClient-license.txt"/>-->
             <arg value="-e"/>
-            <arg value="${ASSETS}/images-pp/orbit/loader.gif"/>
+            <arg value="${ASSETS}/loader.gif"/>
             <arg value="images-pp/orbit/loader.gif"/>
             <arg value="-e"/>
-            <arg value="${ASSETS}/images-pp/orbit/playphone_logo_loading.png"/>
+            <arg value="${ASSETS}/playphone_logo_loading.png"/>
             <arg value="images-pp/orbit/playphone_logo_loading.png"/>
             <arg value="-e"/>
             <arg value="${ASSETS}/multinet.plist"/>
@@ -133,7 +132,7 @@
         <exec executable="${ADT}" failonerror="true">
             <arg value="-package"/>
 
-<arg line="-target ipa-debug"/>
+            <arg line="-target ipa-debug"/>
             <!--arg value="-connect"/-->
 
             <arg line="-storetype ${IOS_STORETYPE}"/>
@@ -141,7 +140,7 @@
             <arg line="-provisioning-profile ${IOS_PROVISION_PROFILE}"/>
 
 
-            <arg value="${APP_NAME}.ipa"/>
+            <arg value="${OUT}/${APP_NAME}.ipa"/>
             <arg value="${APP_XML}"/>
             <arg value="-extdir"/>
             <arg value="${PPS_AIR_EXT}"/>
@@ -158,7 +157,7 @@
     </target>
 
     <target name="uninstall ipa simul">
-        <exec executable="${ADT}" failonerror="true">
+        <exec executable="${ADT}" failonerror="false">
             <arg value="-uninstallApp"/>
             <arg line="-platform ios"/>
             <arg line="-platformsdk ${IOS_SIMULATOR_SDK}"/>
