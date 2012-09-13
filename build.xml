@@ -4,13 +4,21 @@
     <property file="env.properties"/>
     <property file="signing.properties"/>
 
-    <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+    <property environment="env"/>
+    <property name="PPVAR_AIR_SDK" value="${env.PPVAR_AIR_SDK}"/>
 
-    <!--property name="ADT" value="${FLEX_HOME}/lib/adt.jar"/-->
+    <taskdef resource="flexTasks.tasks" classpath="${PPVAR_AIR_SDK}/ant/lib/flexTasks.jar"/>
 
-    <target name="compile">
+    <!--property name="ADT" value="${PPVAR_AIR_SDK}/lib/adt.jar"/-->
+
+    <target name="checkEnv">
+        <fail unless="env.PPVAR_AIR_SDK">'PPVAR_AIR_SDK' must be set in environments </fail>
+    </target>
+
+    <target name="compile" depends="checkEnv">
 
         <delete dir="${OUT}"/>
+        <property name="FLEX_HOME" value="${PPVAR_AIR_SDK}"/>
 
         <mxmlc file="${SRC}/PlayPhoneSDKDemoFlash.mxml"
                output="${OUT}/${APP_NAME}.swf"
@@ -27,7 +35,7 @@
             <source-path path-element="${basedir}/src"/>
             <source-path path-element="${PPS_AIR_SRC}"/>
 
-            <load-config filename="${FLEX_HOME}/frameworks/airmobile-config.xml"/>
+            <load-config filename="${PPVAR_AIR_SDK}/frameworks/airmobile-config.xml"/>
 
             <include-libraries dir="${PPS_AIR_EXT}">
                 <include name="*.swc"/>
