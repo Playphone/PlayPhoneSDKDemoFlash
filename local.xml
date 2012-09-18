@@ -1,7 +1,7 @@
 <project name="Check dir params in ant" basedir=".">
+
     <property name="propertiesFileName" value="local.properties"/>
     <property file="${propertiesFileName}"/>
-    <property file="signing.properties"/>
 
     <property environment="env"/>
 

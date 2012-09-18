@@ -1,5 +1,7 @@
 <project name="Build PPS SDK AIR" basedir=".">
 
+    <property file="signing.properties"/>
+
     <taskdef resource="flexTasks.tasks" classpath="${PPVAR_AIR_SDK}/ant/lib/flexTasks.jar"/>
 
     <target name="help">
@@ -22,7 +24,49 @@
 
     <target name="checkEnv">
         <echo message = "check local settings" />
-        <ant antfile="${basedir}/local.xml" target="checkAllLocalSettings" dir="${basedir}/_buildScripts/"/>
+        <ant antfile="${basedir}/local.xml" target="checkAllLocalSettings" dir="${basedir}"/>
+    </target>
+
+    <target name="checkAndroidProperties">
+        <echo message = "Check android pathes from file signing.properties" />
+
+       <condition property="someAndroidParamIsIncorect">
+         <or>
+           <equals arg1="${APK_STORETYPE}" arg2="" />
+           <not>
+             <available file="${APK_KEYSTORE}"/>
+           </not>
+         </or>
+       </condition>
+    </target>
+
+    <target name="check-someAndroidParamIsIncorect" depends="checkAndroidProperties" if="someAndroidParamIsIncorect">
+        <echo message = "check-someAndroidParamIsIncorect" />
+        <fail >some android param is incorect. set it in file signing.properties</fail>
+    </target>
+
+    <target name="checkiOsProperties">
+        <echo message = "Check android pathes from file signing.properties" />
+
+       <condition property="someiOsParamIsIncorect">
+         <or>
+           <equals arg1="${IOS_STORETYPE}" arg2="" />
+           <not>
+             <available file="${IOS_KEYSTORE_ROOT}" type="dir"/>
+           </not>
+           <not>
+             <available file="${IOS_KEYSTORE}"/>
+           </not>
+           <not>
+             <available file="${IOS_PROVISION_PROFILE}"/>
+           </not>
+         </or>
+       </condition>
+    </target>
+
+    <target name="check-someiOsParamIsIncorect" depends="checkiOsProperties" if="someiOsParamIsIncorect">
+        <echo message = "check-someAndroidParamIsIncorect" />
+        <fail >some android param is incorect. set it in file signing.properties</fail>
     </target>
 
     <target name="compile" depends="checkEnv">
@@ -60,7 +104,7 @@
     <target name="rebuild apk" depends="compile, build apk">
     </target>
 
-    <target name="build apk">
+    <target name="build apk" depends="check-someAndroidParamIsIncorect">
         <input message="Enter password to ${APK_KEYSTORE}: " addproperty="APK_PASSWD">
             <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
         </input>
@@ -111,7 +155,7 @@
     <target name="rebuild ipa simul" depends="compile, build ipa simul">
     </target>
 
-    <target name="build ipa simul">
+    <target name="build ipa simul" depends="check-someiOsParamIsIncorect">
         <input message="Enter password to ${IOS_KEYSTORE}: " addproperty="IOS_PASSWD">
             <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
         </input>
@@ -142,7 +186,7 @@
     <target name="rebuild ipa" depends="compile, build ipa">
     </target>
 
-    <target name="build ipa">
+    <target name="build ipa" depends="check-someiOsParamIsIncorect">
         <input message="Enter password to ${IOS_KEYSTORE}: " addproperty="IOS_PASSWD">
             <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
         </input>
