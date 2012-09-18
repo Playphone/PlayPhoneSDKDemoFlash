@@ -1,18 +1,28 @@
 <project name="Build PPS SDK AIR" basedir=".">
 
-    <property file="build.properties"/>
-    <property file="env.properties"/>
-    <property file="signing.properties"/>
-
-    <property environment="env"/>
-    <property name="PPVAR_AIR_SDK" value="${env.PPVAR_AIR_SDK}"/>
-
     <taskdef resource="flexTasks.tasks" classpath="${PPVAR_AIR_SDK}/ant/lib/flexTasks.jar"/>
 
-    <!--property name="ADT" value="${PPVAR_AIR_SDK}/lib/adt.jar"/-->
+    <target name="help">
+        <echo message = "this is help target." />
+        <echo message = "to compile project run 'compile' " />
+        <echo message = "for android:" />
+        <echo message = "  to build *.apk run 'build apk' " />
+        <echo message = "  to rebuild *.apk run 'rebuild apk' " />
+        <echo message = "for iOS:" />
+        <echo message = "  to build *.ipa run 'build ipa' " />
+        <echo message = "  to rebuild *.ipa run 'rebuild ipa' " />
+        <echo message = "  to install *.ipa run 'install ipa' " />
+        <echo message = "  to rebuild *.ipa run 'uninstall ipa' " />
+        <echo message = "for iOS simul:" />
+        <echo message = "  to build *.ipa run 'build ipa simul' " />
+        <echo message = "  to rebuild *.ipa run 'rebuild ipa simul' " />
+        <echo message = "  to install *.ipa run 'install ipa simul' " />
+        <echo message = "  to rebuild *.ipa run 'uninstall ipa simul' " />
+    </target>
 
     <target name="checkEnv">
-        <fail unless="env.PPVAR_AIR_SDK">'PPVAR_AIR_SDK' must be set in environments </fail>
+        <echo message = "check local settings" />
+        <ant antfile="${basedir}/local.xml" target="checkAllLocalSettings" dir="${basedir}/_buildScripts/"/>
     </target>
 
     <target name="compile" depends="checkEnv">

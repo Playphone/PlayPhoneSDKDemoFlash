@@ -1,0 +1,81 @@
+<project name="Check dir params in ant" basedir=".">
+    <property name="propertiesFileName" value="local.properties"/>
+    <property file="${propertiesFileName}"/>
+    <property file="signing.properties"/>
+
+    <property environment="env"/>
+
+    <target name="checkProperties">
+        <echo message = "Check params from file" />
+
+        <condition property="PPVAR_AIR_SDK-not-exists">
+          <equals arg1="${AIR_SDK}" arg2="" />
+        </condition>
+
+        <condition property="PPVAR_ANDROID_SDK-not-exists">
+          <equals arg1="${ANDROID_SDK}" arg2="" />
+        </condition>
+
+        <condition property="PPVAR_JDK-not-exists">
+          <equals arg1="${JDK}" arg2="" />
+        </condition>
+    </target>
+
+    <target name="check_PPVAR_AIR_SDK" depends="checkProperties" if="PPVAR_AIR_SDK-not-exists">
+        <echo message = "check_PPVAR_AIR_SDK" />
+        <fail unless="env.PPVAR_AIR_SDK">'PPVAR_AIR_SDK' must be set in ${propertiesFileName} or in environments </fail>
+        <property name="PPVAR_AIR_SDK" value="${env.PPVAR_AIR_SDK}"/>
+        <echo message = "PPVAR_AIR_SDK set from env" />
+    </target>
+
+    <target name="check_PPVAR_ANDROID_SDK" depends="checkProperties" if="PPVAR_ANDROID_SDK-not-exists">
+        <echo message = "check_PPVAR_ANDROID_SDK" />
+        <fail unless="env.PPVAR_ANDROID_SDK">'PPVAR_ANDROID_SDK' must be set in ${propertiesFileName} or in environments </fail>
+        <property name="PPVAR_ANDROID_SDK" value="${env.PPVAR_ANDROID_SDK}"/>
+        <echo message = "PPVAR_ANDROID_SDK set from env" />
+    </target>
+
+    <target name="check_PPVAR_JDK" depends="checkProperties" if="PPVAR_JDK-not-exists">
+        <echo message = "check_PPVAR_JDK" />
+        <fail unless="env.PPVAR_JDK">'PPVAR_JDK' must be set in ${propertiesFileName} or in environments </fail>
+        <property name="PPVAR_JDK" value="${env.PPVAR_JDK}"/>
+        <echo message = "PPVAR_JDK set from env" />
+    </target>
+
+    <target name="checkSDKs" depends="check_PPVAR_AIR_SDK,check_PPVAR_ANDROID_SDK,check_PPVAR_JDK">
+        <!-- property is not overridable -->
+        <property name="PPVAR_AIR_SDK" value="${AIR_SDK}"/>
+        <property name="PPVAR_ANDROID_SDK" value="${ANDROID_SDK}"/>
+        <property name="PPVAR_JDK" value="${JDK}"/>
+
+        <echo message = "checkSDKs" />
+        <echo message = "JDK          : ${PPVAR_JDK}" />
+        <echo message = "Android SDK  : ${PPVAR_ANDROID_SDK}" />
+        <echo message = "Adobe AIR SDK: ${PPVAR_AIR_SDK}" />
+    </target>
+
+    <target name="checkDirs" depends="checkSDKs">
+        <echo message = "Check dirs" />
+
+        <available file="${PPVAR_AIR_SDK}" type="dir" property="PPVAR_AIR_SDK_dir-exists"/>
+
+        <available file="${PPVAR_ANDROID_SDK}" type="dir" property="PPVAR_ANDROID_SDK_dir-exists"/>
+
+        <available file="${PPVAR_JDK}" type="dir" property="PPVAR_JDK_dir-exists"/>
+    </target>
+
+    <target name="check_PPVAR_AIR_SDK_dir" depends="checkDirs" unless="PPVAR_AIR_SDK_dir-exists">
+        <fail>PPVAR_AIR_SDK (${PPVAR_AIR_SDK}) must be the directory. Set this param in ${propertiesFileName} or in env as 'PPVAR_AIR_SDK' </fail>
+    </target>
+    <target name="check_PPVAR_ANDROID_SDK_dir" depends="checkDirs" unless="PPVAR_ANDROID_SDK_dir-exists">
+        <fail>PPVAR_ANDROID_SDK (${PPVAR_ANDROID_SDK}) must be the directory. Set this param in ${propertiesFileName} or in env as 'PPVAR_ANDROID_SDK'  </fail>
+    </target>
+    <target name="check_PPVAR_JDK_dir" depends="checkDirs" unless="PPVAR_JDK_dir-exists">
+        <fail>PPVAR_JDK (${PPVAR_JDK}) must be the directory. Set this param in ${propertiesFileName} or in env as 'PPVAR_JDK'  </fail>
+    </target>
+
+    <target name="checkAllLocalSettings" depends="check_PPVAR_AIR_SDK_dir,check_PPVAR_ANDROID_SDK_dir,check_PPVAR_JDK_dir">
+        <echo message = "All local settings are correct" />
+    </target>
+
+</project>
